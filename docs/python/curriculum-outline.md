@@ -3,7 +3,7 @@ sidebar_position: 2
 ---
 # Python Curriculum Outline
 
-This curriculum provides a structured approach to learning Python programming, from the basics to more advanced topics.
+This curriculum is designed for beginner programmers, and will start with basic topics before proceeding. Please expect to dedicate <b>3-4 weeks</b> to complete this course. Along with this, extra outside content or optional projects may be included.
 
 ## Unit 1: Fundamentals
 - **Variables and Data Types**: Understanding Python's basic data types and variable system

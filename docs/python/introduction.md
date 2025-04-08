@@ -29,7 +29,7 @@ print("Hello, World!")
 
 ## Installing and using python
 
-We would recommend installing python locally, especially as you continue to learn. 
+Although we provide a editor within this website, we also recommend installing python locally, especially as you continue to learn. 
 ### Installation
 
 - Windows
