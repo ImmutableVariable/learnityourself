@@ -9,12 +9,10 @@ Our platform isn't just another coding tutorial site, it's a comprehensive learn
 
 ## Why Choose LearnItYourself?
 
-- **Self-paced mastery**: Learn when and how it works for you
-- **Project-focused curriculum**: Build while you learn
-- **Comprehensive language pathways**: From fundamentals to advanced concepts
-- **Community-driven support**: Connect with fellow learners on the same journey
+- **Self-paced**: Learn when and how you want
+- **Open sourced**: This project is fully open source! Members of the community or experienced programmers are free to contribute.
+- **FREE**: Completely free. In fact, you cant even make a account (yet)
 
-Our Python curriculum is now live and ready for you to dive in! In the pipeline, we're crafting learning paths for C, Rust, OCaml, and many other in-demand languages.
+We are currently working on our python curriculum; however, in the future we would like to add other languages such as Html, Css, Javascript, Rust, and others. We are also working on a blog!
 
 Don't just learn to code—learn to create, solve, and innovate. Because the best way to learn is to do it yourself.
-
