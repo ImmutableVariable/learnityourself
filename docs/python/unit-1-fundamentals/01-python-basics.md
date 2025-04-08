@@ -49,7 +49,7 @@ Comments are important for documenting your code. Python uses the `#` symbol for
 print("Hello, World!")  # This is an inline comment
 ```
 
-For multi-line comments, you can use triple quotes (when placed before a module, class, function, etc these are known as docstrings<sub>a</sub>):
+For multi-line comments, you can use triple quotes (when placed before a module, class, function<sub>a</sub>, etc these are known as docstrings<sub>b</sub>):
 
 ```python
 """
@@ -61,7 +61,7 @@ It's useful for longer explanations.
 
 ## Indentation Matters
 
-Unlike many programming languages that use braces `{}` (such as C, Javascript, etc) to define blocks<sub>b</sub> of code, Python uses indentation:
+Unlike many programming languages that use braces `{}` (such as C, Javascript, etc) to define blocks<sub>c</sub> of code, Python uses indentation:
 
 ```python
 if True:
@@ -149,6 +149,8 @@ Although python is a beginner friendly language, attention to detail is importan
 
 #### Definitions
 
-<dfn>a - A docstring is a string, usually a comment, used to document a piece of code </dfn>
+<dfn>a - A fucntion is a reusable block of code that performs a specific task. </dfn>
 <br/>
-<dfn>b - A block of code is a group of programming statements combined into a group. Everything within this group is executed together. </dfn>
+<dfn>b - A docstring is a string, usually a comment, used to document a piece of code </dfn>
+<br/>
+<dfn>c - A block of code is a group of programming statements combined into a group. Everything within this group is executed together. </dfn>

@@ -1,34 +1,50 @@
 ---
 sidebar_position: 2
 ---
-# Variables
+## Literals and Variables in Programming
 
-Variables are one of the most fundamental concepts in programming. They act as containers for storing data values that can be used and manipulated throughout your program.
+In programming, we work with data, and two fundamental concepts for handling data are **literals** and **variables**.
+
+## What is a literal?
+
+A literal, also known as a literal constant, is a value that represents itself, such as a number, character, or string (these will be explained in a bit). Long story short, it's value is use literally (for example, `5` is literally `5`). It can represent multiple data types such as a string, integer, float, boolean, etc. For example:
+
+```python
+"Hello, World!"  # String literal
+42              # Integer literal
+3.14            # Float literal
+True           # Boolean literal
+```
+
+We will build on this in the next part.
 
 ## What is a Variable?
 
-In Python, a variable is a named location in memory that stores a value. Unlike some programming languages, Python variables:
-- Do not need to be declared with a specific type
-- Can change type after they've been set
-- Are created when you first assign a value to them
+A variable is a named storage location within the computer's memory. You can think of it as a container that is used to store data. The main reason for using variables is to allow you to reuse data without having to write it out every time. This saved developer time as well as creates a more readable program. Some key points about python variables are:
+- Variables can hold different types of data (strings, integers, floats, etc.), although Python is dynamically typed (this will be explained later), meaning you don't have to declare the type of a variable when you create it.
+- Variables can be reassigned to different values or types at any time.
 
 ## Creating Variables
 
-To create a variable, you simply assign a value to a name using the equals sign (`=`):
+To create a variable, you write a identifier (you can think of it as a label for the value you want to store, for example, `name`) followed by a equal sign (`=`) and then the value you want to assign to it (for example, the literal string `"Alice"`).
 
 ```python
-# Creating variables
 name = "Alice"
-age = 25
-height = 1.75
-is_student = True
 ```
 
-In the example above:
-- `name` is a variable storing a string
-- `age` is a variable storing an integer
-- `height` is a variable storing a floating-point number
-- `is_student` is a variable storing a boolean value
+In this code, name is the variable, and "Alice" is a string literal that is assigned as the variable's initial value. The variable name now holds the string "Alice", which can be accessed and used later in the program.
+
+### Relationship between literals and variables
+
+Although literals are often used to assign variables, they are not the same thing. The key difference is that the value of a variable can change during the program's execution, while a literal always represents the same fixed value (and can be used in other places without the use of a variable). For example:
+
+```python
+age = 25 # age is a variable that holds the integer literal 25
+
+# HOWEVER you can also use a literal without a variable
+
+25 + 5 # This is a literal expression that evaluates to 30 - No assignment
+```
 
 ## Variable Naming Rules
 
@@ -85,48 +101,52 @@ for i in range(5):
 <codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
 
-**Bad Conventions**:
+**BAD Examples**:
 ```python
 # Bad - not descriptive
-x = "Alice"  # What is x? Better to use user_name or name
+x = "Alice"  # x is vague at best
 
-# Bad - using camelCase (not Python convention)
+# Bad - using the wrong casing convention, always use snake_case for variables
 userName = "Alice"  # Better to use user_name
 
 # Bad - not descriptive enough
-temp = 98.6  # Better to use body_temperature
+temp = 98.6  # What is this temperature to?
 ```
 
 ## Multiple Assignment
 
-Python allows you to assign values to multiple variables in one line:
+Python allows you to assign values to multiple variables in one line in order to save time. This is called multiple assignment. 
 
 ```python
 # Assign the same value to multiple variables
 x = y = z = 0
+# x is equal to 0
+# y is equal to 0
+# z is equal to 0
 
 # Assign different values to multiple variables
 a, b, c = 1, 2, 3
-
-# Unpack a list
-coordinates = [3, 4, 5]
-x, y, z = coordinates
+# a is equal to 1
+# b is equal to 2
+# c is equal to 3
 ```
 
 ## Variable Scope
 
 The scope of a variable determines where in your code the variable can be accessed:
 
-1. **Global variables** are defined outside of functions and can be accessed throughout the program
-2. **Local variables** are defined inside a function and can only be used within that function
+1. **Global variables** are defined outside of functions<sub>a</sub> and can be accessed throughout the program
+2. **Local variables** are defined inside a function<sub>a</sub> and can only be used within that function
 
 ```python
 # Global variable
 global_var = "I'm accessible everywhere"
 
-def my_function():
+# This is a block, as well as a function, although you do not know what a function is, 
+# a block is a section of code that is grouped together and seperate from the rest of the program
+def my_function(): 
     # Local variable
-    local_var = "I'm only accessible inside this function"
+    local_var = "I'm only accessible inside this block"
     print(global_var)  # This works (global variable)
     print(local_var)   # This works (local variable)
 
@@ -136,25 +156,6 @@ print(global_var)  # This works
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
-
-## Type Checking and Conversion
-
-Python allows you to check the type of a variable and convert between types:
-
-```python
-# Check variable type
-name = "Alice"
-age = 25
-print(type(name))  # <class 'str'>
-print(type(age))   # <class 'int'>
-
-# Type conversion
-age_str = str(age)            # Convert int to string
-num_str = "42"
-num_int = int(num_str)        # Convert string to int
-price = float("19.99")        # Convert string to float
-is_active = bool(1)           # Convert to boolean (non-zero is True)
-```
 
 ## Common Mistakes with Variables
 
@@ -166,13 +167,15 @@ is_active = bool(1)           # Convert to boolean (non-zero is True)
    
    # Good
    x = 10
-   print(x)
+   print(x) # 10
    ```
 
 2. **Reassigning a built-in function or type**:
    ```python
-   # Bad
-   list = [1, 2, 3]  # Now you can't use list() function
+   # Bad - Why?
+   # In python, there is a built-in function (think of this as a reusable bit of code made by the developers) called list() that creates a list.
+   # If you assign a variable with the same name, it will override the built-in function.
+   list = [1, 2, 3]  
    
    # Good
    my_list = [1, 2, 3]  # Doesn't override built-in function
@@ -186,7 +189,7 @@ is_active = bool(1)           # Convert to boolean (non-zero is True)
    
    # Good
    name = "Alice"
-   print(name)
+   print(name) # "Alice"
    ```
 
 4. **Using reserved keywords**:
@@ -207,4 +210,9 @@ is_active = bool(1)           # Convert to boolean (non-zero is True)
 5. **Avoid using global variables** when possible (they can make code harder to maintain)
 6. **Don't reuse variable names** in the same scope for different purposes
 
-Variables are fundamental building blocks in Python programs. Understanding how to properly name, use, and manage variables will help you write cleaner, more maintainable code that is easier to understand and debug. 
+Variables are on of the most important concepts in programming. They allow you to store and manipulate data, making your code more flexible and powerful. Understanding how to use variables effectively is crucial for writing clean and efficient code.
+
+
+#### Footnotes
+
+<sub>a</sub> A function is a block of code that performs a specific task and can be reused throughout your program. Functions are defined using the `def` keyword, followed by the function name and parentheses. For example: `def my_function():`.

@@ -7,23 +7,25 @@ Operators are special symbols that perform operations on variables and values. P
 
 ## Arithmetic Operators
 
-Arithmetic operators perform mathematical operations on numeric values.
+Arithmetic operators perform mathematical operations on numeric values (floats (`float`), integers (`int`), and complex numbers (`complex`)).
 
-| Operator | Name | Description | Example |
-|----------|------|-------------|---------|
-| `+` | Addition | Adds two values | `5 + 3` equals `8` |
-| `-` | Subtraction | Subtracts right operand from left | `5 - 3` equals `2` |
-| `*` | Multiplication | Multiplies two values | `5 * 3` equals `15` |
-| `/` | Division | Divides left operand by right (result is a float) | `5 / 3` equals `1.6666...` |
-| `//` | Floor Division | Divides and rounds down to nearest integer | `5 // 3` equals `1` |
-| `%` | Modulus | Returns the remainder of division | `5 % 3` equals `2` |
-| `**` | Exponentiation | Raises left operand to power of right | `5 ** 3` equals `125` |
+| Operator | Name | Description | Example | Works with |
+|----------|------|-------------|---------| ---------|
+| `+` | Addition | Adds two values | `5 + 3` equals `8` | `int`, `float`, `complex` |
+| `-` | Subtraction | Subtracts right operand from left | `5 - 3` equals `2` | `int`, `float`, `complex` |
+| `*` | Multiplication | Multiplies two values | `5 * 3` equals `15` | `int`, `float`, `complex` |
+| `/` | Division | Divides left operand by right (result is a float) | `5 / 3` equals `1.6666...` | `int`, `float`, `complex` |
+| `**` | Exponentiation | Raises left operand to power of right | `5 ** 3` equals `125` | `int`, `float`, `complex` |
+| `//` | Floor Division | Divides and rounds down to nearest integer | `5 // 3` equals `1` | `int`, `float` |
+| `%` | Modulus | Returns the remainder of division | `5 % 3` equals `2` | `int`, `float` |
 
 ```python
 # Arithmetic operators in action
 a = 15
 b = 4
 
+# This is a expression, we will continue to use this in the next lesson
+x = a + b; # the value within the variable a is 15 and b is 4, so x = 19
 print(f"{a} + {b} = {a + b}")     # 15 + 4 = 19
 print(f"{a} - {b} = {a - b}")     # 15 - 4 = 11
 print(f"{a} * {b} = {a * b}")     # 15 * 4 = 60
@@ -111,7 +113,7 @@ if x == 10:
 
 # Bad - forgetting that /= results in a float
 count = 10
-count /= 2
+count /= 2 # also results in a float
 print(count)  # 5.0, not 5
 print(type(count))  # <class 'float'>
 
@@ -121,6 +123,35 @@ x = y += 5  # SyntaxError
 # Good
 y += 5
 x = y
+```
+
+## String Operators
+
+You can also manipulate strings with certain operators.
+
+```python
+# String operations
+combined = "Hello" + " " + "World"  # Concatenation
+repeated = "Ha" * 3                 # Repetition (HaHaHa)
+length = len(name)                  # Length of name (5) - `len()` is a built-in function
+
+# String indexing (accessing characters within a string
+first_char = name[0]    # 'A' - All sequence types (strings, lists, tuples) start indexing at 0 (NOT 1)
+second_char = name[1]   # 'l' - This is the second character, NOT the first
+last_char = name[-1]    # 'e' - this will access the last character of the string
+
+# String slicing
+substring = name[1:3]   # 'li' (characters at index 1 and 2) - a slice is a range of characters
+substring2 = name[:3]  # 'Ali' (from start to index 2)
+substring3 = name[2:] # 'lice' (from index 2 to end)
+substring4 = name[-3:] # 'ice' (last 3 characters)
+
+# String methods (these are functions that can be called on strings)
+uppercase = name.upper()          # 'ALICE'
+lowercase = name.lower()          # 'alice'
+replaced = name.replace('l', 'L') # 'ALice'
+split_result = "a,b,c".split(',') # ['a', 'b', 'c']
+joined = '-'.join(['a', 'b', 'c']) # 'a-b-c'
 ```
 
 ## Comparison Operators
@@ -161,9 +192,9 @@ Python allows comparison between different types in some cases, but this can lea
 # Integer and float comparison (works as expected)
 print(5 == 5.0)  # True
 
-# String comparisons (lexicographic ordering)
+# String comparisons 
 print("apple" < "banana")  # True
-print("10" > "2")         # False (lexicographic comparison, not numeric)
+print("10" > "2")         # False - compares lexicographically (as strings), this means it compares character by character. ('1' < '2')
 
 # Mixed type comparisons (generally should be avoided)
 try:
@@ -215,45 +246,17 @@ x = 10
 y = 5
 
 # Using 'and' operator - both conditions must be True
-print(f"x > 8 and y < 8: {x > 8 and y < 8}")  # True
+print(x > 8 and y < 8)  # True
 
 # Using 'or' operator - at least one condition must be True
-print(f"x > 12 or y < 8: {x > 12 or y < 8}")  # True
+print(x > 12 or y < 8)  # True
 
 # Using 'not' operator - inverts the boolean value
-print(f"not(x == y): {not(x == y)}")  # True
+print(x == y)  # False
+print(not(x == y))  # True
 ```
 
-**Short-Circuit Evaluation**:
 
-Python uses short-circuit evaluation with logical operators:
-- With `and`, if the first condition is `False`, the second condition is not evaluated
-- With `or`, if the first condition is `True`, the second condition is not evaluated
-
-```python
-# Short-circuit evaluation examples
-def check_a():
-    print("Evaluating A")
-    return False
-
-def check_b():
-    print("Evaluating B")
-    return True
-
-# Using 'and' - since check_a() returns False,
-# check_b() won't be evaluated
-print("Testing 'and':")
-result = check_a() and check_b()
-print(f"Result: {result}")  # False
-
-# Using 'or' with reversed order
-# Since check_b() returns True, check_a() won't be evaluated
-print("\nTesting 'or':")
-result = check_b() or check_a()
-print(f"Result: {result}")  # True
-```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
-</codapi-snippet>
 
 **Common Mistakes with Logical Operators**:
 

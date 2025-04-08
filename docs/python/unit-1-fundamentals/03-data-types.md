@@ -3,7 +3,7 @@ sidebar_position: 3
 ---
 # Data Types
 
-Every value in Python has a data type. Data types determine what operations can be performed on the data and how the data is stored in memory. Python includes several built-in data types to handle different kinds of information.
+Every value in Python has a data type. Data types determine what operations can be performed on the data and how the data is stored in memory. Python includes several built-in data types to handle different kinds of information. You can also perform operations on these. A operation is just a manipulation of the data (for example, addition, subtraction, etc.).
 
 ## Numeric Types
 
@@ -11,7 +11,7 @@ Python has three numeric types: integers, floating-point numbers, and complex nu
 
 ### Integers (`int`)
 
-Integers are whole numbers without a fractional component. They can be positive, negative, or zero.
+An integer is a whole number (positive, negative, or zero) that doesn't have a fractional or decimal part, for example `42`, `-7`, or `0`. Integers can be of any size, limited only by the available memory.
 
 ```python
 # Integer examples
@@ -19,31 +19,15 @@ age = 25
 temperature = -10
 zero = 0
 large_number = 10000000
-
-# Integer operations
-sum_result = 5 + 3        # Addition
-diff_result = 10 - 7      # Subtraction
-product = 4 * 6           # Multiplication
-quotient = 12 // 5        # Integer division (result: 2)
-remainder = 12 % 5        # Modulo (remainder) (result: 2)
-power = 2 ** 3            # Exponentiation (result: 8)
-
-# Integer conversion
-string_to_int = int("42")  # Convert string to int
-float_to_int = int(7.8)    # Convert float to int (truncates to 7)
-bool_to_int = int(True)    # Convert boolean to int (1 for True, 0 for False)
 ```
 
 **Common Mistakes with Integers**:
 ```python
-# Bad - trying to convert a non-numeric string to int
+# Bad - using a float where an int is expected
 try:
-    invalid_int = int("hello")  # ValueError: invalid literal for int() with base 10
-except ValueError as e:
+    result = 5 / 2  # The result is a float. `/` represents the divison operator 5 divided by 2 is 2.5, a non-integer value (not a whole number)
+except TypeError as e:
     print(f"Error: {e}")
-
-# Bad - expecting decimal division with //
-result = 10 // 3  # Result is 3, not 3.33...
 ```
 
 ### Floating-Point Numbers (`float`)
@@ -56,27 +40,20 @@ pi = 3.14159
 height = 1.75
 negative_float = -0.5
 scientific = 1.23e-4  # Scientific notation (0.000123)
-
-# Float operations
-float_sum = 3.5 + 2.1
-float_diff = 5.7 - 1.2
-float_product = 2.5 * 3.0
-float_division = 7.0 / 2.0  # Regular division (result: 3.5)
-
-# Float conversion
-string_to_float = float("3.14")  # Convert string to float
-int_to_float = float(42)        # Convert integer to float
-bool_to_float = float(False)    # Convert boolean to float (0.0 for False)
 ```
 
 **Floating-Point Precision Issues**:
 ```python
+# You can perform operations on any data type; however, float has some limitations (see example)
 # Be aware of floating-point precision issues
-a = 0.1 + 0.2
+a = 0.1 + 0.2             # addition operation of two floats (0.1 and 0.2)
+                          # The result is not exactly 0.3 due to how floating-point numbers are represented in memory
+
 print(a)                  # Output: 0.30000000000000004
 print(a == 0.3)           # Output: False
 
-# Better approach for comparing floats
+# Better approach for comparing floats - Using a builtin function (if you do not understand this, don't worry about it for now)
+# This function checks if two floating-point numbers are close enough to be considered equal
 import math
 print(math.isclose(a, 0.3))  # Output: True
 ```
@@ -92,15 +69,11 @@ Complex numbers have a real and an imaginary part, written as `a + bj` where `j`
 c1 = 3 + 4j
 c2 = complex(2, 5)  # Creates 2 + 5j
 
-# Complex operations
-sum_c = c1 + c2      # Addition
-diff_c = c1 - c2     # Subtraction
-product_c = c1 * c2  # Multiplication
-division_c = c1 / c2 # Division
-
 # Accessing parts of a complex number
 real_part = c1.real  # 3.0
 imag_part = c1.imag  # 4.0
+
+# You can also perform operations on complex numbers, such as addition, subtraction, multiplication, and division (similar to other types (int and float), i will go into more detail about this in the next lesson)
 ```
 
 ## Boolean Type (`bool`)
@@ -111,48 +84,6 @@ Booleans represent truth values: `True` or `False`. They're used in conditional 
 # Boolean examples
 is_active = True
 has_permission = False
-
-# Boolean operations
-and_result = True and False  # False
-or_result = True or False    # True
-not_result = not True        # False
-
-# Comparison operations that return booleans
-equal = (5 == 5)             # True
-not_equal = (5 != 10)        # True
-greater_than = (10 > 5)      # True
-less_than = (5 < 10)         # True
-greater_or_equal = (5 >= 5)  # True
-less_or_equal = (5 <= 10)    # True
-
-# Boolean conversion
-zero_to_bool = bool(0)        # False (0 is falsy)
-nonzero_to_bool = bool(42)    # True (non-zero is truthy)
-empty_to_bool = bool("")      # False (empty string is falsy)
-nonempty_to_bool = bool("hi") # True (non-empty string is truthy)
-```
-
-**Truthy and Falsy Values**:
-- **Falsy values**: `False`, `None`, `0`, `0.0`, `""` (empty string), empty collections (`[]`, `()`, `{}`)
-- **Truthy values**: Everything else
-
-```python
-# Don't make these mistakes with booleans
-# Bad - using == for comparison with True/False
-if is_active == True:  # Less pythonic
-    print("Active")
-
-# Good - use the boolean value directly
-if is_active:
-    print("Active")
-
-# Bad - using == False
-if has_permission == False:  # Less pythonic
-    print("No permission")
-
-# Good
-if not has_permission:
-    print("No permission")
 ```
 
 ## None Type (`NoneType`)
@@ -168,7 +99,7 @@ value = None
 if result is None:
     print("No result yet")
 
-# Common use case - default function parameters
+# Common use case - default function parameters (you can come back to this later if you do not understand it)
 def greet(name=None):
     if name is None:
         name = "Guest"
@@ -200,55 +131,6 @@ name = "Alice"
 message = 'Hello, World!'
 multiline = """This is a
 multiline string."""
-
-# String operations
-combined = "Hello" + " " + "World"  # Concatenation
-repeated = "Ha" * 3                 # Repetition (HaHaHa)
-length = len(name)                  # Length (5)
-
-# String indexing (0-based)
-first_char = name[0]    # 'A'
-last_char = name[-1]    # 'e'
-
-# String slicing
-substring = name[1:3]   # 'li' (characters at index 1 and 2)
-
-# String methods
-uppercase = name.upper()          # 'ALICE'
-lowercase = name.lower()          # 'alice'
-replaced = name.replace('l', 'L') # 'ALice'
-split_result = "a,b,c".split(',') # ['a', 'b', 'c']
-joined = '-'.join(['a', 'b', 'c']) # 'a-b-c'
-```
-
-**String Formatting**:
-```python
-name = "Alice"
-age = 30
-
-# Using f-strings (Python 3.6+)
-message1 = f"Hello, {name}! You are {age} years old."
-
-# Using format() method
-message2 = "Hello, {}! You are {} years old.".format(name, age)
-
-# Using % operator (older style)
-message3 = "Hello, %s! You are %d years old." % (name, age)
-```
-
-**String Immutability**:
-```python
-# Strings are immutable (cannot be changed)
-name = "Alice"
-
-# Bad - trying to change a character
-try:
-    name[0] = 'B'  # TypeError: 'str' object does not support item assignment
-except TypeError as e:
-    print(f"Error: {e}")
-
-# Good - create a new string
-name = 'B' + name[1:]  # 'Blice'
 ```
 
 ## Checking Data Types
@@ -307,10 +189,10 @@ try:
 except ValueError as e:
     print(f"Error: {e}")
 
-# Bad - forgetting that int() truncates floats
+# Bad - forgetting that int() truncates floats, it does NOT round them
 y = int(9.9)  # Result is 9, not 10
 
-# Bad - trying to use + operator with different types
+# Bad - trying to use + operator (we will discus this later) with different types
 try:
     result = "Age: " + 25  # TypeError: can only concatenate str (not "int") to str
 except TypeError as e:
@@ -330,5 +212,3 @@ result = "Age: " + str(25)  # "Age: 25"
 | `bool` | Boolean (True/False) | `True`, `False` |
 | `str` | String (text) | `"hello"`, `'world'` |
 | `NoneType` | Represents no value | `None` |
-
-Understanding Python's data types is crucial for effective programming. Each type has its own properties and methods, and using the right type for your data will make your code more efficient and less prone to errors. In the next lesson, we'll explore more complex data structures that allow you to store and organize multiple values. 
