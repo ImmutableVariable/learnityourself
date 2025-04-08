@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 # Python Basics
 
-Python is a versatile, high-level programming language known for its simplicity and readability. Before diving into specific concepts, let's understand some fundamental aspects of Python.
+Python is a high-level general purpose language. This lesson will cover some of the basic language design philosophies as well as common mistakes.
 
 ## Python Philosophy
 
@@ -49,7 +49,7 @@ Comments are important for documenting your code. Python uses the `#` symbol for
 print("Hello, World!")  # This is an inline comment
 ```
 
-For multi-line comments, you can use triple quotes (technically, these are docstrings when used at the beginning of modules, classes, or functions):
+For multi-line comments, you can use triple quotes (when placed before a module, class, function, etc these are known as docstrings<sub>a</sub>):
 
 ```python
 """
@@ -61,7 +61,7 @@ It's useful for longer explanations.
 
 ## Indentation Matters
 
-Unlike many programming languages that use braces `{}` to define blocks of code, Python uses indentation:
+Unlike many programming languages that use braces `{}` (such as C, Javascript, etc) to define blocks<sub>b</sub> of code, Python uses indentation:
 
 ```python
 if True:
@@ -145,4 +145,10 @@ Let's analyze this simple program:
    print("Correct function name")
    ```
 
-Python is a beginner-friendly language, but attention to detail matters. In the next lessons, we'll explore variables, data types, and how to work with them in Python. 
+Although python is a beginner friendly language, attention to detail is important.
+
+#### Definitions
+
+<dfn>a - A docstring is a string, usually a comment, used to document a piece of code </dfn>
+<br/>
+<dfn>b - A block of code is a group of programming statements combined into a group. Everything within this group is executed together. </dfn>

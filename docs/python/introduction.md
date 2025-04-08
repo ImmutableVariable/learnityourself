@@ -33,11 +33,11 @@ Although we provide a editor within this website, we also recommend installing p
 ### Installation
 
 - Windows
-    1. Go to the following [link](https://www.python.org/downloads/) and download the latest verson of python.
+    1. Go to the following [link](https://www.python.org/downloads/) and download the latest version of python.
     2. Run the installer and make sure to check the box that says "Add Python to PATH", then continue with the default settings.
     3. Once complete, run `python --version` within a command prompt. If the version that it returns is correct then it has been installed correctly.
 - Apple
-    1. Go to the following [link](https://www.python.org/downloads/) and download the latest verson of python.
+    1. Go to the following [link](https://www.python.org/downloads/) and download the latest version of python.
     2. Run the installer and continue with the default settings.
     3. Once complete, run `python3 --version` within a terminal. If the version that it returns is correct then it has been installed correctly.
 - Linux
