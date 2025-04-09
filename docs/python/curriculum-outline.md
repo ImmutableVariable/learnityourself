@@ -5,6 +5,7 @@ sidebar_position: 2
 
 This curriculum is designed for beginner programmers, and will start with basic topics before proceeding. Please expect to dedicate **3-4 weeks** to complete this course. Along with this, extra outside content or optional projects may be included.
 
+### Project Completion Status
 | Status | Description |
 |---|---|
 | 🟢 | Completed |
@@ -12,6 +13,7 @@ This curriculum is designed for beginner programmers, and will start with basic 
 | 🔵 | In Progress |
 | 🟣 | In Review |
 | 🔴 | Not Started |
+
 ## Fundamentals 🟢
 - **Variables and Data Types**: Understanding Python's basic data types and variable system
 - **Operators and Expressions**: Working with arithmetic, comparison, and logical operators
