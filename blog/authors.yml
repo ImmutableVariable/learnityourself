@@ -1,23 +1,19 @@
-yangshun:
-  name: Yangshun Tay
-  title: Front End Engineer @ Facebook
+alli:
+  name: <AUTHOR NAME YOU WANT TO USE>
+  title: Co-Creator of LearnItYourself.dev # you can pick a different title but i thought this would be a good default and it shows the full title
   url: https://github.com/ImmutableVariable
   image_url: https://github.com/ImmutableVariable.png
   page: true
   socials:
-    x: yangshunz
-    github: yangshun
+    github: ImmutableVariable
 
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
+coldie:
+  name: JT Le Blanc
+  title: Co-Creator of LearnItYourself.dev
+  url: https://frgmt.xyz
+  image_url: https://avatars.githubusercontent.com/u/105447989?v=4
   page:
     # customize the url of the author page at /blog/authors/<permalink>
-    permalink: '/all-sebastien-lorber-articles'
+    permalink: '/coding-with-coldie'
   socials:
-    x: sebastienlorber
-    linkedin: sebastienlorber
-    github: slorber
-    newsletter: https://thisweekinreact.com
+    github: frgmt0

@@ -1,29 +1,36 @@
 ---
 slug: welcome
-title: Welcome
-authors: [slorber, yangshun]
-tags: [facebook, hello, docusaurus]
+title: Welcome to LearnItYourself!
+authors: [coldie, alli]
+tags: [hello]
 ---
 
-[Docusaurus blogging features](https://docusaurus.io/docs/blog) are powered by the [blog plugin](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog).
+# Welcome to LearnItYourself!
 
-Here are a few tips you might find useful.
+At LearnItYourself, we believe that learning to code should be an adventure, not a chore. That said, we've created a platform where you can master programming languages at your own pace, with your own style, and on your own terms, but with our guidance of course!
 
 <!-- truncate -->
 
-Simply add Markdown files (or folders) to the `blog` directory.
+## What Makes Us Different
 
-Regular blog authors can be added to `authors.yml`.
+LearnItYourself isn't just another tutorial. It's a learning ecosystem we have designed from the ground up to transform curious beginners into confident creators through hands-on, project-based experiences (and yes, tutorials). The platform evolved from our own frustrations with traditional learning paths that rarely connected theory to practical applications or tutorials that were too vague or too much like a reference book. LearnItYourself is a place where you can leave our site (and come back of course) and feel like you have truly learned something about Python, or any other language we currently have or will add.
 
-The blog post date can be extracted from filenames, such as:
 
-- `2019-05-30-welcome.md`
-- `2019-05-30-welcome/index.md`
+## Here's what sets us apart:
 
-A blog post folder can be convenient to co-locate blog post images:
+- **Self-directed exploration**: Learn when inspiration strikes, not when a curriculum dictates
+- **Community-powered**: As a fully open-source project, experienced developers can contribute their insights and improvements
+- **Zero barriers**: Completely free with no account requirements (yet)—just dive in and start building
 
-![Docusaurus Plushie](./docusaurus-plushie-banner.jpeg)
+## The LearnItYourself Philosophy
 
-The blog supports tags as well!
+We firmly believe coding isn't just about memorizing syntax or following a curriculum. It's about developing the confidence to create, solve, and innovate. The most valuable skills come from tackling projects that matter to you, making mistakes in safe spaces, and discovering solutions through exploration.
 
-**And if you don't want a blog**: just delete this directory, and use `blog: false` in your Docusaurus config.
+
+## Our Current Focus
+
+We're currently crafting our Python curriculum, with plans to expand into Web Development (HTML, CSS, JavaScript), Rust, and other languages that solve real-world problems. Watch this blog page for updates (and also check out our [Discord server](https://discord.gg/<<<<yadayaydayydaydayyda>>>>)!). We look forward to seeing what you all learn and create!
+
+##### P.S. if you want to contribute to our project in the form of corrections, suggestions for new languages/projects, or even just to say hi, please join our [Discord server](https://discord.gg/<<<<yadayaydayydaydayyda>>>>)!
+
+Ready to start your coding journey? Let's build something amazing together. [Start Here](http://learnityourself.dev/docs/python/introduction)
