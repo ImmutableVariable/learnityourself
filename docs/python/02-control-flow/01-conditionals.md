@@ -26,7 +26,7 @@ When writing an `if` statement<sub>b</sub>, you may want to provide an alternati
 ```python
 age = 16
 
-if age >= 18: # Checking if the age is greated than or equal to 18 - (This is False because the age is 16)
+if age >= 18: # Checking if the age is greater than or equal to 18 - (This is False because the age is 16)
     print("You are an adult")
 else: # because the condition following the if statement is False, it will run the block of code below (the indented region)
     print("You are a minor")
@@ -160,7 +160,7 @@ print(f"bool({{'key': 'value'}}): {bool({'key': 'value'})}") # Dictionary, which
 <codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
 
-This also means that you can use these values directly in conditional statements without explicitly comparing them to `True` or `False`:
+This also means that you can use these values directly in conditional statements without explicitly comparing them to `True` or `False` (WE WILL USE THIS LATER):
 
 ```python
 # Using truthy and falsy values in conditionals

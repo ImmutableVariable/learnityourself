@@ -8,7 +8,7 @@ Loops allow you to execute a block of code repeatedly. Python provides two main 
 
 ## For Loops
 
-The `for` loop is used to iterate over a sequence (like a list, tuple, string) or other iterable objects. It executes a block of code once for each item in the sequence.
+The `for` loop is used to iterate over a sequence (We will cover this later, think of it as any ordered set of items). It can be a list, tuple, string, or any other iterable<sub>a</sub> object. The loop iterates over each item in the sequence and executes the code block for each item.
 
 ### Basic Syntax
 
@@ -23,11 +23,12 @@ for item in sequence:
 # Iterating over a list
 fruits = ["apple", "banana", "cherry"]
 for fruit in fruits:
-    print(fruit)
+    print(fruit) # This will first print apple, then banana, and finally cherry
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
 
+You can also get individual characters within a string. For example:
 ```python
 # Iterating over a string
 message = "Python"
@@ -37,25 +38,20 @@ for character in message:
 <codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
 
-```python
-# Iterating over a range of numbers
-for number in range(5):  # range(5) generates numbers from 0 to 4
-    print(number)
-```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
-</codapi-snippet>
-
 ### The `range()` Function
 
-The `range()` function is commonly used with `for` loops to generate a sequence of numbers:
+The `range()` function is commonly used with `for` loops to generate a sequence of numbers, which can be useful for iterating a specific number of times.
 
 ```python
 # range(stop) - Generates numbers from 0 to stop-1
 for i in range(5):
-    print(i)  # Outputs: 0, 1, 2, 3, 4
+    print(i)  # Outputs: 0, 1, 2, 3, 4 with each on a new line
+    
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
+
+You can also provide a start and stop value, essentially, it will start at the first number and end at the last.
 
 ```python
 # range(start, stop) - Generates numbers from start to stop-1
@@ -64,6 +60,8 @@ for i in range(2, 6):
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
+
+You can also provide a optional step value, which will increment the number by that amount. For example, if you want to count by 2s, you can do this:
 
 ```python
 # range(start, stop, step) - Generates numbers from start to stop-1 with the specified step
@@ -75,7 +73,7 @@ for i in range(1, 10, 2):
 
 ### Nested For Loops
 
-You can place one loop inside another (nested loops):
+You can also place one loop within another loop's block. Reminder: The inner loop will complete all of its operations before the outer loop can run again.
 
 ```python
 # Nested for loops to create a multiplication table
@@ -110,8 +108,9 @@ while count < 5:
 <codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
 
+You can also use a while loop to get user input until a certain condition is met:
+
 ```python
-# Using while with user input
 password = ""
 while password != "secret":
     password = input("Enter the password: ")
@@ -151,7 +150,7 @@ Python provides statements to control the flow of loops:
 
 ### `break` Statement
 
-The `break` statement immediately terminates the loop and transfers execution to the statement following the loop:
+The `break` statement immediately terminates the loop and transfers control to the statement following the loop. It can be used in both `for` and `while` loops.
 
 ```python
 # Using break in a for loop
@@ -159,6 +158,11 @@ for i in range(10):
     if i == 5:
         break  # Exit the loop when i is 5
     print(i)
+
+print("Loop exited") 
+# This will be printed after the loop exits
+# notice the last value printed was 4, therefore
+# the loop exited before printing 5
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
@@ -182,12 +186,17 @@ The `continue` statement skips the rest of the code inside the loop for the curr
 ```python
 # Using continue in a for loop
 for i in range(10):
+    # Check if the number is even:
+    # the remainder of any even number is 0, 
+    # therefore we can use the remainder operator (%) to check if the number is even
     if i % 2 == 0:
         continue  # Skip even numbers
     print(i)  # This only prints odd numbers
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
+
+It can also be used in a while loop 
 
 ```python
 # Using continue in a while loop
@@ -243,50 +252,13 @@ else:
 
 ### Enumerating Items
 
-The `enumerate()` function adds a counter to an iterable and returns it as an enumerate object:
+The `enumerate()` function adds a counter to an iterable and returns it as an enumerate object. This is useful when you need both the index and the value of items in a list. A index is a number that represents a current position in a sequence (they start start at 0). We will explain this further, you can always come back here.
 
 ```python
 # Using enumerate to get both index and value
 fruits = ["apple", "banana", "cherry"]
 for index, fruit in enumerate(fruits):
     print(f"Index {index}: {fruit}")
-```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
-</codapi-snippet>
-
-### Looping Through Two Lists at Once
-
-The `zip()` function allows you to iterate through multiple iterables in parallel:
-
-```python
-# Using zip to iterate through two lists simultaneously
-names = ["Alice", "Bob", "Charlie"]
-ages = [25, 30, 35]
-for name, age in zip(names, ages):
-    print(f"{name} is {age} years old")
-```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
-</codapi-snippet>
-
-### Looping with Dictionary Items
-
-Iterating through dictionaries:
-
-```python
-# Iterating through a dictionary
-person = {"name": "Alice", "age": 30, "city": "New York"}
-
-# Iterating over keys (default)
-for key in person:
-    print(key)
-
-# Iterating over values
-for value in person.values():
-    print(value)
-
-# Iterating over key-value pairs
-for key, value in person.items():
-    print(f"{key}: {value}")
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
@@ -326,4 +298,3 @@ Loops are essential for automating repetitive tasks and processing collections o
 #### Footnotes
 
 - <dfn>a - An iterable is an object that can be looped over, such as a list, tuple, string, or dictionary.</dfn>
-- <dfn>b - The increment operator (+=) adds a value to a variable and assigns the new value to the same variable. For example, `count += 1` is equivalent to `count = count + 1`.</dfn> 

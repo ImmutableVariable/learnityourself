@@ -1,0 +1,87 @@
+---
+sidebar_position: 1
+---
+
+# Functions
+
+Functions are the building blocks of modern programming. A function is a block of code that performs a specific task and can be reused throughout your program. Functions are defined using the `def` keyword, followed by the function name and parentheses. For example: `def my_function():`. Functions are important because they allow you to break down complex problems into smaller, manageable pieces. This makes your code more organized, easier to read, and easier to maintain.
+
+Creating a function is done as follows:
+
+```python
+def function_name():
+    # Code block to execute
+```
+
+In the first line, you write the `def` keyword, followed by the name of the function. 
+
+## Calling a Function
+
+Now that we have defined a function, we can call it. Calling a function is done by simply writing the function name followed by parentheses. For example:
+
+```python
+function_name()
+```
+
+You have been calling functions without even knowing it! For example, the `print()` function is a built-in function in Python that prints text to the console. When you write `print("Hello, World!")`, you are calling the `print()` function with the argument `"Hello, World!"` (I will explain arguments later).
+
+    
+## Function Parameters and Arguments
+
+Parameters are variables that are defined in the function signature. They allow you to pass data into the function when you call it. Arguments are the actual values that you pass to the function when you call it. For example:
+
+```python
+def greet(name):  # name is a parameter
+    print("Hello, " + name + "!")
+
+greet("Alice")  # "Alice" is an argument
+```
+<codapi-snippet sandbox="python" init-delay="500" ></codapi-snippet>
+
+In this example, `name` is a parameter of the `greet()` function. When we call `greet("Alice")`, we are passing the argument `"Alice"` to the function. The function then prints "Hello, Alice!". Parameters are important because they allow you to create flexible functions that allow multiple types of data. You can also have multiple parameters in a function. For example:
+
+```python
+def add(a, b):  # a and b are parameters
+    print(a + b)
+
+add(1, 2)  # 1 and 2 are arguments
+```
+<codapi-snippet sandbox="python" init-delay="500" ></codapi-snippet>
+
+In this example, `a` and `b` are parameters of the `add()` function. When we call `add(2, 3)`, we are passing the arguments `2` and `3` to the function. The function then prints `5` because `2 + 3 = 5`.
+
+## Return Statement
+
+The `return` statement is used to return a value from a function. When a function returns a value, you can use that value in your code. For example:
+
+```python
+def add(a, b):  # a and b are parameters
+    return a + b  # Return the sum of a and b
+
+print(add(2, 3))  # Now that we have returned the value 5 out of the function, we can print it
+```
+<codapi-snippet sandbox="python" init-delay="500" ></codapi-snippet>
+In this example, the `add()` function returns the sum of `a` and `b`. When we call `add(2, 3)`, it returns `5`, which is then printed to the console.
+
+## Default Parameters
+
+Python also provides us with something called default paramters. Default parameters are parameters that have a default value. If you do not provide a value for the parameter when you call the function, the default value will be used. For example:
+
+```python
+def greet(name="Guest"):  # name has a default value of "Guest"
+    print("Hello, " + name + "!")
+
+greet()  # No argument provided, so "Guest" is used
+greet("Alice")  # "Alice" is used instead of the default value
+```
+<codapi-snippet sandbox="python" init-delay="500" ></codapi-snippet>
+
+Note: Default parameters must be defined after non-default parameters in the function signature. For example:
+
+```python
+def greet(name, greeting="Hello"):  # This is correct
+    print(greeting + ", " + name + "!")
+
+def greet(greeting="Hello", name):  # This is incorrect
+    print(greeting + ", " + name + "!")
+```

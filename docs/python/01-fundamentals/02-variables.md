@@ -134,7 +134,7 @@ a, b, c = 1, 2, 3
 
 ## Variable Scope
 
-The scope of a variable determines where in your code the variable can be accessed:
+The scope of a variable determines where in your code the variable can be accessed. We will discuss this further in the functions module:
 
 1. **Global variables** are defined outside of functions<sub>a</sub> and can be accessed throughout the program
 2. **Local variables** are defined inside a function<sub>a</sub> and can only be used within that function
