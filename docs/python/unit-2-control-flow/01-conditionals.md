@@ -16,7 +16,7 @@ age = 18
 if age >= 18: # Check if age is greater than or equal to 18, if it is, it will run the block of code below (the indented region)
     print("You are an adult")
 ```
-<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
+<codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
 
 ## if-else Statement
@@ -31,7 +31,7 @@ if age >= 18: # Checking if the age is greated than or equal to 18 - (This is Fa
 else: # because the condition following the if statement is False, it will run the block of code below (the indented region)
     print("You are a minor")
 ```
-<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
+<codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
 
 
@@ -55,7 +55,7 @@ else:             # Because the previous condition(s) are True, the else block i
 
 print(f"Your grade is {grade}")
 ```
-<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
+<codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
 
 ## Nested if Statements
@@ -75,7 +75,7 @@ if age >= 18: # Check if age is greater than or equal to 18, if it is, it will r
 else:
     print("You are not eligible for a credit card")
 ```
-<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
+<codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
 
 *Note: Nesting too deeply can make your code hard to read. Try to keep your code as flat (less indentions) as possible and use functions to break down complex logic.*
@@ -89,7 +89,7 @@ age = 20
 status = "adult" if age >= 18 else "minor" # The conditon is evaluated as True (the age is 20), so the value of status will be "adult"
 print(status)  # "adult"
 ```
-<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
+<codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
 
 This is equivalent to:
@@ -117,7 +117,7 @@ temperature = 28
 message = "It's hot" if temperature > 25 else "It's cool" # "It's hot"
 print(message)
 ```
-<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
+<codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
 
 ## Truthy and Falsy Values
@@ -157,7 +157,7 @@ print(f"bool('hello'): {bool('hello')}")
 print(f"bool([0]): {bool([0])}") # List with one element (0), which is a non-empty list, you will learn about lists in the next unit
 print(f"bool({{'key': 'value'}}): {bool({'key': 'value'})}") # Dictionary, which is a data structure that you will learn about in the next unit
 ```
-<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
+<codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
 
 This also means that you can use these values directly in conditional statements without explicitly comparing them to `True` or `False`:
@@ -193,7 +193,7 @@ if age >= 18 and has_license: #  This condition is True (age is 25 and has_licen
 else:
     print("You cannot drive")
 ```
-<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
+<codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
 
 ```python
@@ -213,7 +213,7 @@ if not is_weekend: # If is_weekend is False, this condition is True.
 else:
     print("Time to relax")
 ```
-<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
+<codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
 
 ## Membership and Identity Tests
@@ -246,7 +246,7 @@ print(f"a == b: {a == b}")  # True - same values
 print(f"a is b: {a is b}")  # False - different objects in memory
 print(f"a is c: {a is c}")  # True - same object in memory
 ```
-<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
+<codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
 
 ## Best Practices
@@ -287,12 +287,12 @@ if (age >= 18 and income >= 40000) or (age >= 25 and not has_debt):
 else:
     print("Loan application denied")
 ```
-<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
+<codapi-snippet sandbox="python" editor="python" init-delay="500" >
 </codapi-snippet>
 
 Conditional statements are fundamental to creating dynamic and responsive programs. In the next lesson, we'll explore loops, which allow you to repeat code execution. 
 
 #### Footnotes
 
-<dfn>a - A condition is an expression that evaluates to either `True` or `False`. </dfn>
-<dfn>b - A statement is a line of code that performs an action. </dfn>
+- <dfn>a - A condition is an expression that evaluates to either `True` or `False`. </dfn>
+- <dfn>b - A statement is a line of code that performs an action. </dfn>

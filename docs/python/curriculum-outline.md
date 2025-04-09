@@ -18,6 +18,8 @@ This curriculum is designed for beginner programmers, and will start with basic 
 - **Iterators and Generators**: Efficient sequential data access
 - **Context Managers**: Managing resources with with statements
 
+--- ^ DONE / v HAVEN'T STARTED ---
+
 ## Unit 3: Data Structures
 - **Lists**: Creating and manipulating Python's dynamic arrays
 - **Tuples**: Working with immutable sequences
@@ -25,7 +27,7 @@ This curriculum is designed for beginner programmers, and will start with basic 
 - **Sets**: Working with collections of unique items
 - **Collections Module**: Advanced container data types
 
---- ^ DONE / v HAVEN'T STARTED
+
 
 ## Unit 4: Functions and Modules
 - **Functions**: Creating reusable code blocks
