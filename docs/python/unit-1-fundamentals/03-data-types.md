@@ -57,7 +57,7 @@ print(a == 0.3)           # Output: False
 import math
 print(math.isclose(a, 0.3))  # Output: True
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ### Complex Numbers (`complex`)
@@ -151,7 +151,7 @@ x = 42
 print(type(x) is int)   # True
 print(isinstance(x, int))  # True (preferred way to check)
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ## Type Conversion

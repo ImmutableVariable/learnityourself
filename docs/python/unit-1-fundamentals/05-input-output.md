@@ -26,7 +26,7 @@ print("hello", end=", ")  # Output: hello, (no newline)
 # The ones above will print in the same line because it does not go to a new line (hello hello,)
 print("World")  # Output: Hello World
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ### Formatted Output
@@ -44,7 +44,7 @@ print(f"My name is {name} and I am {age} years old.")
 pi = 3.14159
 print(f"Pi rounded to 2 decimal places: {pi:.2f}")  # Output: 3.14
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 #### 2. Using `str.format()` method
@@ -60,7 +60,7 @@ print("My name is {0} and I am {1} years old.".format(name, age))
 # With named arguments
 print("My name is {n} and I am {a} years old.".format(n=name, a=age))
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 #### 3. Old-style string formatting with `%` operator
@@ -70,7 +70,7 @@ name = "Charlie"
 age = 35
 print("My name is %s and I am %d years old." % (name, age))
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 **Common Mistakes with Output Formatting**:
@@ -97,7 +97,7 @@ print("{name} is learning Python.")  # Output: {name} is learning Python
 # Good
 print(f"{name} is learning Python.")  # Output: David is learning Python
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ## Basic Input with `input()`
@@ -111,7 +111,7 @@ print(f"Hello, {name}!")
 
 # Note: input() always returns a string
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ### Converting Input to Other Types
@@ -133,7 +133,7 @@ try:
 except ValueError:
     print("That's not a valid height!")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 **Common Mistakes with Input**:
@@ -167,7 +167,7 @@ try:
 except ValueError:
     print("Please enter a valid number for age.")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ## Working with Multiple Inputs
@@ -195,7 +195,7 @@ try:
 except ValueError:
     print("Please enter exactly three valid numbers separated by spaces.")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ## Best Practices for Input and Output

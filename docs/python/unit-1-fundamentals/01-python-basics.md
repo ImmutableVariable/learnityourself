@@ -69,7 +69,7 @@ if True:
     print("This is also in the if block")
 print("This is outside the if block")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 **Good Practice**:
@@ -92,7 +92,7 @@ The traditional first program in any language is "Hello, World!":
 ```python
 print("Hello, World!")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 Let's analyze this simple program:

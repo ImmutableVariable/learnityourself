@@ -37,7 +37,7 @@ print(f"Fruits: {fruits}")
 print(f"Mixed types: {mixed}")
 print(f"A nested list: {[1, [2, 3], [4, 5, 6]]}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ## Accessing List Elements
@@ -65,7 +65,7 @@ print(f"Third fruit (index 2): {fruits[2]}")
 print(f"Last fruit (index -1): {fruits[-1]}")
 print(f"Second last fruit (index -2): {fruits[-2]}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ## List Slicing
@@ -170,7 +170,7 @@ print(f"List after pop: {fruits}")
 fruits.clear()
 print(f"List after clear: {fruits}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ## List Methods
@@ -229,7 +229,7 @@ extended = numbers.copy()
 extended.extend([6, 7])
 print(f"Extended list: {extended}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ## List Comprehensions
@@ -270,7 +270,7 @@ print("3x3 multiplication table:")
 for row in matrix:
     print(row)
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ## Common Operations and Functions
@@ -315,7 +315,7 @@ print(f"Reverse sorted: {sorted(numbers, reverse=True)}")
 print(f"Is 5 in the list? {5 in numbers}")
 print(f"Is 7 in the list? {7 in numbers}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 Lists are incredibly versatile and will be one of your most-used data structures when programming in Python. In the next lesson, we'll explore tuples, another type of sequence that is similar to lists but with some important differences. 

@@ -1,7 +1,8 @@
 ---
 sidebar_position: 2
 ---
-## Literals and Variables in Programming
+
+# Variables and Literals
 
 In programming, we work with data, and two fundamental concepts for handling data are **literals** and **variables**.
 
@@ -98,7 +99,7 @@ PI = 3.14159
 for i in range(5):
     print(i)
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 **BAD Examples**:
@@ -154,7 +155,7 @@ my_function()
 print(global_var)  # This works
 # print(local_var)  # This would cause an error - local_var is not defined here - try uncommenting this to see the error
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ## Common Mistakes with Variables
@@ -215,4 +216,4 @@ Variables are on of the most important concepts in programming. They allow you t
 
 #### Footnotes
 
-<sub>a</sub> A function is a block of code that performs a specific task and can be reused throughout your program. Functions are defined using the `def` keyword, followed by the function name and parentheses. For example: `def my_function():`.
+<dfn>a - A function is a block of code that performs a specific task and can be reused throughout your program. Functions are defined using the `def` keyword, followed by the function name and parentheses. For example: `def my_function():`.</dfn>

@@ -11,22 +11,21 @@ This curriculum is designed for beginner programmers, and will start with basic 
 - **Input and Output**: Reading input from users and displaying output
 - **Strings and String Manipulation**: Working with text data effectively
 
-## Unit 2: Data Structures
-- **Lists**: Creating and manipulating Python's dynamic arrays
-- **Tuples**: Working with immutable sequences
-- **Dictionaries**: Using key-value pairs for efficient data lookup
-- **Sets**: Working with collections of unique items
-- **Collections Module**: Advanced container data types
-
-## Unit 3: Control Flow
+## Unit 2: Control Flow
 - **Conditional Statements**: Making decisions with if, elif, and else
 - **Loops**: Repeating actions with for and while loops
 - **Comprehensions**: Concise ways to create data structures
 - **Iterators and Generators**: Efficient sequential data access
 - **Context Managers**: Managing resources with with statements
 
---- ^ DONE / v HAVEN'T STARTED
+## Unit 3: Data Structures
+- **Lists**: Creating and manipulating Python's dynamic arrays
+- **Tuples**: Working with immutable sequences
+- **Dictionaries**: Using key-value pairs for efficient data lookup
+- **Sets**: Working with collections of unique items
+- **Collections Module**: Advanced container data types
 
+--- ^ DONE / v HAVEN'T STARTED
 
 ## Unit 4: Functions and Modules
 - **Functions**: Creating reusable code blocks

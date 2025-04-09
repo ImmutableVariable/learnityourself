@@ -34,7 +34,7 @@ print(f"{a} // {b} = {a // b}")   # 15 // 4 = 3
 print(f"{a} % {b} = {a % b}")     # 15 % 4 = 3
 print(f"{a} ** {b} = {a ** b}")   # 15 ** 4 = 50625
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 **Common Mistakes with Arithmetic Operators**:
@@ -181,7 +181,7 @@ print(f"{a} < {b}: {a < b}")    # 10 < 5: False
 print(f"{a} >= {c}: {a >= c}")  # 10 >= 10: True
 print(f"{a} <= {b}: {a <= b}")  # 10 <= 5: False
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 **Comparing Different Types**:
@@ -356,7 +356,7 @@ user = {"name": "Alice", "age": 25}
 print(f"'name' in user: {'name' in user}")                # True
 print(f"'Alice' in user: {'Alice' in user}")              # False
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 **Common Mistakes with Membership Operators**:
@@ -409,7 +409,7 @@ print(f"~{a} = {~a}")            # ~0101 = 1010 (with sign) = -6
 print(f"{a} << 1 = {a << 1}")    # 0101 << 1 = 1010 = 10
 print(f"{a} >> 1 = {a >> 1}")    # 0101 >> 1 = 0010 = 2
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 **Common Mistakes with Bitwise Operators**:
