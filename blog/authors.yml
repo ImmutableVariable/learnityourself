@@ -1,12 +1,13 @@
 allison:
   name: Allison - ImmutableVariable
   title: Co-Creator of LearnItYourself.dev 
-  description: Im a programmer! I love to learn and teach others :3
+  description: Im a programmer! I love to learn and teach others :3 I know several languages such as Python, JavaScript, Rust, Java, etc!
   url: https://github.com/ImmutableVariable
   image_url: https://github.com/ImmutableVariable.png
   page: true
   socials:
     github: ImmutableVariable
+    twitch: ImmutableVariable
 
 coldie:
   name: JT Le Blanc
