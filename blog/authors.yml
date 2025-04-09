@@ -1,6 +1,6 @@
-alli:
-  name: <AUTHOR NAME YOU WANT TO USE>
-  title: Co-Creator of LearnItYourself.dev # you can pick a different title but i thought this would be a good default and it shows the full title
+allison:
+  name: Allison - ImmutableVariable
+  title: Co-Creator of LearnItYourself.dev 
   url: https://github.com/ImmutableVariable
   image_url: https://github.com/ImmutableVariable.png
   page: true

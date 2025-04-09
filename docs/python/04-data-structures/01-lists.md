@@ -421,95 +421,101 @@ print(f"Three ways to copy: {copy1}, {copy2}, {copy3}")
 
 ## List Comprehensions
 
-List comprehensions provide a concise way to create lists. They offer a more readable and often faster alternative to using loops and `append()` for list creation.
+List comprehensions are a compact way to create lists by applying an expression to each item in an iterable.
 
 ### Basic Syntax
 
 ```python
-# Basic syntax: [expression for item in iterable]
-
-# Create a list of squares from 1 to 5
-squares = [x**2 for x in range(1, 6)]  # [1, 4, 9, 16, 25]
-
-# Create a list of doubled values
-doubled = [x * 2 for x in [1, 2, 3, 4]]  # [2, 4, 6, 8]
-
-# Create a list from characters in a string
-letters = [c for c in "hello"]  # ['h', 'e', 'l', 'l', 'o']
+[expression for item in iterable]
 ```
+
+### Simple List Comprehension Examples
+
+```python
+# Creating a list of squares using a for loop
+squares_loop = []
+for x in range(10):
+    squares_loop.append(x ** 2)
+print(squares_loop)
+
+# Creating the same list using a list comprehension
+squares_comp = [x ** 2 for x in range(10)]
+print(squares_comp)
+```
+<codapi-snippet sandbox="python" editor="python" init-delay="500">
+</codapi-snippet>
+
+```python
+# Converting a list of temperatures from Celsius to Fahrenheit
+celsius = [0, 10, 20, 30, 40]
+fahrenheit = [(9/5) * temp + 32 for temp in celsius]
+print(fahrenheit)  # [32.0, 50.0, 68.0, 86.0, 104.0]
+```
+<codapi-snippet sandbox="python" editor="python" init-delay="500">
+</codapi-snippet>
 
 ### Conditional List Comprehensions
 
+You can add conditions to list comprehensions to filter items:
+
 ```python
-# With a filter condition: [expression for item in iterable if condition]
+# With a filter condition (only even numbers)
+[expression for item in iterable if condition]
+```
 
-# Filter even numbers
-evens = [x for x in range(10) if x % 2 == 0]  # [0, 2, 4, 6, 8]
+```python
+# Getting even numbers from a range
+even_numbers = [x for x in range(20) if x % 2 == 0]
+print(even_numbers)  # [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+```
+<codapi-snippet sandbox="python" editor="python" init-delay="500">
+</codapi-snippet>
 
-# Filter strings by length
-words = ["apple", "banana", "cherry", "kiwi", "pear"]
-short_words = [word for word in words if len(word) < 6]  # ["apple", "kiwi", "pear"]
+```python
+# Filtering out strings that don't start with 'a'
+words = ["apple", "banana", "cherry", "avocado", "grape"]
+a_words = [word for word in words if word.startswith('a')]
+print(a_words)  # ['apple', 'avocado']
+```
+<codapi-snippet sandbox="python" editor="python" init-delay="500">
+</codapi-snippet>
 
-# Using if-else in the expression
-results = ["even" if x % 2 == 0 else "odd" for x in range(5)]  # ["even", "odd", "even", "odd", "even"]
+### Using if-else in List Comprehensions
+
+You can include if-else conditions in the expression part:
+
+```python
+# Syntax with if-else in the expression
+[expression_if_true if condition else expression_if_false for item in iterable]
+```
+
+```python
+# Label numbers as 'even' or 'odd'
+numbers = [1, 2, 3, 4, 5]
+labeled = ["even" if x % 2 == 0 else "odd" for x in numbers]
+print(labeled)  # ['odd', 'even', 'odd', 'even', 'odd']
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
 ### Nested List Comprehensions
 
+List comprehensions can be nested to work with multi-dimensional data:
+
 ```python
-# Create a matrix (nested list)
-matrix = [[i*j for j in range(1, 4)] for i in range(1, 4)]
-# [[1, 2, 3], [2, 4, 6], [3, 6, 9]]
-
-# Flatten a nested list
-nested = [[1, 2], [3, 4], [5, 6]]
-flattened = [item for sublist in nested for item in sublist]
-# [1, 2, 3, 4, 5, 6]
-
-# Filter in nested structures
+# Flattening a 2D list
 matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-even_from_matrix = [num for row in matrix for num in row if num % 2 == 0]
-# [2, 4, 6, 8]
+flattened = [num for row in matrix for num in row]
+print(flattened)  # [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
+<codapi-snippet sandbox="python" editor="python" init-delay="500">
+</codapi-snippet>
 
 ```python
-# List comprehensions examples
-print("Basic list comprehensions:")
-squares = [x**2 for x in range(1, 6)]
-print(f"Squares 1-5: {squares}")
-
-doubled = [x * 2 for x in [1, 2, 3, 4]]
-print(f"Doubled values: {doubled}")
-
-letters = [c for c in "hello"]
-print(f"Characters in 'hello': {letters}")
-
-print("\nConditional list comprehensions:")
-evens = [x for x in range(10) if x % 2 == 0]
-print(f"Even numbers 0-9: {evens}")
-
-words = ["apple", "banana", "cherry", "kiwi", "pear"]
-short_words = [word for word in words if len(word) < 6]
-print(f"Words shorter than 6 letters: {short_words}")
-
-results = ["even" if x % 2 == 0 else "odd" for x in range(5)]
-print(f"Even or odd labels: {results}")
-
-print("\nNested list comprehensions:")
-matrix = [[i*j for j in range(1, 4)] for i in range(1, 4)]
-print("Multiplication table 3x3:")
-for row in matrix:
+# Creating a matrix of multiplication values
+multiplication_table = [[i * j for j in range(1, 6)] for i in range(1, 6)]
+for row in multiplication_table:
     print(row)
-
-nested = [[1, 2], [3, 4], [5, 6]]
-flattened = [item for sublist in nested for item in sublist]
-print(f"Flattened nested list: {flattened}")
-
-matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-even_from_matrix = [num for row in matrix for num in row if num % 2 == 0]
-print(f"Even numbers from matrix: {even_from_matrix}")
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>

@@ -1,0 +1,8 @@
+{
+  "label": "Data Structures",
+  "position": 6,
+  "link": {
+    "type": "generated-index",
+    "description": "Data structures are ways of organizing and storing data so that they can be accessed and modified efficiently. In Python, there are several built-in data structures, including lists, tuples, sets, and dictionaries. Each of these data structures has its own unique properties and use cases."
+  }
+}   

@@ -1,7 +1,7 @@
 ---
 slug: welcome
 title: Welcome to LearnItYourself!
-authors: [coldie, alli]
+authors: [coldie, allison]
 tags: [hello]
 ---
 

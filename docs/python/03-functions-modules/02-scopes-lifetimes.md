@@ -35,11 +35,12 @@ print(x)  # This works too (global variable)
 ```
 <codapi-snippet sandbox="python" editor="basic" init-delay="500" > </codapi-snippet>
 
-We CAN access x from within the function's block (scope). This is because x is a global variable, which means it is defined outside of any function and can be accessed from anywhere in the code.
+We can access x from within the function's block (scope). This is because x is a global variable, which means it is defined outside of any function and can be accessed from anywhere in the code.
 
-#### Global Statement
+#### Global Keyword
 
-You can also declare a global variable inside a function using the `global` statement. This allows you to modify the global variable from within the function. For example:
+You can also declare a global variable inside a function using the `global` statement. The primary use of the `global` keyword is to modify a global variable inside a function. In order to do so, you must declare the variable as global inside the function. For example:
+
 ```python
 x = 10  # Global variable
 def my_function():
@@ -51,3 +52,11 @@ def my_function():
 print(x)  # This works too (global variable)
 ```
 <codapi-snippet sandbox="python" editor="basic" init-delay="500" > </codapi-snippet>
+
+However, using global variables is generally discouraged because it can lead to code that is difficult to understand and maintain. It is better to pass variables as arguments to functions or return values from functions instead of using global variables.
+```python
+def my_function(x):
+    x = 20  # Local variable
+    print(x)  # This works (local variable)
+```
+

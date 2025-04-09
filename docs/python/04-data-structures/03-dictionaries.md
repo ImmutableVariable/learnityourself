@@ -335,34 +335,78 @@ print(f"Items view: {items}")
 
 ## Dictionary Comprehensions
 
-Dictionary comprehensions provide a concise way to create dictionaries:
+Dictionary comprehensions create dictionaries using a similar syntax to list comprehensions.
+
+### Basic Syntax
 
 ```python
-# Basic dictionary comprehension
-# {key_expr: value_expr for item in iterable}
-squares = {x: x**2 for x in range(6)}
-print(f"Squares: {squares}")
+{key_expression: value_expression for item in iterable}
+```
 
-# With a condition
-even_squares = {x: x**2 for x in range(11) if x % 2 == 0}
-print(f"Even squares: {even_squares}")
+### Simple Dictionary Comprehension Examples
 
-# Transform an existing dictionary
-prices = {"apple": 0.99, "banana": 0.59, "orange": 1.29}
-discount_prices = {item: price * 0.8 for item, price in prices.items()}
-print(f"Original prices: {prices}")
-print(f"Discounted prices: {discount_prices}")
+```python
+# Creating a dictionary of squares
+squares_dict = {x: x**2 for x in range(6)}
+print(squares_dict)  # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+```
+<codapi-snippet sandbox="python" editor="python" init-delay="500">
+</codapi-snippet>
 
+```python
 # Creating a dictionary from two lists
 names = ["Alice", "Bob", "Charlie"]
 ages = [25, 30, 35]
 name_to_age = {name: age for name, age in zip(names, ages)}
-print(f"Name to age: {name_to_age}")
+print(name_to_age)  # {'Alice': 25, 'Bob': 30, 'Charlie': 35}
+```
+<codapi-snippet sandbox="python" editor="python" init-delay="500">
+</codapi-snippet>
 
-# Conditionally filtering a dictionary
-scores = {"Alice": 85, "Bob": 92, "Charlie": 78, "David": 95}
-high_scores = {name: score for name, score in scores.items() if score >= 90}
-print(f"High scores: {high_scores}")
+### Conditional Dictionary Comprehensions
+
+You can add conditions to filter items:
+
+```python
+# Dictionary comprehension with a condition
+{key_expression: value_expression for item in iterable if condition}
+```
+
+```python
+# Creating a dictionary of even squares
+even_squares = {x: x**2 for x in range(10) if x % 2 == 0}
+print(even_squares)  # {0: 0, 2: 4, 4: 16, 6: 36, 8: 64}
+```
+<codapi-snippet sandbox="python" editor="python" init-delay="500">
+</codapi-snippet>
+
+```python
+# Filtering a dictionary based on values
+original_dict = {"a": 1, "b": 2, "c": 3, "d": 4, "e": 5}
+filtered_dict = {k: v for k, v in original_dict.items() if v > 2}
+print(filtered_dict)  # {'c': 3, 'd': 4, 'e': 5}
+```
+<codapi-snippet sandbox="python" editor="python" init-delay="500">
+</codapi-snippet>
+
+### Converting Dictionary Values
+
+Dictionary comprehensions are useful for transforming the values in a dictionary:
+
+```python
+# Converting temperature values from Celsius to Fahrenheit
+celsius_temps = {"Monday": 20, "Tuesday": 25, "Wednesday": 22, "Thursday": 28, "Friday": 23}
+fahrenheit_temps = {day: (9/5) * temp + 32 for day, temp in celsius_temps.items()}
+print(fahrenheit_temps)
+```
+<codapi-snippet sandbox="python" editor="python" init-delay="500">
+</codapi-snippet>
+
+```python
+# Creating a dictionary with modified keys
+names = {"alice": 25, "bob": 30, "charlie": 35}
+capitalized_names = {name.capitalize(): age for name, age in names.items()}
+print(capitalized_names)  # {'Alice': 25, 'Bob': 30, 'Charlie': 35}
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>

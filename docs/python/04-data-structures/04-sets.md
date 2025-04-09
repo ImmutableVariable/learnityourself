@@ -326,31 +326,55 @@ print(f"Are Team B and Team C disjoint? {team_b.isdisjoint(team_c)}")
 
 ## Set Comprehensions
 
-Similar to list and dictionary comprehensions, Python supports set comprehensions:
+Set comprehensions create sets using a similar syntax to list comprehensions.
+
+### Basic Syntax
 
 ```python
-# Basic set comprehension
-# {expression for item in iterable}
-squares = {x**2 for x in range(10)}
-print(f"Squares: {squares}")
+{expression for item in iterable}
+```
 
-# With a condition
-even_squares = {x**2 for x in range(10) if x % 2 == 0}
-print(f"Even squares: {even_squares}")
+### Simple Set Comprehension Examples
 
-# Set comprehension with complex expression
-words = ["hello", "world", "python", "programming"]
-word_lengths = {len(word) for word in words}
-print(f"Unique word lengths: {word_lengths}")
+```python
+# Creating a set of squares
+squares_set = {x**2 for x in range(10)}
+print(squares_set)  # Note: Order is not guaranteed in sets
+```
+<codapi-snippet sandbox="python" editor="python" init-delay="500">
+</codapi-snippet>
 
-# Filtering and transforming
-uppercase_vowels = {char.upper() for char in "hello world" if char in "aeiou"}
-print(f"Uppercase vowels: {uppercase_vowels}")
+```python
+# Extracting unique characters from a string
+text = "hello world"
+unique_chars = {char for char in text}
+print(unique_chars)  # {'h', 'e', 'l', 'o', ' ', 'w', 'r', 'd'}
+```
+<codapi-snippet sandbox="python" editor="python" init-delay="500">
+</codapi-snippet>
 
-# Creating sets from other structures
-numbers = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
-unique_squares = {x**2 for x in numbers}
-print(f"Unique squares of numbers: {unique_squares}")
+### Conditional Set Comprehensions
+
+Like list and dictionary comprehensions, set comprehensions can include conditions:
+
+```python
+# Set comprehension with a condition
+{expression for item in iterable if condition}
+```
+
+```python
+# Creating a set of even squares
+even_squares_set = {x**2 for x in range(10) if x % 2 == 0}
+print(even_squares_set)  # {0, 4, 16, 36, 64}
+```
+<codapi-snippet sandbox="python" editor="python" init-delay="500">
+</codapi-snippet>
+
+```python
+# Extracting vowels from a string
+text = "hello world"
+vowels = {char for char in text if char.lower() in "aeiou"}
+print(vowels)  # {'e', 'o'}
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
