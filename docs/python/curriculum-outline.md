@@ -24,15 +24,13 @@ This curriculum is designed for beginner programmers, and will start with basic 
 - **Conditional Statements**: Making decisions with if, elif, and else
 - **Loops**: Repeating actions with for and while loops
 
-## Functions and Modules 🟣
+## Functions and Modules 🟢 (coldie approved)
 - **Defining Functions**: Creating reusable blocks of code
 - **Function Parameters and Return Values**: Passing data to functions and getting results back
 - **Scope and Lifetime of Variables**: Understanding local and global variables
 - **Modules and Packages**: Organizing code into reusable modules and packages
 
---- ^ DONE / - Incomplete / v HAVEN'T STARTED ---
-
-## Data Structures 🟡🔵
+## Data Structures 🔵🟣
 - **Lists**: Creating and manipulating lists
 - **Tuples**: Understanding immutable sequences
 - **Dictionaries**: Key-value pairs for data storage
