@@ -174,21 +174,25 @@ Sets support powerful mathematical operations:
 set_a = {1, 2, 3, 4, 5}
 set_b = {4, 5, 6, 7, 8}
 
-# Union: elements in either set
+# Union: elements in either set (all unique elements from both sets combined)
+# Think of it as: "Give me all elements that are in A OR in B (or both)"
 union_result = set_a | set_b  # Alternative: set_a.union(set_b)
-print(f"Union: {union_result}")
+print(f"Union: {union_result}")  # {1, 2, 3, 4, 5, 6, 7, 8}
 
-# Intersection: elements in both sets
+# Intersection: elements in both sets (only elements that appear in both sets)
+# Think of it as: "Give me only elements that are in A AND in B"
 intersection_result = set_a & set_b  # Alternative: set_a.intersection(set_b)
-print(f"Intersection: {intersection_result}")
+print(f"Intersection: {intersection_result}")  # {4, 5}
 
 # Difference: elements in set_a but not in set_b
+# Think of it as: "Give me elements that are in A BUT NOT in B"
 difference_result = set_a - set_b  # Alternative: set_a.difference(set_b)
-print(f"Difference (A - B): {difference_result}")
+print(f"Difference (A - B): {difference_result}")  # {1, 2, 3}
 
 # Symmetric difference: elements in either set, but not in both
+# Think of it as: "Give me elements that are in A OR in B, BUT NOT in both"
 symmetric_difference = set_a ^ set_b  # Alternative: set_a.symmetric_difference(set_b)
-print(f"Symmetric difference: {symmetric_difference}")
+print(f"Symmetric difference: {symmetric_difference}")  # {1, 2, 3, 6, 7, 8}
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
