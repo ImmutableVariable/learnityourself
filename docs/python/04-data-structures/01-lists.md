@@ -3,20 +3,19 @@ sidebar_position: 1
 ---
 
 # Lists
+A key concept in programming is Lists (similar to the well known Array). A list is a data structure that allows you to store collection of data next to each other in memory. Then, you are able to access this data by using an index. Lists are also ordered, this means that all elements of a list will maintain their order (ex: `[1, 2, 3]` . The first value here will always be the first, it will not change order). They are also mutable and can be modified by adding, removing, or changing elements.
 
-Lists are one of Python's most versatile and commonly used data structures. They allow you to store collections of ordered, mutable items in a single container. Lists can contain elements of different data types and can be modified after creation.
+## Some differences
 
-## Characteristics of Lists
+Unlike some other languages, lists in python are heterogeneous. This means that lists can store multiple types together (ex: a `String` and a `Int` in the same array). Python's lists are also dynamic, this means that they automatically resize whenever new elements are added. 
 
-- **Ordered**: Elements maintain their order and can be accessed by index
-- **Mutable**: Can be modified after creation (add, remove, or change elements)
-- **Heterogeneous**: Can contain elements of different data types
-- **Dynamic sizing**: Automatically resize as elements are added or removed
-- **Nestable**: Can contain other lists as elements
+*Note: You can also nest lists inside of lists!*
 
 ## Creating Lists
 
-You can create a list by placing comma-separated values inside square brackets:
+To create a list, simple place a square bracket `[`, then enter a comma separated set of values (ex: `1, 2, 3`), followed by a closing square bracket `]`
+
+View this sample below!
 
 ```python
 # Empty list
@@ -34,20 +33,11 @@ mixed = [1, "hello", 3.14, True]
 # Nested lists
 nested = [1, [2, 3], [4, 5, 6]]
 
-# Create a list using the list() constructor
+# You can also create a list with a builtin.
 numbers_alt = list([1, 2, 3, 4, 5])
 
-# Create a list from another sequence type
+# You can also create a list from another sequence type
 chars = list("Python")  # ['P', 'y', 't', 'h', 'o', 'n']
-```
-
-```python
-# Creating and displaying lists
-numbers = [1, 2, 3, 4, 5]
-fruits = ["apple", "banana", "cherry"]
-mixed = [42, "hello", 3.14, True]
-nested = [1, [2, 3], [4, 5, 6]]
-chars = list("Python")
 
 print(f"Numbers: {numbers}")
 print(f"Fruits: {fruits}")
@@ -66,7 +56,7 @@ print(f"Length of fruits: {len(fruits)}")
 
 ## Accessing List Elements
 
-Python uses zero-based indexing, meaning the first element is at index 0:
+Python uses zero-based indexing, meaning the first element is at index 0. If you try to access a invalid index (one that is not within the sequence), it will throw a error (show below on the last lines).
 
 ### Indexing
 
@@ -84,11 +74,6 @@ second_last = fruits[-2]  # "orange"
 # Accessing nested elements
 nested = [1, [2, 3], [4, 5, 6]]
 inner_element = nested[1][0]  # 2
-```
-
-```python
-fruits = ["apple", "banana", "cherry", "orange", "kiwi"]
-nested = [1, [2, 3], [4, 5, 6]]
 
 # Accessing elements by index
 print(f"First fruit (index 0): {fruits[0]}")
@@ -112,7 +97,7 @@ except IndexError as e:
 
 ### Slicing
 
-You can extract a portion of a list using slicing:
+Python also provides us with slicing in order to get slices (sections) of a list
 
 ```python
 fruits = ["apple", "banana", "cherry", "orange", "kiwi", "mango"]
@@ -143,12 +128,7 @@ reversed_fruits = fruits[::-1]  # ["mango", "kiwi", "orange", "cherry", "banana"
 
 # Negative indices in slicing
 neg_slice = fruits[-4:-1]  # ["cherry", "orange", "kiwi"]
-```
 
-```python
-fruits = ["apple", "banana", "cherry", "orange", "kiwi", "mango"]
-
-# Slicing examples
 print(f"Original list: {fruits}")
 print(f"First three fruits [0:3]: {fruits[0:3]}")
 print(f"First three fruits [:3]: {fruits[:3]}")
@@ -159,7 +139,8 @@ print(f"From index 1 to 5, stepping by 2 [1:6:2]: {fruits[1:6:2]}")
 print(f"Reversed list [::-1]: {fruits[::-1]}")
 print(f"Negative indices slice [-4:-1]: {fruits[-4:-1]}")
 
-# Slicing with indices beyond list length is safe
+# Unlike before,
+# slicing beyond the list is NOT a error
 print(f"Slice beyond list bounds [2:100]: {fruits[2:100]}")
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
@@ -167,7 +148,7 @@ print(f"Slice beyond list bounds [2:100]: {fruits[2:100]}")
 
 ## Modifying Lists
 
-Lists are mutable, meaning you can change their content after creation:
+Lists are mutable (changeable), meaning you can change their content after creation:
 
 ### Changing Elements
 
@@ -183,6 +164,8 @@ fruits[1:3] = ["blackberry", "strawberry"]  # ["apple", "blackberry", "strawberr
 # Replace with a different number of elements
 fruits[1:3] = ["peach", "pear", "plum"]  # ["apple", "peach", "pear", "plum", "orange", "kiwi"]
 ```
+
+Here is the same sample with some print lines!
 
 ```python
 # Modifying list elements
@@ -210,52 +193,41 @@ print(f"After replacing with fewer elements: {fruits}")
 
 ### Adding Elements
 
-```python
-fruits = ["apple", "banana", "cherry"]
+Along with replacing elements, you can also add them!
 
-# Add an element to the end
-fruits.append("orange")  # ["apple", "banana", "cherry", "orange"]
-
-# Insert an element at a specific position
-fruits.insert(1, "mango")  # ["apple", "mango", "banana", "cherry", "orange"]
-
-# Extend the list with another list
-fruits.extend(["kiwi", "papaya"])  # ["apple", "mango", "banana", "cherry", "orange", "kiwi", "papaya"]
-
-# Concatenate lists with + operator
-more_fruits = fruits + ["melon", "pineapple"]  # creates a new list
-```
 
 ```python
 # Adding elements to lists
 fruits = ["apple", "banana", "cherry"]
 print(f"Original list: {fruits}")
 
-# Append to the end
+# Add a element to the end of the list
 fruits.append("orange")
 print(f"After appending 'orange': {fruits}")
 
-# Insert at position
+# Insert a value into a specific position (index)
 fruits.insert(1, "mango")
 print(f"After inserting 'mango' at index 1: {fruits}")
 
-# Extend with another list
+# Extend by adding another list!
 fruits.extend(["kiwi", "papaya"])
 print(f"After extending with ['kiwi', 'papaya']: {fruits}")
 
-# Concatenate with + operator
+# Concatenate two lists with + operator
 more_fruits = fruits + ["melon", "pineapple"]
 print(f"New concatenated list: {more_fruits}")
 print(f"Original list (unchanged by +): {fruits}")
 
-# Adding an element with slicing
-fruits[len(fruits):] = ["grape"]
+# You can also add a element with slicing!
+fruits[len(fruits):] = ["grape"] 
 print(f"After adding with slicing: {fruits}")
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
 ### Removing Elements
+
+You can also remove elements from a list!
 
 ```python
 fruits = ["apple", "banana", "cherry", "orange", "kiwi", "mango"]
@@ -279,145 +251,6 @@ del fruits[1:3]  # fruits = ["apple", "orange", "kiwi"]
 # Clear the list (remove all elements)
 fruits.clear()  # fruits = []
 ```
-
-```python
-# Removing elements from lists
-fruits = ["apple", "banana", "cherry", "orange", "kiwi", "mango"]
-print(f"Original list: {fruits}")
-
-# Remove by value
-fruits.remove("cherry")
-print(f"After removing 'cherry': {fruits}")
-
-# Try to remove a non-existent value
-try:
-    fruits.remove("pineapple")
-except ValueError as e:
-    print(f"Error: {e}")
-
-# Pop with index
-removed = fruits.pop(1)
-print(f"Popped element at index 1: {removed}")
-print(f"List after pop(1): {fruits}")
-
-# Pop last element
-last = fruits.pop()
-print(f"Popped last element: {last}")
-print(f"List after pop(): {fruits}")
-
-# Delete by index
-del fruits[1]
-print(f"List after del fruits[1]: {fruits}")
-
-# Reset for next examples
-fruits = ["apple", "banana", "cherry", "orange", "kiwi"]
-print(f"\nReset list: {fruits}")
-
-# Delete a slice
-del fruits[1:3]
-print(f"After del fruits[1:3]: {fruits}")
-
-# Clear the list
-fruits.clear()
-print(f"After clear(): {fruits}")
-```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
-</codapi-snippet>
-
-## List Methods
-
-Python provides many useful methods for working with lists:
-
-```python
-numbers = [3, 1, 4, 1, 5, 9, 2]
-
-# Count occurrences of a value
-count_of_1 = numbers.count(1)  # 2
-
-# Find the index of a value (first occurrence)
-index_of_5 = numbers.index(5)  # 4
-
-# Find the index with start and end parameters
-index_of_1_after_pos_1 = numbers.index(1, 2)  # 3 (finds the second '1')
-
-# Sort the list in-place
-numbers_for_sorting = numbers.copy()
-numbers_for_sorting.sort()  # [1, 1, 2, 3, 4, 5, 9]
-
-# Sort with a key function
-words = ["apple", "Banana", "cherry"]
-words.sort(key=str.lower)  # ["apple", "Banana", "cherry"] (case-insensitive)
-
-# Sort in reverse order
-numbers_for_reverse = numbers.copy()
-numbers_for_reverse.sort(reverse=True)  # [9, 5, 4, 3, 2, 1, 1]
-
-# Reverse the list in-place (change order, not sorting)
-numbers_to_reverse = numbers.copy()
-numbers_to_reverse.reverse()  # [2, 9, 5, 1, 4, 1, 3]
-
-# Copy a list
-numbers_copy = numbers.copy()  # [3, 1, 4, 1, 5, 9, 2]
-
-# Alternative ways to copy
-numbers_copy2 = list(numbers)
-numbers_copy3 = numbers[:]
-```
-
-```python
-# List methods demonstration
-numbers = [3, 1, 4, 1, 5, 9, 2]
-print(f"Original list: {numbers}")
-
-# Count occurrences
-print(f"Count of 1: {numbers.count(1)}")
-print(f"Count of 10: {numbers.count(10)}")  # 0 if not present
-
-# Find index
-print(f"Index of 5: {numbers.index(5)}")
-print(f"Index of 1: {numbers.index(1)}")  # Returns first occurrence
-
-# Find index with start parameter
-print(f"Index of 1 after position 1: {numbers.index(1, 2)}")
-
-try:
-    print(numbers.index(10))  # Will raise ValueError
-except ValueError as e:
-    print(f"Error finding 10: {e}")
-
-# Sort
-numbers_for_sorting = numbers.copy()
-numbers_for_sorting.sort()
-print(f"Sorted list: {numbers_for_sorting}")
-print(f"Original remains unchanged: {numbers}")
-
-# Sort with key and reverse
-words = ["apple", "Banana", "cherry", "Apple"]
-words_copy = words.copy()
-words_copy.sort()
-print(f"Default sort (case-sensitive): {words_copy}")
-
-words_copy = words.copy()
-words_copy.sort(key=str.lower)
-print(f"Case-insensitive sort: {words_copy}")
-
-words_copy = words.copy()
-words_copy.sort(reverse=True)
-print(f"Reverse sort: {words_copy}")
-
-# Reverse
-numbers_to_reverse = numbers.copy()
-numbers_to_reverse.reverse()
-print(f"Reversed list: {numbers_to_reverse}")
-
-# Copying
-copy1 = numbers.copy()
-copy2 = list(numbers)
-copy3 = numbers[:]
-print(f"Three ways to copy: {copy1}, {copy2}, {copy3}")
-```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
-</codapi-snippet>
 
 ## List Comprehensions
 
@@ -552,6 +385,103 @@ words = ["apple", "Banana", "cherry"]
 sorted_words = sorted(words, key=str.lower)  # ["apple", "Banana", "cherry"]
 ```
 
+## List Methods
+
+Python also provides many useful methods for working with lists:
+
+```python
+numbers = [3, 1, 4, 1, 5, 9, 2]
+
+# Count occurrences of a value
+count_of_1 = numbers.count(1)  # 2
+
+# Find the index of a value (first occurrence)
+index_of_5 = numbers.index(5)  # 4
+
+# Find the index with start and end parameters
+index_of_1_after_pos_1 = numbers.index(1, 2)  # 3 (finds the second '1')
+
+# Copy a list
+numbers_copy = numbers.copy()  # [3, 1, 4, 1, 5, 9, 2]
+
+# Alternative ways to copy
+numbers_copy2 = list(numbers)
+numbers_copy3 = numbers[:]
+
+# Sort the list in-place
+numbers_for_sorting = numbers.copy()
+numbers_for_sorting.sort()  # [1, 1, 2, 3, 4, 5, 9]
+
+# Sort with a key function
+words = ["apple", "Banana", "cherry"]
+words.sort(key=str.lower)  # ["apple", "Banana", "cherry"] (case-insensitive)
+
+# Sort in reverse order
+numbers_for_reverse = numbers.copy()
+numbers_for_reverse.sort(reverse=True)  # [9, 5, 4, 3, 2, 1, 1]
+
+# Reverse the list in-place (change order, not sorting)
+numbers_to_reverse = numbers.copy()
+numbers_to_reverse.reverse()  # [2, 9, 5, 1, 4, 1, 3]
+```
+
+```python
+# List methods demonstration
+numbers = [3, 1, 4, 1, 5, 9, 2]
+print(f"Original list: {numbers}")
+
+# Count occurrences
+print(f"Count of 1: {numbers.count(1)}")
+print(f"Count of 10: {numbers.count(10)}")  # 0 if not present
+
+# Find index
+print(f"Index of 5: {numbers.index(5)}")
+print(f"Index of 1: {numbers.index(1)}")  # Returns first occurrence
+
+# Find index with start parameter
+print(f"Index of 1 after position 1: {numbers.index(1, 2)}")
+
+try:
+    # Trying to get a index that is outside 
+    # the range will also result in a error
+    print(numbers.index(10))  # Will raise ValueError
+except ValueError as e:
+    print(f"Error finding 10: {e}")
+
+# Sort
+numbers_for_sorting = numbers.copy()
+numbers_for_sorting.sort()
+print(f"Sorted list: {numbers_for_sorting}")
+print(f"Original remains unchanged: {numbers}")
+
+# Sort with key and reverse
+words = ["apple", "Banana", "cherry", "Apple"]
+words_copy = words.copy()
+words_copy.sort()
+print(f"Default sort (case-sensitive): {words_copy}")
+
+words_copy = words.copy()
+words_copy.sort(key=str.lower)
+print(f"Case-insensitive sort: {words_copy}")
+
+words_copy = words.copy()
+words_copy.sort(reverse=True)
+print(f"Reverse sort: {words_copy}")
+
+# Reverse
+numbers_to_reverse = numbers.copy()
+numbers_to_reverse.reverse()
+print(f"Reversed list: {numbers_to_reverse}")
+
+# Copying
+copy1 = numbers.copy()
+copy2 = list(numbers)
+copy3 = numbers[:]
+print(f"Three ways to copy: {copy1}, {copy2}, {copy3}")
+```
+<codapi-snippet sandbox="python" editor="python" init-delay="500">
+</codapi-snippet>
+
 ### Membership and Concatenation
 
 ```python
@@ -567,95 +497,92 @@ no_orange = "orange" not in fruits  # True
 # Concatenate lists
 more_fruits = ["orange", "kiwi"]
 combined = fruits + more_fruits  # ["apple", "banana", "cherry", "orange", "kiwi"]
-
-# Repeat a list
-repeated = fruits * 2  # ["apple", "banana", "cherry", "apple", "banana", "cherry"]
 ```
 
+## Generator Expressions
+
+Generator expressions are similar to list comprehensions but create generators instead of lists. They use parentheses instead of square brackets and generate items one at a time, which makes them more memory-efficient for large datasets.
+
+### Basic Syntax
+
 ```python
-# Common list operations and functions
-numbers = [3, 1, 4, 1, 5, 9, 2]
-print(f"List: {numbers}")
-
-print(f"Length: {len(numbers)}")
-print(f"Maximum: {max(numbers)}")
-print(f"Minimum: {min(numbers)}")
-print(f"Sum: {sum(numbers)}")
-print(f"Sorted: {sorted(numbers)}")
-print(f"Reverse sorted: {sorted(numbers, reverse=True)}")
-
-# Sort with custom key
-words = ["apple", "Banana", "cherry", "Apple"]
-print(f"\nWords: {words}")
-print(f"Case-insensitive sorted: {sorted(words, key=str.lower)}")
-
-# Membership tests
-fruits = ["apple", "banana", "cherry"]
-print(f"\nFruits: {fruits}")
-print(f"Is 'apple' in fruits? {'apple' in fruits}")
-print(f"Is 'mango' in fruits? {'mango' in fruits}")
-print(f"Is 'orange' not in fruits? {'orange' not in fruits}")
-
-# Concatenation and repetition
-more_fruits = ["orange", "kiwi"]
-print(f"\nMore fruits: {more_fruits}")
-combined = fruits + more_fruits
-print(f"Combined lists: {combined}")
-
-repeated = fruits * 2
-print(f"Repeated list: {repeated}")
+(expression for item in iterable)
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
-</codapi-snippet>
 
-## List Efficiency and Performance
-
-Understanding the efficiency of list operations is important for writing performant code, especially when working with large datasets.
-
-### Time Complexity
-
-| Operation | Time Complexity | Description |
-|-----------|-----------------|-------------|
-| `list[i]` | O(1) | Access by index |
-| `list.append(x)` | O(1) | Add to end |
-| `list.pop()` | O(1) | Remove from end |
-| `list.insert(i, x)` | O(n) | Insert at position |
-| `list.pop(i)` | O(n) | Remove by index |
-| `list.remove(x)` | O(n) | Remove by value |
-| `x in list` | O(n) | Search by value |
-| `list.sort()` | O(n log n) | Sort in-place |
-| `sorted(list)` | O(n log n) | Return sorted copy |
-
-### Memory Considerations
+### Examples of Generator Expressions
 
 ```python
+# List comprehension vs generator expression
 import sys
 
-# Demonstrate memory usage
-small_list = [1, 2, 3, 4, 5]
-large_list = list(range(1000))
+# List comprehension - creates the entire list in memory
+squares_list = [x**2 for x in range(1000)]
+print(f"List size: {sys.getsizeof(squares_list)} bytes")
 
-print(f"Small list size: {sys.getsizeof(small_list)} bytes")
-print(f"Large list size: {sys.getsizeof(large_list)} bytes")
-
-# List vs generator expression for large sequences
-import time
-
-# Time to create a large list
-start = time.time()
-large_list = [x**2 for x in range(1000000)]
-list_time = time.time() - start
-
-# Time to use a generator expression 
-start = time.time()
-sum(x**2 for x in range(1000000))
-gen_time = time.time() - start
-
-print(f"List comprehension time: {list_time:.4f} seconds")
-print(f"Generator expression time: {gen_time:.4f} seconds")
+# Generator expression - generates values on-the-fly
+squares_gen = (x**2 for x in range(1000))
+print(f"Generator size: {sys.getsizeof(squares_gen)} bytes")
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
+
+```python
+# Using a generator expression
+gen = (x**2 for x in range(5))
+for item in gen:
+    print(item)  # Prints 0, 1, 4, 9, 16
+```
+<codapi-snippet sandbox="python" editor="python" init-delay="500">
+</codapi-snippet>
+
+```python
+# Converting a generator to a list
+gen = (x**2 for x in range(5))
+list_from_gen = list(gen)
+print(list_from_gen)  # [0, 1, 4, 9, 16]
+```
+<codapi-snippet sandbox="python" editor="python" init-delay="500">
+</codapi-snippet>
+
+### Passing Generator Expressions to Functions
+
+Generator expressions can be passed directly to functions that consume iterables:
+
+```python
+# Sum of squares
+total = sum(x**2 for x in range(10))
+print(total)  # 285
+
+# Finding the maximum square
+max_square = max(x**2 for x in range(10))
+print(max_square)  # 81
+```
+<codapi-snippet sandbox="python" editor="python" init-delay="500">
+</codapi-snippet>
+
+## Performance Considerations
+
+Comprehensions are not only more concise but often faster than equivalent loop constructs:
+
+```python
+import time
+
+# Measure time for a regular loop
+start_time = time.time()
+squares_loop = []
+for i in range(10000000):
+    squares_loop.append(i * i)
+loop_time = time.time() - start_time
+
+# Measure time for a list comprehension
+start_time = time.time()
+squares_comp = [i * i for i in range(10000000)]
+comp_time = time.time() - start_time
+
+print(f"Loop time: {loop_time:.4f} seconds")
+print(f"Comprehension time: {comp_time:.4f} seconds")
+print(f"Comprehension is {loop_time/comp_time:.2f}x faster")
+```
 
 ## Common Patterns and Best Practices
 
