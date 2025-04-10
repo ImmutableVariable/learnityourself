@@ -37,7 +37,7 @@ This curriculum is designed for beginner programmers, and will start with basic 
 - **Sets**: Unordered collections of unique elements
 - **Comprehensions**: Creating lists, sets, and dictionaries in a concise way
 
-## Object-Oriented Programming (OOP) 🔴
+## Object-Oriented Programming (OOP) 🔵🟣 (needs to have some way to reference decorators at a base level. currently in unlabeled)
 - **Classes and Objects**: Understanding the basics of OOP
 - **Inheritance**: Creating new classes from existing classes
 - **Polymorphism**: Using objects of different classes in a uniform way
