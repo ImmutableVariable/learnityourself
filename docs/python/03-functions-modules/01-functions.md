@@ -76,7 +76,7 @@ greet("Alice")  # "Alice" is used instead of the default value
 ```
 <codapi-snippet sandbox="python" init-delay="500" ></codapi-snippet>
 
-Note: Default parameters must be defined after non-default parameters in the function signature. For example:
+Default parameters must be defined after non-default parameters in the function signature. For example:
 
 ```python
 def greet(name, greeting="Hello"):  # This is correct
