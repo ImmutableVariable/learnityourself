@@ -1,19 +1,10 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Dictionaries
 
-Dictionaries are one of Python's most powerful and versatile data structures. They store data as key-value pairs, allowing for efficient lookups, insertion, and deletion. Unlike sequences (like lists or tuples), dictionaries use keys for indexing rather than numerical indices.
-
-## Characteristics of Dictionaries
-
-- **Key-Value Pairs**: Each value is associated with a unique key
-- **Mutable**: Can be modified after creation
-- **Unordered** (before Python 3.7): No guaranteed order of items
-- **Ordered** (since Python 3.7): Items maintain insertion order
-- **Dynamic**: Can grow or shrink as needed
-- **Keys must be hashable**: Immutable types like strings, numbers, or tuples (containing only immutable objects)
+Dictionaries, also known as associative arrays or hash maps, are a built-in data structure in Python that store data in key-value pairs. They are pretty versatile and allow for fast lookups, insertions, and deletions. Dictionaries are mutable, meaning you can change their contents after creation. It is important to note that dictionaries are unordered collections, meaning the order of items is not guaranteed.
 
 ## Creating Dictionaries
 
@@ -24,13 +15,20 @@ There are several ways to create dictionaries in Python:
 empty_dict = {}
 empty_dict2 = dict()
 
-# Dictionary with initial values
-student = {"name": "John", "age": 20, "courses": ["Math", "Science"]}
+# All the vaolues within a dictionary are key-value pairs.
+# After creating a dictionary, you can then look up values using the keys.
+# ex: `student["name"]` would return the value of the key "name" within the student dictionary. ("John")
+student = {
+    #<key>: <value> 
+    "name": "John", 
+    "age": 20, 
+    "courses": ["Math", "Science"]
+}
 
 # Using the dict() constructor with keyword arguments
 employee = dict(name="Alice", position="Developer", salary=75000)
 
-# From a sequence of key-value pairs
+# From a sequence of key-value pairs (key, value)
 items = [("apple", 0.99), ("banana", 0.59), ("orange", 1.29)]
 prices = dict(items)
 
@@ -40,24 +38,6 @@ squares = {x: x**2 for x in range(6)}
 # Using the fromkeys() method to create a dictionary with default values
 keys = ["a", "b", "c"]
 default_dict = dict.fromkeys(keys, 0)  # All keys mapped to 0
-```
-
-```python
-# Creating dictionaries demonstration
-empty_dict = {}
-empty_dict2 = dict()
-
-student = {"name": "John", "age": 20, "courses": ["Math", "Science"]}
-
-employee = dict(name="Alice", position="Developer", salary=75000)
-
-items = [("apple", 0.99), ("banana", 0.59), ("orange", 1.29)]
-prices = dict(items)
-
-squares = {x: x**2 for x in range(6)}
-
-keys = ["a", "b", "c"]
-default_dict = dict.fromkeys(keys, 0)
 
 # Display all dictionaries
 print(f"Empty dictionary: {empty_dict}")
@@ -80,13 +60,20 @@ print(f"Number of entries in squares: {len(squares)}")
 
 ## Accessing Dictionary Elements
 
+One of the key features of dictionaries is the ability to access values using their keys. Along with this, the lookup time for dictionaries is very fast (much faster than lists, tuples, etc.) due to the way they are implemented. 
+
 ### Using Keys
+
+This is how you can access a value within a dictionary using its key:
 
 ```python
 student = {"name": "John", "age": 20, "courses": ["Math", "Science"]}
 
 # Access a value using its key
 name = student["name"]  # "John"
+age = student["age"]  # 20
+print(f"Name: {name}")
+print(f"Age: {age}")
 
 # Accessing a key that doesn't exist will raise a KeyError
 try:
@@ -105,34 +92,9 @@ print(f"Grade with default: {grade}")
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
-```python
-# Accessing dictionary elements
-student = {"name": "John", "age": 20, "courses": ["Math", "Science"]}
-
-# Using square bracket notation
-print(f"Name: {student['name']}")
-print(f"Age: {student['age']}")
-print(f"Courses: {student['courses']}")
-
-# Accessing lists inside dictionaries
-print(f"First course: {student['courses'][0]}")
-
-# Using the get method
-print(f"\nUsing get() method:")
-print(f"Name: {student.get('name')}")
-print(f"Grade (non-existent key): {student.get('grade')}")
-print(f"Grade with default: {student.get('grade', 'N/A')}")
-
-# Demonstrating KeyError
-try:
-    grade = student["grade"]
-except KeyError as e:
-    print(f"\nError when using ['grade']: {e}")
-```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
-</codapi-snippet>
-
 ### Checking if a Key Exists
+
+You can also check if a key exists using the `in` operator:
 
 ```python
 student = {"name": "John", "age": 20, "courses": ["Math", "Science"]}
@@ -158,6 +120,8 @@ else:
 </codapi-snippet>
 
 ## Modifying Dictionaries
+
+Dictionaries are a mutable data type. This means that you can add, change, or remove items from a dictionary after it has been created.
 
 ### Adding and Changing Values
 
@@ -208,6 +172,8 @@ print(f"After clear(): {student}")  # {}
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
+### Modifying Dictionaries Recap
+
 ```python
 # Modifying dictionaries
 student = {"name": "John", "age": 20}
@@ -246,7 +212,7 @@ print(f"After clear(): {student}")
 
 ## Dictionary Methods
 
-Python provides several methods for working with dictionaries:
+Python also provides us with multiple methods in order to work efficiently with dictionaries.
 
 ```python
 student = {
@@ -255,7 +221,7 @@ student = {
     "courses": ["Math", "Science"]
 }
 
-# Get all keys
+# Get all keys in a dictionary  
 keys = student.keys()
 print(f"Keys: {keys}")
 
@@ -270,11 +236,6 @@ print(f"Items: {items}")
 # Create a copy of a dictionary
 student_copy = student.copy()
 
-# setdefault() - get value if key exists, otherwise set default and return it
-email = student.setdefault("email", "no-email@example.com")
-print(f"Email (setdefault): {email}")
-print(f"Updated student: {student}")
-
 # Note that keys(), values(), and items() return view objects
 # They dynamically reflect changes to the dictionary
 student["grade"] = "A"
@@ -283,59 +244,9 @@ print(f"Updated keys view: {keys}")
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
-```python
-# Dictionary methods demonstration
-student = {
-    "name": "John",
-    "age": 20,
-    "courses": ["Math", "Science"]
-}
-print(f"Original student: {student}")
-
-# Get views of dictionary
-keys = student.keys()
-values = student.values()
-items = student.items()
-
-print(f"\nKeys: {keys}")
-print(f"Values: {values}")
-print(f"Items: {items}")
-
-# Convert views to lists if needed
-keys_list = list(keys)
-values_list = list(values)
-items_list = list(items)
-
-print(f"\nKeys as list: {keys_list}")
-print(f"Values as list: {values_list}")
-print(f"Items as list: {items_list}")
-
-# Copy the dictionary
-student_copy = student.copy()
-print(f"\nCopy of student: {student_copy}")
-
-# setdefault() demonstration
-email = student.setdefault("email", "no-email@example.com")
-print(f"\nEmail (after setdefault): {email}")
-print(f"Student after setdefault: {student}")
-
-# Set a key that already exists
-name = student.setdefault("name", "Jane")  # Won't change as key exists
-print(f"Name (after setdefault): {name}")
-print(f"Student (name unchanged): {student}")
-
-# Show that views update automatically
-student["grade"] = "A"
-print(f"\nAfter adding grade, keys view: {keys}")
-print(f"Values view: {values}")
-print(f"Items view: {items}")
-```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
-</codapi-snippet>
-
 ## Dictionary Comprehensions
 
-Dictionary comprehensions create dictionaries using a similar syntax to list comprehensions.
+Dictionaries also support comprehensions, which allow you to create dictionaries in a concise way. This is similar to list comprehensions but uses curly braces `{}` instead of square brackets `[]`.
 
 ### Basic Syntax
 
@@ -348,6 +259,8 @@ Dictionary comprehensions create dictionaries using a similar syntax to list com
 ```python
 # Creating a dictionary of squares
 squares_dict = {x: x**2 for x in range(6)}
+# (x: x**2) is the key-value pair,
+# where x is the key and x**2 is the value.
 print(squares_dict)  # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
@@ -365,7 +278,7 @@ print(name_to_age)  # {'Alice': 25, 'Bob': 30, 'Charlie': 35}
 
 ### Conditional Dictionary Comprehensions
 
-You can add conditions to filter items:
+You can also add a condition to filter items like you would with list comprehensions:
 
 ```python
 # Dictionary comprehension with a condition
@@ -383,15 +296,17 @@ print(even_squares)  # {0: 0, 2: 4, 4: 16, 6: 36, 8: 64}
 ```python
 # Filtering a dictionary based on values
 original_dict = {"a": 1, "b": 2, "c": 3, "d": 4, "e": 5}
-filtered_dict = {k: v for k, v in original_dict.items() if v > 2}
+filtered_dict = {key: value for key, value in original_dict.items() if value > 2}
 print(filtered_dict)  # {'c': 3, 'd': 4, 'e': 5}
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
-### Converting Dictionary Values
+The code above creates a new dictionary `filtered_dict` that only includes items from `original_dict` where the value is greater than 2. 
 
-Dictionary comprehensions are useful for transforming the values in a dictionary:
+### Converting Dictionary Valuess
+
+Dictionary comprehensions are a powerful tool for transforming the values in a dictionary. For example, if you have a dictionary of temperatures in Celsius, you can use a dictionary comprehension to convert them all to Fahrenheit:
 
 ```python
 # Converting temperature values from Celsius to Fahrenheit
@@ -488,10 +403,10 @@ people = [
 # Group by city
 by_city = {}
 for person in people:
-    city = person["city"]
-    if city not in by_city:
-        by_city[city] = []
-    by_city[city].append(person["name"])
+    city = person["city"] # Get the city from the person dictionary
+    if city not in by_city: # if the city does not exist in the by_city dictionary, 
+        by_city[city] = [] # create a new list for that city
+    by_city[city].append(person["name"]) # now that a city exists, append the name of the person to the list
 
 print(f"People by city: {by_city}")
 ```
@@ -551,6 +466,8 @@ Python's `collections` module provides specialized dictionary variants:
 
 ### defaultdict
 
+A defaultdict is a dictionary that provides a default value for keys that do not exist.
+
 ```python
 from collections import defaultdict
 
@@ -568,8 +485,10 @@ grouped_words = defaultdict(list)
 words = ["apple", "ant", "banana", "ball", "cat", "car"]
 
 for word in words:
-    # Group by first letter
+    # Append the word to the dictionary under its first letter
+    # The defaultdict will create a new list if the key doesn't exist
     grouped_words[word[0]].append(word)
+
 
 print(f"Words grouped by first letter: {dict(grouped_words)}")
 ```
@@ -577,6 +496,8 @@ print(f"Words grouped by first letter: {dict(grouped_words)}")
 </codapi-snippet>
 
 ### OrderedDict
+
+A specialized dictionary that maintains the order of keys as they were added. This is particularly useful when you need to preserve the order of items.
 
 ```python
 from collections import OrderedDict
@@ -619,6 +540,8 @@ print(f"After popitem(last=False): {ordered}")
 
 ### Counter
 
+A counter is a dictionary-like object that keeps track of the frequency of elements in an iterable. 
+
 ```python
 from collections import Counter
 
@@ -635,6 +558,7 @@ char_counts.update("missouri")
 print(f"After update with 'missouri': {char_counts}")
 
 # Arithmetic with Counters
+# Counter initialized with counts for 'a', 'b', and 'c'.
 counter1 = Counter(a=3, b=1, c=2)
 counter2 = Counter(a=1, b=2, d=3)
 
@@ -692,19 +616,6 @@ print(f"Dictionary lookups are {large_list_lookup/large_dict_lookup:.1f}x faster
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
-### Time Complexity
-
-| Operation | Average Case | Worst Case |
-|-----------|--------------|------------|
-| k in d | O(1) | O(n) |
-| d[k] | O(1) | O(n) |
-| d[k] = v | O(1) | O(n) |
-| del d[k] | O(1) | O(n) |
-| len(d) | O(1) | O(1) |
-| d.keys() | O(1) | O(1) |
-| d.values() | O(1) | O(1) |
-| d.items() | O(1) | O(1) |
-
 ## Best Practices for Dictionaries
 
 ```python
@@ -740,17 +651,7 @@ print(f"Most common color: {most_common}")
 
 ## Summary
 
-Dictionaries are one of Python's most powerful data structures, providing an efficient way to store and retrieve data using keys. They are essential for many programming tasks, from simple lookups to complex data transformations and algorithms.
-
-Key points to remember about dictionaries:
-- Dictionaries store data as key-value pairs
-- Keys must be immutable and hashable
-- Dictionaries are mutable, allowing for dynamic updates
-- Since Python 3.7, dictionaries maintain insertion order
-- Dictionary operations are very efficient, with most operations being O(1) on average
-- Specialized variants in the collections module provide additional functionality
-
-In the next lesson, we'll explore sets, which share many characteristics with dictionaries but are optimized for membership testing and eliminating duplicates.
+Dictionaries are pretty important! Make sure that you understand how they work because you'll be using them a lot! 
 
 #### Footnotes
 

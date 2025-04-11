@@ -119,7 +119,7 @@ if result is None:  # PEP 8 recommended way
 
 ## Sequence Types
 
-Python has several sequence types for storing collections of items.
+Python has several sequence types for storing collections of items. However, we will focus on one, strings.
 
 ### Strings (`str`)
 
@@ -132,6 +132,10 @@ message = 'Hello, World!'
 multiline = """This is a
 multiline string."""
 ```
+
+## Objects 
+
+Within python, every value is an object. This includes strings, integers, floats, booleans, and more. This is because python is an object-oriented programming language.
 
 ## Checking Data Types
 

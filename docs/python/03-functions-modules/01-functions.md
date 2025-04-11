@@ -85,3 +85,19 @@ def greet(name, greeting="Hello"):  # This is correct
 def greet(greeting="Hello", name):  # This is incorrect
     print(greeting + ", " + name + "!")
 ```
+
+## Lambda Functions
+
+Lambda functions are small anonymous (unnamed) functions that can take any number of arguments but can only have one expression. They are often used for short, throwaway functions that are not going to be reused elsewhere in your code. Lambda functions are defined using the `lambda` keyword, followed by the arguments and the expression. The syntax is as follows:
+
+```python
+lambda arguments: expression
+```
+
+Example:
+
+```python
+add = lambda x, y: x + y  # This is a lambda function that adds two numbers
+print(add(2, 3))  # Output: 5
+```
+<codapi-snippet sandbox="python" init-delay="500" ></codapi-snippet>

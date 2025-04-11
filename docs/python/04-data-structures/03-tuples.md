@@ -1,24 +1,14 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Tuples
 
-Tuples are an immutable sequence type in Python that can hold an ordered collection of elements. Unlike lists, tuples cannot be modified after creation, making them useful for data that should not change.
-
-> **Beginner's Note:** If you're coming from other programming languages, you can think of tuples as "read-only lists". The main difference between lists and tuples is that lists are mutable (can be changed), while tuples are immutable (cannot be changed after creation).
-
-## Characteristics of Tuples
-
-- **Ordered**: Elements maintain their order and can be accessed by index
-- **Immutable**: Cannot be modified after creation
-- **Heterogeneous**: Can contain elements of different data types
-- **Hashable**: Can be used as keys in dictionaries or elements in sets (if all elements are hashable)
-- **Nestable**: Can contain other tuples and collections as elements
+Another important data structure in Python is the Tuple. A tuple is a data structure that allows you to store a collection of data next to each other in memory (just like a list)! Then, you are able to access this data by using an index. Tuples are also ordered, meaning that all elements of a tuple will maintain their order. However, tuples have a minor difference from lists: they are immutable, meaning that once you create a tuple, you cannot change its contents. This makes tuples a great choice for storing data that should not be modified.
 
 ## Creating Tuples
 
-You can create a tuple in several ways:
+You can create a tuple using parentheses `()` and including a comma-separated list of elements `(1, 2, 3, 4, 5)`. You can also create a tuple without any data (`()`). You can also create one-element tuples; however, a trailing comma is required for single-element tuples to differentiate them from regular parentheses used for grouping expressions (ex: `(42,)`).
 
 ```python
 # Empty tuple
@@ -44,17 +34,6 @@ numbers_alt = tuple([1, 2, 3, 4, 5])
 
 # Create a tuple from another sequence type
 chars = tuple("Python")  # ('P', 'y', 't', 'h', 'o', 'n')
-```
-
-```python
-# Creating and displaying tuples
-empty_tuple = ()
-single_element = (42,)
-numbers = (1, 2, 3, 4, 5)
-fruits = "apple", "banana", "cherry"  # Parentheses are optional
-mixed = (1, "hello", 3.14, True)
-nested = (1, (2, 3), (4, 5, 6))
-chars = tuple("Python")
 
 print(f"Empty tuple: {empty_tuple}")
 print(f"Single element tuple: {single_element}")
@@ -77,7 +56,7 @@ print(f"Length of fruits: {len(fruits)}")
 
 ## Accessing Tuple Elements
 
-Accessing elements in a tuple works the same way as lists:
+You can access the elements of a tuple just like you would with a list, using indexing. Tuples support both positive and negative indexing. Positive indexing starts from 0, while negative indexing starts from -1 (the last element).
 
 ### Indexing
 
@@ -95,22 +74,15 @@ second_last = fruits[-2]  # "orange"
 # Accessing nested elements
 nested = (1, (2, 3), (4, 5, 6))
 inner_element = nested[1][0]  # 2
-```
 
-```python
-fruits = ("apple", "banana", "cherry", "orange", "kiwi")
-nested = (1, (2, 3), (4, 5, 6))
-
-# Accessing elements by index
-print(f"First fruit (index 0): {fruits[0]}")
-print(f"Third fruit (index 2): {fruits[2]}")
-print(f"Last fruit (index -1): {fruits[-1]}")
-print(f"Second last fruit (index -2): {fruits[-2]}")
-
-# Accessing nested elements
-print(f"First element of nested tuple: {nested[0]}")
-print(f"First element of second inner tuple: {nested[1][0]}")
-print(f"Last element of last inner tuple: {nested[2][2]}")
+print(f"First fruit: {first_fruit}")
+print(f"Third fruit: {third_fruit}")
+print(f"Last fruit: {last_fruit}")
+print(f"Second last fruit: {second_last}")
+print(f"Inner element from nested tuple: {inner_element}")
+print(f"Type of first fruit: {type(first_fruit)}")
+print(f"Type of fruits: {type(fruits)}")
+print(f"Type of nested: {type(nested)}")
 
 # Demonstration of index error
 try:
@@ -123,7 +95,7 @@ except IndexError as e:
 
 ### Slicing
 
-Slicing tuples works just like slicing lists:
+Slicing also works similarly to lists
 
 ```python
 fruits = ("apple", "banana", "cherry", "orange", "kiwi", "mango")
@@ -142,32 +114,22 @@ every_second = fruits[::2]  # ("apple", "cherry", "kiwi")
 
 # Reverse a tuple
 reversed_fruits = fruits[::-1]  # ("mango", "kiwi", "orange", "cherry", "banana", "apple")
-```
 
-```python
-fruits = ("apple", "banana", "cherry", "orange", "kiwi", "mango")
-
-# Slicing examples
-print(f"Original tuple: {fruits}")
-print(f"First three fruits [0:3]: {fruits[0:3]}")
-print(f"First three fruits [:3]: {fruits[:3]}")
-print(f"From third to end [2:]: {fruits[2:]}")
-print(f"Every second fruit [::2]: {fruits[::2]}")
-print(f"Reversed tuple [::-1]: {fruits[::-1]}")
-print(f"From index 1 to 4 [1:5]: {fruits[1:5]}")
-
-# Slicing with indices beyond tuple length is safe
-print(f"Slice beyond tuple bounds [2:100]: {fruits[2:100]}")
-
-# Note the result is also a tuple
-print(f"Type of slice result: {type(fruits[2:5])}")
+print(f"First three fruits: {first_three}")
+print(f"First three fruits (alternative): {first_three_alt}")
+print(f"Fruits from index 2: {from_third}")
+print(f"Every second fruit: {every_second}")
+print(f"Reversed fruits: {reversed_fruits}")
+print(f"Type of first three fruits: {type(first_three)}")
+print(f"Type of every second fruit: {type(every_second)}")
+print(f"Type of reversed fruits: {type(reversed_fruits)}")
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
 ## Immutability of Tuples
 
-Tuples are immutable, which means once they are created, you cannot change their contents.
+The key difference between tuples and lists is immutability. Once a tuple is created, its elements cannot be modified. This means you cannot change, add, or remove elements from a tuple. Attempting to do so will raise a `TypeError`.
 
 ```python
 fruits = ("apple", "banana", "cherry")
@@ -201,7 +163,7 @@ print(f"Concatenated tuple: {more_fruits}")
 
 ### Changing Nested Mutable Objects
 
-If a tuple contains mutable objects (like lists), the mutable objects can be modified:
+However, if a tuple contains mutable objects (like lists), you can modify those objects. This can be confusing, as the tuple itself is immutable, but the contents of the mutable objects can be changed.
 
 ```python
 # Tuple containing a list
@@ -225,7 +187,7 @@ print(f"Modified tuple: {person}")
 
 ## Tuple Methods
 
-Tuples have only two built-in methods:
+Tuples have only two built-in methods: `count()` and `index()`. These methods are useful for counting occurrences of a value and finding the index of a value, respectively.
 
 ```python
 numbers = (3, 1, 4, 1, 5, 9, 2)
@@ -248,33 +210,9 @@ except ValueError as e:
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
-```python
-# Tuple methods demonstration
-numbers = (3, 1, 4, 1, 5, 9, 2)
-print(f"Tuple: {numbers}")
-
-# Count occurrences
-print(f"Count of 1: {numbers.count(1)}")
-print(f"Count of 10: {numbers.count(10)}")  # 0 if not present
-
-# Find index
-print(f"Index of 5: {numbers.index(5)}")
-print(f"Index of 1: {numbers.index(1)}")  # Returns first occurrence
-
-# Find index with start parameter
-print(f"Index of 1 after position 1: {numbers.index(1, 2)}")
-
-try:
-    print(numbers.index(10))  # Will raise ValueError
-except ValueError as e:
-    print(f"Error finding 10: {e}")
-```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
-</codapi-snippet>
-
 ## Tuple Unpacking
 
-One powerful feature of tuples is the ability to unpack them into multiple variables:
+You can also unpack tuples into variables. This is particularly useful when you want to assign multiple values at once. Tuple unpacking can be done in a single line, making your code cleaner and more readable.
 
 ```python
 # Basic unpacking
@@ -302,6 +240,8 @@ print(f"Beginning: {beginning}, Last: {last}")
 </codapi-snippet>
 
 ### Unpacking in For Loops
+
+You can apply the same unpacking technique within loops to iterate over tuples.
 
 ```python
 # Unpacking in loops
@@ -341,6 +281,11 @@ print(f"Before swap: a = {a}, b = {b}")
 
 a, b = b, a  # Swapping using tuple unpacking
 
+# This is equivalent to:
+# temp = a
+# a = b
+# b = temp
+
 print(f"After swap: a = {a}, b = {b}")
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
@@ -348,7 +293,7 @@ print(f"After swap: a = {a}, b = {b}")
 
 ## Built-in Functions with Tuples
 
-You can use many built-in Python functions with tuples:
+We also have a lot of built-in functions that work with tuples! These functions are similar to those used with lists, but they return results without modifying the original tuple.
 
 ```python
 numbers = (3, 1, 4, 1, 5, 9, 2)
@@ -374,35 +319,25 @@ reverse_sorted = sorted(numbers, reverse=True)  # [9, 5, 4, 3, 2, 1, 1]
 # Sort with custom key function
 words = ("apple", "Banana", "cherry")
 sorted_words = sorted(words, key=str.lower)  # ['apple', 'Banana', 'cherry']
-```
 
-```python
-# Common functions with tuples
-numbers = (3, 1, 4, 1, 5, 9, 2)
-print(f"Tuple: {numbers}")
-
-print(f"Length: {len(numbers)}")
-print(f"Maximum: {max(numbers)}")
-print(f"Minimum: {min(numbers)}")
-print(f"Sum: {sum(numbers)}")
-print(f"Sorted (returns a list): {sorted(numbers)}")
-print(f"Reverse sorted: {sorted(numbers, reverse=True)}")
-
-# Sort with custom key
-words = ("apple", "Banana", "cherry", "Apple")
-print(f"\nWords: {words}")
-print(f"Case-insensitive sorted: {sorted(words, key=str.lower)}")
-
-# Check if a value exists in the tuple
-print(f"\nIs 5 in the tuple? {5 in numbers}")
-print(f"Is 7 in the tuple? {7 in numbers}")
+print(f"Length: {length}")
+print(f"Maximum: {maximum}")
+print(f"Minimum: {minimum}")
+print(f"Total: {total}")
+print(f"Sorted: {sorted_numbers}")
+print(f"Reverse Sorted: {reverse_sorted}")
+print(f"Sorted Words: {sorted_words}")
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
-## Tuple vs List
+## Comparing a tuple to a list
 
-Understanding when to use a tuple versus a list is important:
+A tuple is similar to a list, but it has some key differences. Here are some comparisons between tuples and lists:
+- **Syntax**: Tuples are defined using parentheses `()` while lists are defined using square brackets `[]`.
+- **Mutability**: Tuples are immutable, meaning their contents cannot be changed after creation. Lists are mutable, allowing you to modify their contents.
+- **Performance**: Tuples are generally faster than lists for certain operations due to their immutability. This can lead to performance improvements in some cases.
+- **Memory Usage**: Tuples typically use less memory than lists, making them more efficient for storing fixed-size collections of data.
 
 ```python
 import sys
@@ -448,11 +383,11 @@ Use **lists** when:
 - You're working with a homogeneous collection that might grow or shrink
 - You need to sort or rearrange elements
 
-Remember, you can always convert between tuples and lists using the `tuple()` and `list()` functions when needed.
+Remember, you can always convert between tuples and lists using the `tuple()` and `list()` functions when needed; however, it's best to choose the right data structure for your use case from the start.
 
 ## Namedtuples
 
-The `collections` module provides `namedtuple` for creating tuple-like objects with named fields:
+The `collections` module provides a convenient way to create tuple-like objects with named fields using `namedtuple`. This allows you to access elements by name instead of index, making your code more readable.
 
 ```python
 from collections import namedtuple
@@ -509,74 +444,12 @@ print(f"Width: {width}, Height: {height}, Depth: {depth}")
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
-### Dictionary Items View
-
-```python
-person = {"name": "John", "age": 30, "city": "New York"}
-
-# dict.items() returns a view object containing tuples
-items = person.items()
-print(f"Dictionary items: {items}")
-
-# Convert to a list of tuples
-items_list = list(items)
-print(f"Items as list: {items_list}")
-
-# Iterate over key-value pairs (as tuples)
-for key, value in person.items():
-    print(f"{key}: {value}")
-```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
-</codapi-snippet>
-
-### Tuples as Keys in Dictionaries
-
-```python
-# Using tuples as dictionary keys (for composite keys)
-# A point in 3D space
-points = {
-    (0, 0, 0): "origin",
-    (1, 0, 0): "x-axis unit point",
-    (0, 1, 0): "y-axis unit point",
-    (0, 0, 1): "z-axis unit point"
-}
-
-# Look up a point
-print(f"The point (0, 0, 0) is the {points[(0, 0, 0)]}")
-
-# This is useful for things like grid coordinates
-grid = {
-    (0, 0): "empty",
-    (0, 1): "wall",
-    (1, 0): "player",
-    (1, 1): "exit"
-}
-
-# Check if a coordinate is in the grid
-position = (1, 0)
-if position in grid:
-    print(f"At position {position} is: {grid[position]}")
-```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
-</codapi-snippet>
-
 ## Summary
 
-Tuples are an essential data structure in Python that offer immutability and efficiency for storing ordered collections of items. While they might seem limited compared to lists due to their immutability, this characteristic actually makes them ideal for many use cases.
-
-Key points to remember about tuples:
-- Tuples are ordered, immutable collections of items
-- They can contain elements of different data types
-- Access elements by index, just like lists
-- Use packing and unpacking for elegant variable assignment
-- Tuples are more efficient than lists for fixed data
-- Use namedtuples for tuple-like objects with named fields
-- Tuples can be used as dictionary keys (if all elements are hashable)
-
-In the next lesson, we'll explore dictionaries, which are unordered collections of key-value pairs that offer efficient lookups by key.
+Tuples are a powerful and flexible data structure in Python. They allow you to store collections of data in an ordered and immutable way. You can create tuples, access their elements, unpack them, and use them with built-in functions. Tuples are particularly useful when you want to ensure that the data remains unchanged or when you need to return multiple values from a function. Remember to choose the right data structure based on your needs. You can also consider using namedtuples for better readability and maintainability in your code.
 
 #### Footnotes
 
 - <dfn>a - Hashable objects have a hash value that doesn't change during their lifetime, allowing them to be used as dictionary keys or in sets. All immutable built-in objects are hashable, while mutable containers like lists and dictionaries are not.</dfn>
-- <dfn>b - The parentheses in tuple literals are optional in many contexts, but required for empty tuples and single-element tuples (with the trailing comma).</dfn>
+- <dfn>b - The parentheses in tuple literals are optional in many contexts, but required for empty tuples and single-element tuples (with the trailing comma). Also, I would generally recommend using parentheses for readability.</dfn>
 - <dfn>c - Tuple packing refers to assigning multiple values to a single tuple, while unpacking refers to extracting values from a tuple into multiple variables.</dfn>

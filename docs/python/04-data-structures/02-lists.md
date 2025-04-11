@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Lists
@@ -51,7 +51,7 @@ print(f"Type of numbers: {type(numbers)}")
 # Check the length
 print(f"Length of fruits: {len(fruits)}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Accessing List Elements
@@ -92,7 +92,7 @@ try:
 except IndexError as e:
     print(f"Error: {e}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Slicing
@@ -143,7 +143,7 @@ print(f"Negative indices slice [-4:-1]: {fruits[-4:-1]}")
 # slicing beyond the list is NOT a error
 print(f"Slice beyond list bounds [2:100]: {fruits[2:100]}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Modifying Lists
@@ -188,7 +188,7 @@ print(f"After replacing with more elements: {fruits}")
 fruits[2:5] = ["fig"]
 print(f"After replacing with fewer elements: {fruits}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Adding Elements
@@ -222,7 +222,7 @@ print(f"Original list (unchanged by +): {fruits}")
 fruits[len(fruits):] = ["grape"] 
 print(f"After adding with slicing: {fruits}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Removing Elements
@@ -275,7 +275,7 @@ print(squares_loop)
 squares_comp = [x ** 2 for x in range(10)]
 print(squares_comp)
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ```python
@@ -284,7 +284,7 @@ celsius = [0, 10, 20, 30, 40]
 fahrenheit = [(9/5) * temp + 32 for temp in celsius]
 print(fahrenheit)  # [32.0, 50.0, 68.0, 86.0, 104.0]
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Conditional List Comprehensions
@@ -301,7 +301,7 @@ You can add conditions to list comprehensions to filter items:
 even_numbers = [x for x in range(20) if x % 2 == 0]
 print(even_numbers)  # [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ```python
@@ -310,7 +310,7 @@ words = ["apple", "banana", "cherry", "avocado", "grape"]
 a_words = [word for word in words if word.startswith('a')]
 print(a_words)  # ['apple', 'avocado']
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Using if-else in List Comprehensions
@@ -328,12 +328,12 @@ numbers = [1, 2, 3, 4, 5]
 labeled = ["even" if x % 2 == 0 else "odd" for x in numbers]
 print(labeled)  # ['odd', 'even', 'odd', 'even', 'odd']
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Nested List Comprehensions
 
-List comprehensions can be nested to work with multi-dimensional data:
+List comprehensions can be nested to work with multi-dimensional data; however, this can be difficult to read.
 
 ```python
 # Flattening a 2D list
@@ -341,7 +341,7 @@ matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 flattened = [num for row in matrix for num in row]
 print(flattened)  # [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ```python
@@ -350,8 +350,32 @@ multiplication_table = [[i * j for j in range(1, 6)] for i in range(1, 6)]
 for row in multiplication_table:
     print(row)
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
+
+### Performance Considerations
+
+List comprehensions are generally faster than using a for loop to create lists, especially for large datasets. This is because they are optimized for performance in Python.
+
+```python
+import time
+
+# Measure time for a regular loop
+start_time = time.time()
+squares_loop = []
+for i in range(10000000):
+    squares_loop.append(i * i)
+loop_time = time.time() - start_time
+
+# Measure time for a list comprehension
+start_time = time.time()
+squares_comp = [i * i for i in range(10000000)]
+comp_time = time.time() - start_time
+
+print(f"Loop time: {loop_time:.4f} seconds")
+print(f"Comprehension time: {comp_time:.4f} seconds")
+print(f"Comprehension is {loop_time/comp_time:.2f}x faster")
+```
 
 ## Common List Operations
 
@@ -385,9 +409,9 @@ words = ["apple", "Banana", "cherry"]
 sorted_words = sorted(words, key=str.lower)  # ["apple", "Banana", "cherry"]
 ```
 
-## List Methods
+### List Methods
 
-Python also provides many useful methods for working with lists:
+Python also provides many useful [methods](../04-data-structures/01-preface.md) for working with lists:
 
 ```python
 numbers = [3, 1, 4, 1, 5, 9, 2]
@@ -479,10 +503,12 @@ copy2 = list(numbers)
 copy3 = numbers[:]
 print(f"Three ways to copy: {copy1}, {copy2}, {copy3}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Membership and Concatenation
+
+Membership operators are used to check if an element is present in a list or not. You can also concatenate lists (combine them) using the `+` operator.
 
 ```python
 fruits = ["apple", "banana", "cherry"]
@@ -501,7 +527,9 @@ combined = fruits + more_fruits  # ["apple", "banana", "cherry", "orange", "kiwi
 
 ## Generator Expressions
 
-Generator expressions are similar to list comprehensions but create generators instead of lists. They use parentheses instead of square brackets and generate items one at a time, which makes them more memory-efficient for large datasets.
+Generator expressions are a memory-efficient way to create sequences of values on the fly, instead of storing the entire sequence in memory like lists do. Because of this, they can be directly used in functions like sum() or max() that process data one item at a time.
+
+Imagine you want to find the sum of squares of numbers from 1 to 10. Instead of creating a list of these squares first, a generator expression calculates each square as it's needed by the sum() function, saving memory.
 
 ### Basic Syntax
 
@@ -523,7 +551,7 @@ print(f"List size: {sys.getsizeof(squares_list)} bytes")
 squares_gen = (x**2 for x in range(1000))
 print(f"Generator size: {sys.getsizeof(squares_gen)} bytes")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ```python
@@ -532,7 +560,7 @@ gen = (x**2 for x in range(5))
 for item in gen:
     print(item)  # Prints 0, 1, 4, 9, 16
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ```python
@@ -541,12 +569,12 @@ gen = (x**2 for x in range(5))
 list_from_gen = list(gen)
 print(list_from_gen)  # [0, 1, 4, 9, 16]
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Passing Generator Expressions to Functions
 
-Generator expressions can be passed directly to functions that consume iterables:
+Generator expressions can be passed directly to functions that accept iterables(e.g., `sum()`, `max()`, etc.)
 
 ```python
 # Sum of squares
@@ -557,36 +585,19 @@ print(total)  # 285
 max_square = max(x**2 for x in range(10))
 print(max_square)  # 81
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
-## Performance Considerations
-
-Comprehensions are not only more concise but often faster than equivalent loop constructs:
-
-```python
-import time
-
-# Measure time for a regular loop
-start_time = time.time()
-squares_loop = []
-for i in range(10000000):
-    squares_loop.append(i * i)
-loop_time = time.time() - start_time
-
-# Measure time for a list comprehension
-start_time = time.time()
-squares_comp = [i * i for i in range(10000000)]
-comp_time = time.time() - start_time
-
-print(f"Loop time: {loop_time:.4f} seconds")
-print(f"Comprehension time: {comp_time:.4f} seconds")
-print(f"Comprehension is {loop_time/comp_time:.2f}x faster")
-```
 
 ## Common Patterns and Best Practices
 
 ### Copying Lists
+
+When working with lists, it's important to understand the difference between shallow and deep copying.
+- A **shallow copy** creates a new list but does not create copies of nested objects. Changes to nested objects in the original list will affect the shallow copy.
+- A **deep copy** creates a new list and recursively copies all objects, so changes to nested objects in the original list do not affect the deep copy.
+
+A deep copy is useful when you want to create a completely independent copy of a list, including all nested lists or objects. However, it can be slower and use more memory than a shallow copy.
 
 ```python
 original = [1, 2, [3, 4]]
@@ -606,10 +617,12 @@ print(f"Original: {original}")
 print(f"Shallow copy: {shallow_copy}")  # Will show [1, 2, [99, 4]]
 print(f"Deep copy: {deep_copy}")        # Will show [1, 2, [3, 4]]
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Filtering and Transforming
+
+You can use list comprehensions, filter() function, and map() function to filter and transform lists.
 
 ```python
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -633,10 +646,21 @@ print(f"Squared (map): {squared}")
 odd_squares = [x**2 for x in numbers if x % 2 != 0]
 print(f"Odd squares (comprehension): {odd_squares}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
+Functions used in the above example:
+- `filter(function, iterable)` filters elements from an iterable based on a function that returns True or False.
+- `map(function, iterable)` applies a function to each element in an iterable and returns a new iterable with the results.
+- `lambda` is a way to create small anonymous functions in Python.
+- `list()` converts an iterable to a list.
+
 ### Working with Multiple Lists
+
+You can also use lists together in multiple ways such as zipping, unpacking, and enumerating.
+- `zip()` combines multiple lists into a list of [tuples](03-tuples.md), where each tuple contains one element from each list (don't worry, we will discuss this in the next section).
+- `enumerate()` adds a counter to an iterable and returns it as an enumerate object, which can be converted to a list of tuples.
+- Unpacking allows you to extract elements from a list of tuples into separate variables.
 
 ```python
 # Zip multiple lists together
@@ -660,25 +684,16 @@ for i, name in enumerate(names):
 for name, age, city in zip(names, ages, cities):
     print(f"{name} is {age} years old and lives in {city}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Summary
 
-Lists are one of Python's most versatile and commonly used data structures. They offer a wide range of features for storing, accessing, and manipulating sequences of data.
-
-Key points to remember about lists:
-- Lists are ordered, mutable collections of items
-- They can contain elements of different data types
-- Access elements by index (`list[0]`) or slice (`list[1:3]`)
-- Modify lists with methods like `append()`, `insert()`, `remove()`, and `pop()`
-- Use list comprehensions for concise list creation and transformation
-- Lists are efficient for most operations, but consider alternatives for specific use cases
-
-In the next lesson, we'll explore tuples, which are similar to lists but with some important differences, particularly immutability.
-
-#### Footnotes
-
-- <dfn>a - Zero-based indexing means the first element is at index 0, the second at index 1, and so on. This is common in many programming languages.</dfn>
-- <dfn>b - Shallow copying creates a new list but doesn't create copies of nested objects. Changes to nested objects in the original list will affect the shallow copy.</dfn>
-- <dfn>c - Lists in Python are implemented as dynamic arrays, which automatically resize as elements are added or removed.</dfn>
+Lists are a essential data structure within python that form the basis of many other data structures. Key details to remember are:
+- Lists are mutable and can be modified after creation.
+- Lists can contain mixed data types and can be nested.
+- Lists support zero-based indexing, slicing, and various built-in methods for manipulation.
+- List comprehensions provide a concise way to create lists based on existing lists.
+- List comprehensions can be used for filtering and transforming data.
+- Use generator expressions for memory-efficient list creation.
+- Understand shallow vs deep copying when working with nested lists.
