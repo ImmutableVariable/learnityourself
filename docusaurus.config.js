@@ -144,7 +144,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} ImmutableVariable.`,
+        copyright: `Copyright © ${new Date().getFullYear()} LearnItYourself.`,
       },
       prism: {
         theme: prismThemes.github,

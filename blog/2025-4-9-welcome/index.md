@@ -29,8 +29,8 @@ We firmly believe coding isn't just about memorizing syntax or following a curri
 
 ## Our Current Focus
 
-We're currently crafting our Python curriculum, with plans to expand into Web Development (HTML, CSS, JavaScript), Rust, and other languages that solve real-world problems. Watch this blog page for updates (and also check out our [Discord server](https://discord.gg/<<<<yadayaydayydaydayyda>>>>)!). We look forward to seeing what you all learn and create!
+We're currently crafting our Python curriculum, with plans to expand into Web Development (HTML, CSS, JavaScript), Rust, and other languages that solve real-world problems. Watch this blog page for updates (and also check out our [Discord server](https://discord.gg/gbFTKGhPA8)!). We look forward to seeing what you all learn and create!
 
-##### P.S. if you want to contribute to our project in the form of corrections, suggestions for new languages/projects, or even just to say hi, please join our [Discord server](https://discord.gg/<<<<yadayaydayydaydayyda>>>>)!
+##### P.S. if you want to contribute to our project in the form of corrections, suggestions for new languages/projects, or even just to say hi, please join our [Discord server](https://discord.gg/gbFTKGhPA8)!
 
 Ready to start your coding journey? Let's build something amazing together. [Start Here](http://learnityourself.dev/docs/python/introduction)
