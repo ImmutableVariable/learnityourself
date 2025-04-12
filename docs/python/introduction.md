@@ -14,7 +14,7 @@ Welcome! In this course, you will learn the python programming language. Python 
     - Machine Learning
     - Cybersecurity
 
-Python is a great choice if you are learning to program and do not know what to choose. However, if you already have a plan on what you would want to do (for example, Web Development), I would recommend starting with HTML, CSS, and Javascript (we currently do not cover them, SORRY!)
+Python is a great choice if you are learning to program and do not know what to choose. However, if you already have a plan on what you would want to do (for example, Web Development), I would recommend starting with HTML, CSS, and JavaScript (we currently do not cover them, SORRY!)
 
 ## What does python look like?
 
@@ -45,9 +45,9 @@ Although we provide a editor within this website, we also recommend installing p
     2. If it is not installed, you can install it by running `sudo apt install python3` within a terminal.
 
 ### Creating your first program
-1. Open a terminal (command prompt, etc) on your computer and choose a appropriate directory.
+1. Open a terminal (command prompt, etc.) on your computer and choose a appropriate directory.
 2. Create a new file `<name>.py` (for example, `hello.py`).
-3. Open the file in a text editor (VSCode, Notepad++, etc) and add the following code:
+3. Open the file in a text editor (VSCode, Notepad++, etc.) and add the following code:
 ```python
 print("Hello, World!")
 ```
@@ -59,4 +59,4 @@ print("Hello, World!")
 I hope that you are excited to learn about python! Please reach out to me if you need any help!
 
 #### Definitions
-<dfn>a - A high purpose language is one that is defined as a language that more human readable and easier to learn.<br/>b - A general purpose language is just one that can be used for multiple purposes such as web development, data science, and machine learning (in python's example)P</dfn>
+<dfn>a - A high purpose language is one that is defined as a language that more human readable and easier to learn.<br/>b - A general purpose language is just one that can be used for multiple purposes such as web development, data science, and machine learning (in python's example)</dfn>

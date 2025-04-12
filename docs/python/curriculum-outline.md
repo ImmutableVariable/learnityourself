@@ -30,7 +30,7 @@ This curriculum is designed for beginner programmers, and will start with basic 
 - **Scope and Lifetime of Variables**: Understanding local and global variables
 - **Modules and Packages**: Organizing code into reusable modules and packages
 
-## Data Structures 🔵🟣 (Sets STILL need review)
+## Data Structures 🟢🟣
 - **Comprehensions**: Creating lists, sets, and dictionaries in a concise way
 - **Lists**: Creating and manipulating lists
 - **Tuples**: Understanding immutable sequences
@@ -62,6 +62,7 @@ This curriculum is designed for beginner programmers, and will start with basic 
 - **Test-Driven Development (TDD)**: Developing code based on tests
 
 ## Advanced Topics (Optional) 🔴
+- **Explicit Type Annotations**: Adding type hints to improve code readability
 - **Decorators**: Modifying function behavior
 - **Generators**: Creating iterators in a memory-efficient way
 - **Context Managers**: Managing resources effectively

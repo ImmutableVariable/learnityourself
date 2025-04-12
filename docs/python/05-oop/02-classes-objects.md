@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Classes and Objects
 
-In Python, classes and objects are fundamental concepts in object-oriented programming (OOP). Think of a **class** as a blueprint or template. It defines what something should look like and how it should behave, but it isn't the thing itself. An **object** is an instance of a class—an actual "thing" created from the blueprint. 
+In Python, classes and objects are fundamental concepts in object-oriented programming (OOP). Think of a **class** as a blueprint or template. It defines what something should look like and how it should behave, but it isn't the thing itself. An **object** is an instance of a class—an actual "thing" created from the blueprint. Every object has its own unique attributes (variables) and methods (functions).
 
 To use an analogy:
 - A class is like a cookie cutter
@@ -38,7 +38,7 @@ Let's break this down:
 
 - `class Dog:` - This defines a new class called `Dog`.
 - `species = "Canis familiaris"` - This is a class attribute. A class attribute is a variable that belongs to the class and not to any specific instance of the class. 
-- `__init__` - This is a special method called when a new object is created, its also known as a constructor. When you create a new object, Python automatically calls this method.
+- `__init__` - This is a special method, known as a constructor. You can think of this as a function that "assembles" the object. Along with this, it lets you add custom values to the object.
 - `self` - This parameter refers to the instance being created. It's a convention in Python to name it `self`.
 - `bark()` and `get_info()` - These are instance methods (functions that belong to a specific instance of the class). They take `self` as their first parameter.
 
@@ -138,7 +138,7 @@ print(Dog.get_count())  # There are 2 dogs
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
-The difference between class attributes and instance attributes is that class attributes are shared by all instances of the class, while instance attributes are unique to each instance. In this sample, `species` is a class attribute, while `name` and `age` are instance attributes. The speicies of all dogs is the same, but each dog has a unique name and age.
+The difference between class attributes and instance attributes is that class attributes are shared by all instances of the class, while instance attributes are unique to each instance. In this sample, `species` is a class attribute, while `name` and `age` are instance attributes. The species of all dogs is the same, but each dog has a unique name and age.
 
 ## Methods in Python Classes
 

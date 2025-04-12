@@ -17,7 +17,7 @@ Example:
 
 This is a really helpful bit of code. The `append` keyword is a method within the list class, and acts as a way to add an element to the end of the list.
 
-We will discuss this further in [object-oriented programming](../05-oop/01-classes-objects.md).
+We will discuss this further in [object-oriented programming](../05-oop/02-classes-objects.md).
 
 ## Mutable and Immutable Objects
 
