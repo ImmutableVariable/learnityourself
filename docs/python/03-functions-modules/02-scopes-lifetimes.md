@@ -5,12 +5,11 @@ sidebar_position: 2
 # Scopes and Lifetimes
 
 A lifetime is the duration of time that a variable exists in memory. A scope is a region of code where a variable can be accessed. In Python, there are two main types of scopes: local and global.
-Local variables are defined within a function and can only be accessed within that function. Global variables are defined outside of any function and can be accessed from anywhere in the code (python also provides a way to access global variables from within a function, but we will cover that later).
+Local variables are defined within a function and can only be accessed within that function. Global variables are defined outside of any function and can be accessed from anywhere in the code (python also provides a way to access global variables from within a function, but we will cover that later). 
 
-## What this really means
+## Local Variables
+Local variables are defined within a function and can only be accessed within that function. For example:
 
-### Local Variables
-This means that if you define a variable inside a function, it will only exist within that function. If you try to access it outside of the function, you will get an error. For example:
 ```python
 def my_function():
     x = 10  # Local variable
@@ -23,7 +22,7 @@ print(x)  # This will cause an error: NameError: name 'x' is not defined
 
 We cannot access X because it is inside the function's code block (also known as a scope). The function is a block of code that is separate from the rest of the program. This is why we get an error when we try to access it outside of the function.
 
-### Global Variables
+## Global Variables
 Global variables are defined outside of any function and can be accessed from anywhere in the code. For example:
 ```python
 x = 10  # Global variable

@@ -4,13 +4,7 @@ sidebar_position: 2
 
 # Classes and Objects
 
-In this lesson, we'll explore the fundamental building blocks of object-oriented programming in Python: classes and objects.
-
-## What Are Classes and Objects?
-
-Think of a **class** as a blueprint or template. It defines what something should look like and how it should behave, but it isn't the thing itself.
-
-An **object** is an instance of a class—an actual "thing" created from the blueprint. 
+In Python, classes and objects are fundamental concepts in object-oriented programming (OOP). Think of a **class** as a blueprint or template. It defines what something should look like and how it should behave, but it isn't the thing itself. An **object** is an instance of a class—an actual "thing" created from the blueprint. 
 
 To use an analogy:
 - A class is like a cookie cutter
@@ -18,7 +12,7 @@ To use an analogy:
 
 ## Creating a Class in Python
 
-Let's start by creating a simple class:
+A class is defined using the `class` keyword followed by the class name and a colon:
 
 ```python
 class Dog:
@@ -43,14 +37,14 @@ class Dog:
 Let's break this down:
 
 - `class Dog:` - This defines a new class called `Dog`.
-- `species = "Canis familiaris"` - This is a class attribute, shared by all instances of the class.
-- `__init__` - This is a special method called when a new object is created. It's like a constructor in other languages.
+- `species = "Canis familiaris"` - This is a class attribute. A class attribute is a variable that belongs to the class and not to any specific instance of the class. 
+- `__init__` - This is a special method called when a new object is created, its also known as a constructor. When you create a new object, Python automatically calls this method.
 - `self` - This parameter refers to the instance being created. It's a convention in Python to name it `self`.
-- `bark()` and `get_info()` - These are instance methods that define the behavior of Dog objects.
+- `bark()` and `get_info()` - These are instance methods (functions that belong to a specific instance of the class). They take `self` as their first parameter.
 
 ## Creating Objects (Instances)
 
-Once we have a class, we can create objects from it:
+This is the same class as above; however, this time we are creating objects (instances) of the class.
 
 ```python
 ###### Same class as above
@@ -74,6 +68,8 @@ class Dog:
 ######
 
 # Creating instances of the Dog class
+# Notice that we don't include the `self` parameter, since that is handled automatically by python
+# Also notice that the parameters are the same as the ones in the class (name, age)
 buddy = Dog("Buddy", 9)
 miles = Dog("Miles", 4)
 
@@ -142,13 +138,15 @@ print(Dog.get_count())  # There are 2 dogs
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
+The difference between class attributes and instance attributes is that class attributes are shared by all instances of the class, while instance attributes are unique to each instance. In this sample, `species` is a class attribute, while `name` and `age` are instance attributes. The speicies of all dogs is the same, but each dog has a unique name and age.
+
 ## Methods in Python Classes
 
 Python classes can have several types of methods:
 
 ### 1. Instance Methods
 
-The most common type of method, which operates on an instance of the class.
+Methods that operate on the instance (object), not the class. Defined using the `def` keyword and take `self` (the instance) as their first parameter.
 
 ```python
 def bark(self):
@@ -157,7 +155,7 @@ def bark(self):
 
 ### 2. Class Methods
 
-Methods that operate on the class itself, not an instance. Defined using the `@classmethod` decorator and take `cls` (the class) as their first parameter.
+Methods that are related to the class but don't operate on instances are defined using the `@classmethod` decorator.
 
 ```python
 @classmethod
@@ -217,9 +215,23 @@ print(dog1.is_adult(dog1.age))  # True
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
+#### Decorators
+
+A decorator is a shortcut to calling a wrapper function that "wraps" around another function. It allows you to modify the behavior of a function or class without changing its implementation. In the example, @classmethod is a decorator that marks the is_adult method as a class method, this is the same as writing:
+
+```python
+@classmethod 
+def is_adult(cls, age):
+    return age >= 2
+
+# is the same as
+
+is_adult = classmethod(is_adult)
+```
+
 ## Adding More Functionality
 
-Let's expand our `Dog` class with more functionality:
+We can also add even more functionality to our Dog class!
 
 ```python
 class Dog:
@@ -268,74 +280,9 @@ print(buddy.birthday())  # Buddy is now 4 years old!
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
-## Adding Validation and Behavior
-
-We can make our class smarter by adding validation to ensure the data makes sense:
-
-```python
-class Dog:
-    species = "Canis familiaris"
-    
-    def __init__(self, name, age, breed):
-        # Validate age
-        if not isinstance(age, int) or age < 0:
-            raise ValueError("Age must be a positive integer")
-        
-        self.name = name
-        self.age = age
-        self.breed = breed
-        self._energy = 100  # Private-by-convention attribute
-    
-    def play(self, minutes):
-        """Play with the dog, decreasing its energy"""
-        if minutes < 0:
-            raise ValueError("Minutes must be positive")
-        
-        energy_loss = minutes * 2
-        if energy_loss > self._energy:
-            self._energy = 0
-            return f"{self.name} played until exhausted!"
-        else:
-            self._energy -= energy_loss
-            return f"{self.name} played for {minutes} minutes!"
-    
-    def rest(self, minutes):
-        """Let the dog rest, increasing its energy"""
-        energy_gain = minutes
-        self._energy = min(100, self._energy + energy_gain)
-        return f"{self.name} rested and now has {self._energy}% energy."
-    
-    def get_energy(self):
-        """Get the dog's current energy level"""
-        return f"{self.name}'s energy level: {self._energy}%"
-
-# Create a dog and interact with it
-try:
-    # This will fail because age is negative
-    invalid_dog = Dog("Max", -3, "Labrador")
-except ValueError as e:
-    print(f"Error: {e}")
-
-buddy = Dog("Buddy", 3, "Golden Retriever")
-print(buddy.get_energy())  # Buddy's energy level: 100%
-
-print(buddy.play(20))  # Buddy played for 20 minutes!
-print(buddy.get_energy())  # Buddy's energy level: 60%
-
-print(buddy.play(40))  # Buddy played until exhausted!
-print(buddy.get_energy())  # Buddy's energy level: 0%
-
-print(buddy.rest(50))  # Buddy rested and now has 50% energy.
-print(buddy.get_energy())  # Buddy's energy level: 50%
-```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
-</codapi-snippet>
-
-Notice we prefixed the `_energy` attribute with an underscore. This is a Python convention indicating that the attribute is intended to be private or for internal use only. Python doesn't actually prevent access to such attributes, but the underscore signals to other developers that they shouldn't access it directly.
-
 ## Multiple Objects Interacting
 
-Now let's create a scenario where multiple objects interact with each other:
+You can also create multiple objects and have them interact with each other!
 
 ```python
 class Dog:
@@ -385,7 +332,7 @@ print(rex.play_with_toy("frisbee"))  # Rex plays with the frisbee and it makes a
 
 ## The `__str__` and `__repr__` Methods
 
-When you print an object or use it in a string context, Python calls the object's `__str__` method. When you represent an object in a development context (like in a debugger or the REPL), Python calls `__repr__`. We can customize these methods:
+When you print an object or use it in a string context, Python calls the object's `__str__` method automatically. When you represent an object in a development context (like in a debugger or the REPL), Python calls `__repr__`. Long story short, you can actually override these automatically generated methods in order to provide your own string representations of your objects. This can be particularly helpful with complex objects that have a lot of attributes and methods.
 
 ```python
 class Dog:
@@ -422,12 +369,9 @@ print(dogs)  # [Dog('Buddy', 9, 'Golden Retriever'), Dog('Miles', 4, 'Jack Russe
 
 ## Summary
 
-In this lesson, we've covered the basics of classes and objects in Python:
-
+Key Points: 
 - Classes are blueprints for creating objects
 - Objects are instances of classes with their own data
 - Attributes store data inside objects
 - Methods define behavior for objects
 - Special methods like `__init__`, `__str__`, and `__repr__` provide core functionality
-
-These concepts form the foundation of object-oriented programming in Python. In the next lesson, we'll explore inheritance, which allows us to create hierarchies of classes that share and extend functionality.

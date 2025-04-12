@@ -4,15 +4,11 @@ sidebar_position: 3
 
 # Inheritance
 
-In this lesson, we'll explore one of the most powerful features of object-oriented programming: inheritance. Inheritance allows us to create new classes that are built upon existing classes, inheriting their attributes and behaviors while adding new ones.
-
-## What is Inheritance?
-
 Inheritance is a way of creating a new class that is a modified version of an existing class. The new class (called a subclass or child class) inherits attributes and methods from the existing class (called a superclass or parent class).
 
 Think of it like a family tree:
-- The parent class passes down traits to its children
-- Each child can have its own unique traits in addition to the inherited ones
+- The parent class passes down traits to its children (e.g., attributes and methods, also known as "inherited traits")
+- Each child can have its own unique traits in addition to the inherited ones (e.g., attributes and methods, also known as "unique traits")
 - Children can pass down both their unique traits and their inherited traits to their own children
 
 ## Why Use Inheritance?

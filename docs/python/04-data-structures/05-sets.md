@@ -74,7 +74,7 @@ Sets support operations like union, intersection, and difference, which are simi
 
 ### Union
 
-The union of two sets contains all elements from both sets:
+A union is the combination of two sets, including all unique elements from both sets:
 
 ```python
 set1 = {1, 2, 3}
@@ -93,7 +93,7 @@ print(union)  # {1, 2, 3, 4, 5}
 
 ### Intersection
 
-The intersection contains only elements that are in both sets:
+A intersection contains elements that are common to both sets:
 
 ```python
 set1 = {1, 2, 3}
@@ -112,7 +112,7 @@ print(intersection)  # {3}
 
 ### Difference
 
-The difference contains elements that are in the first set but not in the second:
+A difference contains elements that are only in one set and not in the other:
 
 ```python
 set1 = {1, 2, 3}
@@ -131,7 +131,7 @@ print(difference)  # {1, 2}
 
 ## Checking Membership
 
-You can check if an element is in a set using the `in` keyword:
+You can also check if an element is a member of a set using the `in` keyword:
 
 ```python
 fruits = {"apple", "banana", "orange"}
@@ -145,7 +145,7 @@ print("grape" in fruits)  # False
 
 ## Set Methods
 
-Here are some useful set methods:
+Similarly to other datastructures, sets have a variety of built-in methods that can be used to manipulate them. Here are some common methods:
 
 ```python
 fruits = {"apple", "banana", "orange"}
@@ -154,14 +154,17 @@ fruits = {"apple", "banana", "orange"}
 print(len(fruits))  # 3
 
 # Check if a set is a subset of another
+# A subset is a set that contains only elements found in another set
 small_set = {"apple", "banana"}
 print(small_set.issubset(fruits))  # True
 
 # Check if a set is a superset of another
+# A superset is a set that contains all elements of another set (and possibly more)
 big_set = {"apple", "banana", "orange", "grape"}
 print(big_set.issuperset(fruits))  # True
 
 # Check if two sets have no elements in common
+# Disjoint sets are sets that have no elements in common
 other_set = {"grape", "kiwi"}
 print(fruits.isdisjoint(other_set))  # False (they share no elements)
 ```
@@ -217,16 +220,4 @@ print(both_classes)  # {'Bob', 'Charlie'}
 
 ## Summary
 
-Sets are a powerful tool in Python for working with unique collections of elements. They're particularly useful for:
-- Storing unique items
-- Removing duplicates from lists
-- Finding common elements between collections
-- Performing mathematical set operations
-
-Remember:
-- Sets store unique, unordered elements
-- Elements must be immutable (like strings, numbers, or tuples)
-- Sets are mutable (can be changed) unless they're frozen sets
-- Set operations like union, intersection, and difference are efficient
-
-In the next lesson, we'll explore more advanced data structures and their uses in Python.
+Sets are pretty powerful as they allow you to simplify solutions that require working with unique elements or performing operations like finding common elements between collections. They are also great for ensuring that you don't have duplicates in your data structures.
