@@ -369,9 +369,4 @@ print(dogs)  # [Dog('Buddy', 9, 'Golden Retriever'), Dog('Miles', 4, 'Jack Russe
 
 ## Summary
 
-Key Points: 
-- Classes are blueprints for creating objects
-- Objects are instances of classes with their own data
-- Attributes store data inside objects
-- Methods define behavior for objects
-- Special methods like `__init__`, `__str__`, and `__repr__` provide core functionality
+In Python's object-oriented programming, classes serve as blueprints for creating objects, which are instances with their own unique data stored in attributes. While attributes hold the data inside objects, methods define their behavior, and special methods like `__init__`, `__str__`, and `__repr__` provide essential functionality for object creation, string representation, and developer-friendly output respectively.

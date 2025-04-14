@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # A Preface to Data Structures in Python
 
-Before we get started, I would like to address a few important terms that will be used in this lesson. 
+Before we get started, we should address a few important terms that will be used in this lesson. 
 
 ## Class, Objects, and Methods
 
@@ -17,7 +17,7 @@ Example:
 
 This is a really helpful bit of code. The `append` keyword is a method within the list class, and acts as a way to add an element to the end of the list.
 
-We will discuss this further in [object-oriented programming](../05-oop/02-classes-objects.md).
+We will discuss this further in []. \<- REPLACE WITH OFFICIAL LINK
 
 ## Mutable and Immutable Objects
 
