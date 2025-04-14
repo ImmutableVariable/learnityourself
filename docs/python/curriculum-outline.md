@@ -30,14 +30,14 @@ This curriculum is designed for beginner programmers, and will start with basic 
 - **Scope and Lifetime of Variables**: Understanding local and global variables
 - **Modules and Packages**: Organizing code into reusable modules and packages
 
-## Data Structures 🟢🟣
+## Data Structures 🟢
 - **Comprehensions**: Creating lists, sets, and dictionaries in a concise way
 - **Lists**: Creating and manipulating lists
 - **Tuples**: Understanding immutable sequences
 - **Dictionaries**: Key-value pairs for data storage
 - **Sets**: Unordered collections of unique elements
 
-## Object-Oriented Programming (OOP) 🔵🟣 (needs to have some way to reference decorators at a base level. currently in unlabeled)
+## Object-Oriented Programming (OOP) 🟢🟣 (needs to have some way to reference decorators at a base level. currently in unlabeled)
 - **Classes and Objects**: Understanding the basics of OOP
 - **Inheritance**: Creating new classes from existing classes
 - **Polymorphism**: Using objects of different classes in a uniform way
