@@ -4,22 +4,9 @@ sidebar_position: 4
 
 # Composition
 
-Composition is a fundamental concept in object-oriented programming where you build complex objects by combining simpler objects. Instead of inheriting behavior from a parent class, you include instances of other classes as attributes. This is often described as a "has-a" relationship, as opposed to inheritance's "is-a" relationship.
-
-## What is Composition?
-
-Think of composition like building with LEGO blocks. Rather than creating one big piece (inheritance), you create smaller, specialized pieces that fit together (composition).
-
-Some real-world examples of composition:
-- A car **has a** engine, transmission, and wheels
-- A computer **has a** CPU, memory, and storage
-- A playlist **has a** collection of songs
-
-In each case, the main object is made up of other objects, each with their own specific responsibilities.
+Composition allows you to build complex objects by combining simpler objects. This is different from inheritance because inheritance represents a "is-a" relationship (a dog is an animal), while composition represents a "has-a" relationship (a car has an engine).
 
 ## Composition vs. Inheritance
-
-Let's compare composition and inheritance:
 
 | Composition | Inheritance |
 |-------------|-------------|
@@ -28,6 +15,15 @@ Let's compare composition and inheritance:
 | Flexible at runtime | Fixed at compile time |
 | Less coupling between classes | Tighter coupling between classes |
 | Changes in component classes have minimal impact | Changes in parent class affect all child classes |
+
+## Real World Analogies
+
+Some real-world examples of composition:
+- A car **has a** engine, transmission, and wheels
+- A computer **has a** CPU, memory, and storage
+- A playlist **has a** collection of songs
+
+In each case, the main object is made up of other objects, each with their own specific responsibilities.
 
 ## Basic Composition in Python
 
@@ -74,118 +70,85 @@ In this example, the `Car` class contains an instance of the `Engine` class. The
 
 ## A More Complete Example
 
-Let's create a more complex example with multiple components:
+You can also use composition to create a more complex object. For example, a car might have an engine, battery, and radio.
 
 ```python
+class Engine:
+    def start(self):
+        return "Engine started"
+
+    def stop(self):
+        return "Engine stopped"
+
 class Battery:
-    def __init__(self, capacity):
-        self.capacity = capacity
-        self.power = capacity
-    
-    def use_power(self, amount):
-        if amount <= self.power:
-            self.power -= amount
+    def __init__(self):
+        self.level = 100
+
+    def use(self, amount):
+        if self.level >= amount:
+            self.level -= amount
             return True
         return False
-    
+
     def charge(self):
-        self.power = self.capacity
-        return "Battery fully charged"
-    
-    def get_status(self):
-        return f"Battery at {(self.power / self.capacity) * 100:.1f}%"
+        self.level = 100
+        return "Battery charged"
 
-class Screen:
-    def __init__(self, size):
-        self.size = size
-        self.is_on = False
-    
+    def status(self):
+        return f"Battery level: {self.level}%"
+
+class Radio:
+    def __init__(self):
+        self.on = False
+
     def turn_on(self):
-        self.is_on = True
-        return "Screen turned on"
-    
+        self.on = True
+        return "Radio is playing music"
+
     def turn_off(self):
-        self.is_on = False
-        return "Screen turned off"
-    
-    def display(self, message):
-        if self.is_on:
-            return f"Displaying on {self.size}\" screen: {message}"
-        return "Screen is off, cannot display message"
+        self.on = False
+        return "Radio is off"
 
-class Smartphone:
-    def __init__(self, brand, model, screen_size, battery_capacity):
-        self.brand = brand
-        self.model = model
-        # Composition: Smartphone has a Screen and a Battery
-        self.screen = Screen(screen_size)
-        self.battery = Battery(battery_capacity)
-        self.is_on = False
-    
-    def power_on(self):
-        if self.battery.use_power(5):
-            self.is_on = True
-            result = f"{self.screen.turn_on()}\n{self.brand} {self.model} powered on"
-            return result
+class Car:
+    def __init__(self):
+        # A car HAS an engine, battery, and radio
+        self.engine = Engine()
+        self.battery = Battery()
+        self.radio = Radio()
+
+    def start_car(self):
+        if self.battery.use(10):
+            print(self.engine.start())
+            print(self.radio.turn_on())
         else:
-            return "Not enough battery to power on"
-    
-    def power_off(self):
-        self.is_on = False
-        self.screen.turn_off()
-        return f"{self.brand} {self.model} powered off"
-    
-    def make_call(self, number):
-        if not self.is_on:
-            return "Phone is off, cannot make call"
-        
-        if self.battery.use_power(10):
-            return f"Calling {number}..."
-        else:
-            self.power_off()
-            return "Phone died during call attempt"
-    
-    def charge_phone(self):
-        result = self.battery.charge()
-        return f"{self.brand} {self.model}: {result}"
-    
+            print("Battery too low to start the car")
+
+    def stop_car(self):
+        print(self.engine.stop())
+        print(self.radio.turn_off())
+
     def check_battery(self):
-        return f"{self.brand} {self.model}: {self.battery.get_status()}"
+        print(self.battery.status())
 
-# Create a smartphone
-my_phone = Smartphone("Apple", "iPhone 13", 6.1, 100)
+    def charge_battery(self):
+        print(self.battery.charge())
 
-# Use the smartphone with its components
-print(my_phone.power_on())
-print(my_phone.check_battery())
-print(my_phone.make_call("555-1234"))
-print(my_phone.check_battery())
-print(my_phone.charge_phone())
-print(my_phone.power_off())
+my_car = Car()
+
+my_car.start_car()
+my_car.check_battery()
+my_car.stop_car()
+my_car.charge_battery()
+my_car.check_battery()
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
 In this example:
-1. We have two component classes: `Battery` and `Screen`
-2. The `Smartphone` class is composed of these components
-3. The smartphone delegates specific operations to the appropriate component
-4. Each component has its own state and behavior
 
-## Advantages of Composition
+1. The `Car` class has an `Engine`, `Battery`, and `Radio` components
+2. The operations `start_car()`, `stop_car()`, `check_battery()`, and `charge_battery()` are delegated to the components rather than the `Car` itself.
 
-1. **Flexibility**: Components can be swapped at runtime
-2. **Reusability**: Components can be reused in different contexts
-3. **Loose coupling**: Changes to one component have minimal impact on others
-4. **Separation of concerns**: Each class has a clear, focused responsibility
-
-## When to Use Composition
-
-Use composition when:
-- You need objects made up of other objects
-- You want to reuse code without the limitations of inheritance
-- You need to change behavior at runtime
-- The relationship is "has-a" rather than "is-a"
 
 ## Composition with Multiple Components
 
@@ -265,7 +228,7 @@ Here, the `Bicycle` class contains a list of `Wheel` objects, showing how compos
 
 ## Delegation Pattern
 
-A common pattern with composition is delegation, where the containing class forwards requests to its components:
+A common pattern with composition is delegation, where one component delegates the execution of a method to another component.
 
 ```python
 class Speaker:
@@ -289,19 +252,6 @@ print(player.play_song("Bohemian Rhapsody"))  # Playing: â™« Bohemian Rhapsody â
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
-
-## Composition vs. Aggregation
-
-There's a subtle distinction between composition and aggregation:
-
-- **Composition**: The component cannot exist independently of the container ("strong" relationship)
-- **Aggregation**: The component can exist independently of the container ("weak" relationship)
-
-For example:
-- A room is composed of walls (the walls can't exist without the room)
-- A school aggregates students (students exist even if the school closes)
-
-In practice, both are implemented similarly in Python, but the conceptual distinction can be helpful.
 
 ## Combining Inheritance and Composition
 
@@ -353,16 +303,41 @@ print(fido.describe())  # Fido has A 12 inch tail
 
 In this example, `Dog` inherits from `Animal` (is-a relationship) and is composed with `Tail` (has-a relationship).
 
-## Best Practices
+## Composition vs. Aggregation
+
+There's a subtle distinction between composition and aggregation:
+
+- **Composition**: The component cannot exist independently of the container ("strong" relationship)
+- **Aggregation**: The component can exist independently of the container ("weak" relationship)
+
+For example:
+- A room is composed of walls (the walls can't exist without the room)
+- A school aggregates students (students exist even if the school closes)
+
+In practice, both are implemented similarly in Python, but the conceptual distinction can be helpful.
+
+## Summary 
+
+### When to Use Composition
+
+Use composition when:
+- You need objects made up of other objects
+- You want to reuse code without the limitations of inheritance
+- You need to change behavior at runtime
+- The relationship is "has-a" rather than "is-a"
+
+### Benefits of Composition
+
+The key advantages of composition include:
+1. **Flexibility**: Components can be swapped at runtime
+2. **Reusability**: Components can be reused in different contexts
+3. **Loose coupling**: Changes to one component have minimal impact on others
+4. **Separation of concerns**: Each class has a clear, focused responsibility
+
+### Best Practices
 
 1. **Prefer composition over inheritance** when possible (it's more flexible)
 2. **Use inheritance for "is-a" relationships** and composition for "has-a" relationships
 3. **Keep components focused** on a single responsibility
 4. **Consider interface requirements** when designing components
 5. **Don't expose component implementation details** in the containing class
-
-## Summary
-
-Composition is a powerful technique in object-oriented programming where you build complex objects by combining simpler ones. In comparison to inheritance, inheritance represents an "is-a" relationship (a dog is an animal) while composition represents a "has-a" relationship (a car has an engine). Composition offers several advantages over inheritance including greater flexibility, better reusability, looser coupling between classes, and clearer separation of concerns. These benefits make composition a preferred approach in many design scenarios where you need to build complex objects with modular, reusable components.
-
-In the next lesson, we'll explore polymorphism, another key concept in object-oriented programming. 

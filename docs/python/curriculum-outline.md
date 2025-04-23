@@ -37,13 +37,13 @@ This curriculum is designed for beginner programmers, and will start with basic 
 - **Dictionaries**: Key-value pairs for data storage
 - **Sets**: Unordered collections of unique elements
 
-## Object-Oriented Programming (OOP) 🟢🟣
+## Object-Oriented Programming (OOP) 🔵🟣
 - **Classes and Objects**: Understanding the basics of OOP
 - **Inheritance**: Creating new classes from existing classes
 - **Polymorphism**: Using objects of different classes in a uniform way
 - **Encapsulation**: Bundling data and methods within a class
 
-## File Handling 🟢🟣
+## File Handling 🔵🟣
 - **Reading Files**: Opening and reading data from files
 - **Writing Files**: Writing data to files
 - **File Modes and Operations**: Understanding different file access modes

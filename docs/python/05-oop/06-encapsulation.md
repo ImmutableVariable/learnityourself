@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Encapsulation
 
-Encapsulation is one of the fundamental principles of object-oriented programming. It's all about bundling data (attributes) and the methods that work on that data into a single unit (a class), while also controlling access to that data.
+Encapsulation allows you to bundle attributes and methods that work on that data into a single unit (a class), while also controlling access to that data.
 
 Think of encapsulation like a capsule that keeps certain things inside protected. Just as a pill capsule keeps medicine safely contained, encapsulation keeps an object's data protected and accessible only through controlled channels.
 
@@ -87,10 +87,6 @@ try:
     print(account.__generate_statement())  # This will fail
 except AttributeError as e:
     print(f"Error: {e}")
-
-# Access private attribute/method using name mangling (not recommended)
-print(account._BankAccount__account_number)  # 12345
-print(account._BankAccount__generate_statement())  # Statement for Alice: Balance $1500
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
@@ -156,7 +152,7 @@ print(child._Child__value)      # child value
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
-## Properties: A Better Way to Encapsulate
+## Properties
 
 The naming conventions above are helpful, but Python offers an even better mechanism for encapsulation: properties. Properties allow you to define methods that act like attributes, giving you control over access while providing a clean interface.
 
@@ -199,7 +195,8 @@ person = Person("Alice", 30)
 print(person.name)  # Alice
 print(person.age)   # 30
 
-# Set properties (validation happens automatically)
+# Set properties (validation happens automatically). 
+# The setter property is called when they are set
 person.name = "Bob"
 person.age = 25
 
@@ -225,7 +222,7 @@ Properties give you several benefits:
 3. You can change the implementation without affecting the interface
 4. Your code is cleaner and more Pythonic
 
-## A More Complete Example: Temperature Converter
+## Temperature Converter Example
 
 Let's see a more complete example of encapsulation using properties:
 
@@ -415,7 +412,3 @@ print(car.engine_status)    # Toyota Corolla: Engine is stopped (temp: 0°C)
 4. **Provide clear public methods** as the interface to your class
 5. **Don't expose implementation details** in your public interface
 6. **Document your class's expected usage**
-
-## Summary
-
-Think of encapsulation as creating a smart protective wrapper around your data - just like how a phone case protects your phone while still giving you access to all its features through the right buttons and touchscreen. In Python, we use naming conventions (like underscores) and properties to control how data can be accessed and modified, which helps prevent accidental changes and keeps our code more reliable. While Python doesn't strictly lock things down like some other languages (it follows the "we're all consenting adults here" philosophy), good encapsulation still gives us the ability to validate data, compute values on the fly, and change how things work internally without affecting other code that uses our classes. By bundling data with the methods that work on that data and controlling access points, we create code that's easier to understand, maintain, and much less prone to mysterious bugs that happen when data gets changed unexpectedly.

@@ -51,7 +51,7 @@ print(math_module.pi)  # Prints the value of pi
 
 ## Creating Your Own Modules
 
-Creating a module in python is as simple as creating a new python file and adding your functions and variables to it. If you are following along, you can create a new file called `my_module.py` and add the following code to it (otherwise, just read along):
+Creating a module in python is as simple as creating a new python file and adding your functions and variables to it. The online code editor will not allow you to do this; however, you can follow along locally on your computer [(see "introduction")](../introduction.md). Start by creating a file `my_module.py` and add the following code to it (otherwise, just read along):
 
 ```python
 def greet(name):

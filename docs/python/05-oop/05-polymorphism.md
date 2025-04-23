@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Polymorphism
 
-Polymorphism is a core concept in object-oriented programming that allows objects of different classes to be treated as objects of a common type. The word "polymorphism" comes from Greek, meaning "many forms." In programming, it means that a single function or method can work with different types of objects and each object responds in its own way.
+Polymorphism is a core concept in object-oriented programming that allows objects of different types to be treated as objects of a common type. The word "polymorphism" comes from Greek, meaning "many forms." In programming, it means that a single function or method can work with different types of objects and each object responds in its own way.
 
 Think of polymorphism like a TV remote control. The same "power" button works on different TVs, where you can press the button and each TV turns on in its own way, but the action is the same.
 
@@ -29,6 +29,7 @@ class Animal:
         return "Some generic animal sound"
 
 class Dog(Animal):
+    # This overwrites the method within the Animal parent class.
     def speak(self):
         return "Woof!"
 
@@ -55,9 +56,9 @@ print(f"{donald.name} says: {donald.speak()}")    # Donald says: Quack!
 
 In this example, each animal class overrides the `speak()` method, providing its own implementation. Even though the method name is the same, the behavior is different for each animal.
 
-## Polymorphism in Action: Using Different Objects in the Same Way
+## Using Different Objects in the Same Way
 
-The real power of polymorphism becomes clear when we can treat different objects in a uniform way:
+Polymorphism also allows us to use different objects in the same way. Such as in the following example:
 
 ```python
 class Animal:
@@ -306,7 +307,9 @@ print(calc.multiply(5, 3, 2))       # 5 * 3 * 2 = 30
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
-## When to Use Polymorphism
+## Summary
+
+### When to Use Polymorphism
 
 Polymorphism is useful when:
 - You have objects of different types that need to be treated similarly
@@ -314,16 +317,10 @@ Polymorphism is useful when:
 - You're designing a framework or library for others to extend
 - You want to reduce repetitive code that does similar things with different object types
 
-## Best Practices
+### Best Practices
 
 1. **Use common interface methods**: Define common method names that classes should implement
 2. **Design for extensibility**: Make it easy to add new classes that fit into your polymorphic code
 3. **Don't check types explicitly**: Avoid `isinstance()` checks when possible; rely on duck typing
 4. **Document expected behavior**: Make it clear what methods custom objects should implement
 5. **Keep interfaces simple**: The fewer methods an object needs to implement, the easier it is to add new types
-
-## Summary
-
-Polymorphism is like having a universal remote that works with different TVs where you press the same button but each TV responds in its own way. In Python, this powerful concept lets you write more flexible and maintainable code by allowing different objects to respond to the same method calls in their own unique ways. Whether through method overriding (where child classes customize parent methods), duck typing (where unrelated classes implement the same methods), operator overloading (defining how operators work with your objects), or flexible function parameters, polymorphism helps you create code that can work with objects of various types without needing to know their specific type ahead of time. It's what makes Python code so adaptable and is one of the key features that makes object-oriented programming so powerful and flexible. If you're curious about the potential pitfalls or how polymorphism in Python compares to more strictly-typed languages, check out our advanced section on "Polymorphism Conitnued" where we explore edge cases, performance considerations, and design tradeoffs.
-
-In the next lesson, we'll explore encapsulation, which focuses on protecting data and implementation details within a class.

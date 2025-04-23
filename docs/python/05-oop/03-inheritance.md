@@ -4,24 +4,20 @@ sidebar_position: 3
 
 # Inheritance
 
-Inheritance is one of the core concepts in object-oriented programming. It allows you to create new classes that are built upon existing classes. Think of inheritance like a family relationship: just as you might inherit traits from your parents, a *child* class can inherit attributes and methods from a *parent* or another class.
-
-The main benefit of inheritance is that it lets you reuse code. Instead of writing the same code over and over again, you can define it once in a parent class and then use it in multiple child classes.
+Inheritance is a powerful tool that allows you to create new classes built upon existing ones. By using inheritance, you can reuse methods and attributes from a parent class, which makes your code more modular and easier to maintain. 
 
 ## Basic Inheritance Concept
 
-In inheritance:
-- The **parent class** (also called base class or superclass) is the class being inherited from
-- The **child class** (also called derived class or subclass) is the class that inherits from the parent class
+Think of it like a family tree:
 
-When a child class inherits from a parent class, it gets all the attributes and methods of the parent class. The child class can also:
-- Add its own new attributes and methods
-- Override (replace) methods from the parent class
-- Extend methods from the parent class
+- The parent class passes down traits to its children (e.g., attributes and methods, also known as "inherited traits")
+- Each child can have its own unique traits in addition to the inherited ones (e.g., attributes and methods, also known as "unique traits")
+- Children can pass down both their unique traits and their inherited traits to their own children
+
 
 ## Creating a Child Class
 
-To create a child class in Python, you simply put the parent class name in parentheses when defining the child class:
+To create a class that inherits from another, include the parent class name in parentheses when defining the child class:
 
 ```python
 class ParentClass:
