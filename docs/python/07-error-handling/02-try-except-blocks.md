@@ -4,13 +4,13 @@ sidebar_position: 2
 
 # Try-Except Blocks
 
-In the previous lesson, we learned about exceptions and how they signal problems in our code. Now, let's explore how to handle these exceptions gracefully using try-except blocks, allowing our programs to recover from errors rather than crashing.
+Exceptions signal problems within your code; however, they can be handled gracefully! 
 
 ## The Basics of Exception Handling
 
 Exception handling in Python uses four key keywords:
-- `try`: Encloses code that might raise an exception
-- `except`: Handles specific exceptions that occur in the try block
+- `try`: Encloses code that might raise an exception. Essentially, "try to run this code"
+- `except`: Handles specific exceptions that occur in the try block. Now, "if an exception occurs when trying that code, run this code"
 - `else`: Executes if the try block doesn't raise an exception
 - `finally`: Executes regardless of whether an exception occurred
 
@@ -34,10 +34,9 @@ finally:
     pass
 ```
 
-Let's see a simple example:
+Example:
 
 ```python
-# Basic try-except example
 try:
     x = int(input("Enter a number: "))
     result = 10 / x
@@ -47,14 +46,14 @@ except ValueError:
 except ZeroDivisionError:
     print("You can't divide by zero!")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
-</codapi-snippet>
 
 ## Catching Multiple Exceptions
 
-There are several ways to handle multiple exceptions:
+Sometimes the code within your "try" block might raise more than one type of exception. (see the code above)
 
 ### 1. Multiple except blocks
+
+One option is to have multiple `except` blocks chained together.
 
 ```python
 try:
@@ -66,10 +65,10 @@ except ValueError:
 except ZeroDivisionError:
     print("You cannot divide by zero")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
-</codapi-snippet>
 
 ### 2. Handling multiple exceptions in one except block
+
+Another option (especially if the exceptions are related) is to use a tuple of exceptions in the `except` block. This will be run if ANY of the exceptions within the tuple are raised.
 
 ```python
 try:
@@ -79,22 +78,19 @@ try:
 except (ValueError, ZeroDivisionError):
     print("Invalid input: enter a non-zero number")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
-</codapi-snippet>
 
-### 3. Catching all exceptions
+### 3. Catching all exceptions (not recommended):
 
-You can catch all exceptions using a bare `except:` clause, but this is generally considered bad practice because it can mask unexpected errors:
+You can also use the `except` keyword without specifying an exception type. This will catch ANY exception that occurs in the `try` block.
 
 ```python
-# Not recommended, but shown for completeness
 try:
     risky_operation()  # This function doesn't exist
 except:
     print("Something went wrong!")
 ```
 
-A better approach is to catch `Exception`, which includes most standard exceptions but not system exit signals:
+A better approach is to catch `Exception`, which includes most standard exceptions but not system exit signals. And then use the `as` keyword to capture the exception object.
 
 ```python
 try:
@@ -104,12 +100,12 @@ try:
 except Exception as e:
     print(f"An error occurred: {type(e).__name__}: {e}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## The `as` Keyword
 
-The `as` keyword lets you capture the exception object itself, giving you access to details about the error:
+The `as` keyword lets you capture and access details about the exception:
 
 ```python
 try:
@@ -124,8 +120,6 @@ except FileNotFoundError as e:
         file.write("This file was created by the except block")
     print("Created the missing file")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
-</codapi-snippet>
 
 ## The `else` Clause
 
@@ -151,16 +145,14 @@ print(f"Result: {safe_division(10, 2)}\n")
 print("Dividing 10 by 0:")
 print(f"Result: {safe_division(10, 0)}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
-The key benefit of using `else` is that it clearly separates the success path from the error handling path, making your code more readable. However, it's not always necessary since you can simply put the `print("Division succeeded")` in the `try` block.
-
-*Note: My personal preference is to not use `else` blocks at all. I find that they can make the code more confusing to read and harder to understand simply because readers/reviewers may try to then find an `if` statement. Python can be very hard to read at times, so I try to avoid adding unnecessary complexity. -JT*
+The key benefit of using `else` is that it clearly separates the success path from the error handling path, making your code more readable. However, you can also just put the code into the `try` block and it will run if no exceptions occur.
 
 ## The `finally` Clause
 
-The `finally` clause runs whether an exception occurs or not. It's perfect for cleanup code like closing files or network connections:
+The `finally` clause runs whether an exception occurs or not. This is useful for code that should run regardless of the outcome (like closing resources):
 
 ```python
 def process_file(filename):
@@ -187,14 +179,7 @@ def process_file(filename):
 # Try with a file that might not exist
 process_file("sample_text.txt")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
-</codapi-snippet>
 
-The `finally` block is especially important when working with resources that need proper cleanup regardless of exceptions, like:
-- File handles
-- Database connections
-- Network sockets
-- Locks in multithreaded programs
 
 ## Best Practices for Exception Handling
 
@@ -290,17 +275,16 @@ with open("data.txt", "r") as file:
 
 ```python
 def get_age():
-    while True:
-        try:
-            age = int(input("Please enter your age: "))
-            if age < 0 or age > 120:
-                raise ValueError("Age must be between 0 and 120")
-            return age
-        except ValueError as e:
-            if str(e) == "Age must be between 0 and 120":
-                print(e)
-            else:
-                print("Please enter a valid number")
+    try:
+        age = int(input("Please enter your age: "))
+        if age < 0 or age > 120:
+            raise ValueError("Age must be between 0 and 120")
+        return age
+    except ValueError as e:
+        if str(e) == "Age must be between 0 and 120":
+            print(e)
+        else:
+            print("Please enter a valid number")
 
 # Uncomment to try it out
 # age = get_age()
@@ -315,82 +299,14 @@ def read_config_file(filename):
         with open(filename, "r") as file:
             return file.read()
     except FileNotFoundError:
-        print(f"Config file {filename} not found. Creating default configuration.")
-        with open(filename, "w") as file:
-            default_config = "# Default configuration\nMAX_USERS=10\nDEBUG=False\n"
-            file.write(default_config)
-        return default_config
+        print(f"Config file {filename} not found. Using in-memory defaults.")
+        # <do something with in-memory defaults>
     except PermissionError:
-        print(f"No permission to read {filename}. Using in-memory defaults.")
-        return "# In-memory defaults\nMAX_USERS=5\nDEBUG=True\n"
+        print(f"Permission denied. Using in-memory defaults.")
+        # <do something with in-memory defaults>
 
 # Try to read a config file
 config = read_config_file("app_config.ini")
 print("\nFinal configuration:")
 print(config)
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
-</codapi-snippet>
-
-### Example 3: Network Communication
-
-```python
-def fetch_data_from_api(url):
-    """Simulate fetching data from an API with potential errors"""
-    import random
-    error_type = random.choice(["timeout", "connection", "data", "success"])
-    
-    try:
-        print(f"Attempting to connect to {url}...")
-        
-        if error_type == "timeout":
-            raise TimeoutError("API request timed out after 30 seconds")
-        elif error_type == "connection":
-            raise ConnectionError("Could not connect to the server")
-        elif error_type == "data":
-            response = "Invalid data format"
-            raise ValueError(f"Received invalid data: {response}")
-        else:
-            print("Connected successfully!")
-            return {"status": "success", "data": [1, 2, 3, 4, 5]}
-            
-    except TimeoutError as e:
-        print(f"Error: {e}")
-        print("Retrying with increased timeout...")
-        return {"status": "error", "message": "Timeout, using cached data", "data": [0, 0, 0]}
-        
-    except ConnectionError as e:
-        print(f"Error: {e}")
-        print("Could not reach the server")
-        return {"status": "error", "message": "Connection failed, using cached data", "data": [0, 0, 0]}
-        
-    except ValueError as e:
-        print(f"Error: {e}")
-        print("Data processing error")
-        return {"status": "error", "message": "Invalid data format", "data": []}
-        
-    except Exception as e:
-        print(f"Unexpected error: {type(e).__name__}: {e}")
-        return {"status": "error", "message": "Unknown error", "data": []}
-
-# Try to fetch data from an API
-result = fetch_data_from_api("https://api.example.com/data")
-print("\nFinal result:")
-print(result)
-```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
-</codapi-snippet>
-
-## Exception Handling in Real Applications
-
-In professional applications, proper exception handling is crucial:
-
-1. **Web Applications**: Handle exceptions to prevent crashes and provide user-friendly error messages
-2. **Data Processing**: Ensure partial failures don't stop entire batch processes
-3. **APIs**: Return proper error codes and messages instead of exposing internal errors
-4. **User Interfaces**: Present helpful error messages rather than crashing
-5. **System Tools**: Log errors and continue operation where possible
-
-## Summary
-
-Try-except blocks are Python's way of gracefully handling errors. By properly using try, except, else, and finally clauses, you can write code that recovers from errors, provides helpful feedback, and ensures resources are properly managed. Remember to be specific about which exceptions you catch, keep your try blocks focused, and avoid suppressing exceptions unnecessarily. In the next lesson, we'll learn how to create and raise your own custom exceptions. 

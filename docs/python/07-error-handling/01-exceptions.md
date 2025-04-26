@@ -4,11 +4,11 @@ sidebar_position: 1
 
 # Exceptions
 
-When your Python program encounters a problem it can't handle, it raises an "exception" or a "signal" that something has gone wrong. Understanding how to work with exceptions is important for writing reliable, robust/"crash free" programs that can gracefully handle errors instead of well ... crashing.
+In Python, exceptions are used to handle errors gracefully. Instead of allowing your program to crash when something goes wrong, Python raises an exception, signaling that an error has occurred and providing useful information to resolve it. Mastering exception handling helps you create reliable and crash-free programs.
 
 ## What Are Exceptions?
 
-Exceptions are events that occur during program execution that disrupt the normal flow of instructions. They're Python's way of saying "I can't continue with what you asked me to do, but never fear! I can tell you what went wrong and how to fix it."
+Exceptions are events that disrupt the normal flow of your program. They occur when something goes wrong, and Python raises an exception to indicate the issue, also known as an error, has occurred. When this happens, Python will pause the execution of your program (a bad thing) unless you handle the exception gracefully.
 
 Consider this common scenario:
 
@@ -21,9 +21,13 @@ print(result)
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
-When you run this code, Python raises a `ValueError` exception with a message like: `ValueError: invalid literal for int() with base 10: 'hello'`
+When you run this code, Python raises a ValueError exception:
 
-Rather than thinking of exceptions as errors to be avoided, it's better to view them as important messages that help you handle unexpected situations.
+```bash
+ValueError: invalid literal for int() with base 10: 'hello'
+```
+
+Because this exception is raised, the program halts, and the value of `result` is never printed. 
 
 ## Common Built-in Exceptions
 
@@ -45,42 +49,9 @@ Python has many built-in exceptions. Here are some you'll frequently encounter:
 | `IOError` | Input/Output operation failed | Failed file operations |
 | `RuntimeError` | Generic error during execution | Various runtime issues |
 
-Let's see these exceptions in action:
-
-```python
-# Let's trigger some common exceptions and see what happens
-
-def my_function():
-    # List of exception demonstrations
-    demos = [
-        ("NameError", lambda: undefined_variable),  # Variable doesn't exist
-        ("TypeError", lambda: "2" + 2),  # String + int
-        ("ValueError", lambda: int("hello")),  # Convert non-numeric string to int
-        ("IndexError", lambda: [1, 2, 3][10]),  # Access beyond list end
-        ("KeyError", lambda: {"a": 1}["b"]),  # Access non-existent key
-        ("ZeroDivisionError", lambda: 5 / 0),  # Division by zero
-        ("AttributeError", lambda: "hello".nonexistent_method()),  # Call non-existent method
-        ("FileNotFoundError", lambda: open("nonexistent_file.txt"))  # Open missing file
-    ]
-    
-    # Try each demo and catch the exception
-    for name, demo_func in demos:
-        try:
-            print(f"\nTrying to trigger {name}:")
-            result = demo_func()
-            print(f"This succeeded without exception: {result}")
-        except Exception as e:
-            print(f"✓ Caught a {type(e).__name__}: {e}")
-
-# Run the demonstrations
-my_function()
-```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
-</codapi-snippet>
-
 ## Exception Hierarchy
 
-Python's exceptions form a hierarchy, with more specific exceptions inheriting from more general ones. At the top is `BaseException`, with `Exception` being the base class for most exceptions you'll work with.
+Python exceptions are organized in a hierarchy. At the top is BaseException, with Exception being the base class for most exceptions you’ll encounter. Specific exceptions inherit from more general ones. 
 
 Here's a simplified view of the hierarchy:
 
@@ -116,11 +87,11 @@ BaseException
       └── more...
 ```
 
-This hierarchy is very important when catching exceptions. For example, if you catch `OSError`, you'll also catch its subclasses like `FileNotFoundError` and `PermissionError`, but not the other way around.
+This hierarchy is crucial for handling exceptions. For example, if you catch `OSError`, you also catch its subclasses like `FileNotFoundError`, but not the other way around.
 
 ## The Traceback
 
-When an exception occurs, Python generates a "traceback" or a detailed report showing where the exception occurred and the sequence of function calls that led to it.
+When an exception occurs, Python generates a traceback. Although it may be confusing, it's simply a list of the function calls that led to the exception.
 
 ```python
 # A function that causes an exception
@@ -136,12 +107,12 @@ try:
 except ZeroDivisionError as e:
     import traceback
     print("An error occurred:")
-    traceback.print_exc()  # Print the traceback
+    traceback.print_exc(file=sys.stdout)  # Print the traceback
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
-Understanding tracebacks is vital for debugging. Read them from bottom to top:
+Read tracebacks from bottom to top:
 1. The last line shows the exception type and message
 2. The line above shows where the exception occurred
 3. Each preceding line shows the function calls leading to the exception (the "call stack")
@@ -150,22 +121,20 @@ Understanding tracebacks is vital for debugging. Read them from bottom to top:
 
 There are two main categories of errors:
 
-1. **Syntax Errors**: Occur when Python can't understand your code because it violates the language rules. Python catches these before running your code.
+### Syntax Errors
+
+Syntax errors occur when the Python interpreter can't understand your code due to a violation of the language's rules. These errors are caught before the program runs.
 
 ```python
 # Syntax error example (missing closing parenthesis)
 print("Hello world"
 ```
 
-2. **Runtime Errors**: Occur during program execution. These raise exceptions.
+### Runtime Errors
+
+These errors actually occur during the program's execution. These errors raise exceptions at runtime and can be handled otherwise it will panic (terminate your program). 
 
 ```python
 # Runtime error example
 x = 10 / 0  # This is syntactically correct but fails at runtime
 ```
-
-Syntax errors must be fixed before your code will run at all. Runtime errors can be caught and handled with exception handling.
-
-## Summary
-
-Exceptions are Python's mechanism for signaling and handling errors. Understanding common exceptions, the exception hierarchy, and how to read tracebacks are essential skills for any Python programmer. In the next lesson, we'll learn how to handle these exceptions using try-except blocks, making our programs more robust and user-friendly. 

@@ -4,20 +4,11 @@ sidebar_position: 3
 
 # Raising Exceptions
 
-In the previous lessons, we learned how to handle exceptions that occur during program execution. Now, we'll explore how to create and raise our own exceptions. This skill is essential for building robust libraries, enforcing input validation, and creating clear error messages for users of your code.
-
-## Why Raise Exceptions?
-
-Raising exceptions allows you to:
-
-1. **Signal error conditions** - Indicate when something unexpected has happened
-2. **Enforce constraints** - Ensure input values meet requirements
-3. **Create clear APIs** - Define the error conditions of your functions
-4. **Maintain control flow** - Handle exceptional conditions without complex if/else chains
+You can also raise your own exceptions in order to signal error conditions. This helps you create more robust and maintainable code. 
 
 ## The `raise` Statement
 
-Python's `raise` statement lets you trigger an exception:
+The `raise` statement allows you to manually trigger exceptions in your code:
 
 ```python
 def divide(a, b):
@@ -39,7 +30,7 @@ except ZeroDivisionError as e:
 
 ## Raising Built-in Exceptions
 
-Python has many built-in exceptions you can raise. Choose the one that best describes the error condition:
+Python provides many built-in exceptions that you can raise, depending on the error condition:
 
 ```python
 def process_age(age):
@@ -74,7 +65,7 @@ except Exception as e:
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
-Common built-in exceptions to raise include:
+Common exceptions to raise include:
 
 | Exception | When to raise it |
 |-----------|------------------|
@@ -88,77 +79,71 @@ Common built-in exceptions to raise include:
 
 ## Creating Custom Exception Classes
 
-While built-in exceptions are useful, sometimes you need custom exceptions that are specific to your application. Creating your own exception classes is easy—simply inherit from `Exception` or one of its subclasses:
+While there are many built-in exceptions, you may also want to create your own custom exception classes to fit your specific needs. You can do this by inheriting from `Exception` or one of its subclasses:
 
 ```python
-# Define custom exceptions
-class NetworkError(Exception):
-    """Base class for network-related errors"""
+# Inherit from `Exception`
+class FileProcessingError(Exception):
+    """Base class for all file processing-related errors"""
     pass
 
-class ConnectionError(NetworkError):
-    """Raised when a connection cannot be established"""
+class FileNotFoundError(FileProcessingError):
+    """Raised when the specified file is not found"""
     pass
 
-class TimeoutError(NetworkError):
-    """Raised when a connection times out"""
+class InvalidFileFormatError(FileProcessingError):
+    """Raised when the file format is invalid"""
     pass
 
-class DataFormatError(NetworkError):
-    """Raised when received data has an invalid format"""
+class FileReadError(FileProcessingError):
+    """Raised when there is an error reading the file"""
     pass
 
-# Function that might raise these custom exceptions
-def fetch_data(url, timeout=30):
+# Simulate a function that processes a file and may raise these exceptions
+def process_file(file_path):
     import random
     
-    # Simulate network operations
-    print(f"Connecting to {url}...")
+   # <Simulate file processing>
     
-    # Randomly select an error scenario for demonstration
-    scenario = random.choice(["success", "timeout", "connection", "format"])
+    # Randomly simulate one of several error scenarios for demonstration
+    scenario = random.choice(["success", "not_found", "invalid_format", "read_error"])
     
-    if scenario == "timeout":
-        raise TimeoutError(f"Connection to {url} timed out after {timeout} seconds")
-    elif scenario == "connection":
-        raise ConnectionError(f"Could not connect to {url}. Server may be down.")
-    elif scenario == "format":
-        raise DataFormatError(f"Data received from {url} has invalid format")
+    if scenario == "not_found":
+        raise FileNotFoundError(f"The file at {file_path} could not be found.")
+    elif scenario == "invalid_format":
+        raise InvalidFileFormatError(f"The file at {file_path} has an unsupported format.")
+    elif scenario == "read_error":
+        raise FileReadError(f"An error occurred while reading the file at {file_path}.")
     else:
-        print("Connection successful!")
-        return {"status": "success", "data": [1, 2, 3, 4, 5]}
+        print("File processed successfully!")
+        return {"status": "success", "data": "File content processed successfully."}
 
-# Try to fetch data with error handling
+# Example usage with error handling
 try:
-    data = fetch_data("https://example.com/api/data")
-    print(f"Received data: {data}")
-except TimeoutError as e:
-    print(f"Timeout error: {e}")
-    print("Retrying with increased timeout...")
-except ConnectionError as e:
-    print(f"Connection problem: {e}")
-    print("Please check your internet connection.")
-except DataFormatError as e:
-    print(f"Data format issue: {e}")
-    print("Contact the API provider for assistance.")
-except NetworkError as e:
-    print(f"Other network error: {e}")
+    result = process_file("data.txt")
+    print(f"Processing result: {result}")
+except FileNotFoundError as e:
+    print(f"File not found: {e}")
+    print("Please check the file path and try again.")
+except InvalidFileFormatError as e:
+    print(f"Invalid file format: {e}")
+    print("Please provide a valid file format.")
+except FileReadError as e:
+    print(f"File read error: {e}")
+    print("There was an issue accessing the file content.")
+except FileProcessingError as e:
+    print(f"File processing error: {e}")
 except Exception as e:
     print(f"Unexpected error: {type(e).__name__}: {e}")
 ```
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
-### Benefits of Custom Exceptions
-
-1. **Code organization**: Group related exceptions in a hierarchy
-2. **Specific catching**: Catch only specific types of errors
-3. **Clearer error messages**: Provide context-specific error information
-4. **API documentation**: Clearly communicate possible failure modes
+Custom exceptions are VERY powerful. They allow you to create specific errors for your application and make specific error handling easier.
 
 ## Adding Information to Exceptions
 
-Custom exceptions can store additional information about the error condition:
+When you create a custom exception, you can also add more information to it in order to provide more context to the user.
 
 ```python
 class ValidationError(Exception):
@@ -218,23 +203,25 @@ except ValidationError as e:
 
 ## Re-raising Exceptions
 
-Sometimes you want to catch an exception, do something, and then re-raise it:
+You may catch an exception, handle it, and then re-raise it:
 
 ```python
 def process_data(data):
     try:
-        result = data[0] / data[1]
+        result = data[0] / data[1] 
         return result
     except ZeroDivisionError:
-        print("Logging division by zero...")
-        # Re-raise the same exception
+        print("Logging: Division by zero occurred.")
+        # Re-raise the original ZeroDivisionError
         raise
     except IndexError:
-        print("Data list is too short!")
-        # Transform into a different exception
-        raise ValueError("Data must contain at least two numbers")
+        print("Logging: Data list is too short!")
+        # Transform the IndexError into a more meaningful exception (ValueError)
+        raise ValueError("Data must contain at least two numbers. Provided data list is too short.")
+    except Exception as e:
+        print(f"Unexpected error: {type(e).__name__}: {e}")
+        raise  # Re-raise any other unexpected exceptions
 
-# Try different inputs
 try:
     print("\nTrying with [10, 2]:")
     result = process_data([10, 2])
@@ -254,15 +241,15 @@ except Exception as e:
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
-Re-raising is useful when you want to:
-- Log the error before propagating it
-- Add cleanup code before letting the exception continue
-- Transform one type of exception into another
-- Add context to the exception
+Re-raising is useful for:
+- Logging errors before propagation
+- Performing cleanup tasks before continuing
+- Converting one exception type to another
+- Adding context to the original exception
 
 ## Exception Chaining
 
-When you catch an exception and raise a new one, you might lose the original exception information. Python's exception chaining preserves this information:
+To maintain the original exception details, Python supports exception chaining:
 
 ```python
 def read_config():
@@ -284,11 +271,11 @@ except RuntimeError as e:
 <codapi-snippet sandbox="python" editor="python" init-delay="500">
 </codapi-snippet>
 
-Exception chaining provides a clear trail of what went wrong and why, which is invaluable for debugging.
+Chaining preserves the original exception's context, making debugging easier.
 
 ## The `assert` Statement
 
-Python's `assert` statement provides a shorthand way to verify that conditions are met, raising an `AssertionError` if they aren't:
+The `assert` statement helps you verify that conditions are true. If not, it raises an `AssertionError`:
 
 ```python
 def calculate_average(numbers):
@@ -322,200 +309,33 @@ except AssertionError as e:
 
 ### When to Use `assert`
 
-- During development to catch logical errors
-- For internal checks that should never fail
-- To document and verify assumptions
+- For debugging and logical checks during development.
+- To verify assumptions that should always be true
+- For internal consistency checks.
 
-**Important note**: Assertions can be disabled in Python (with the `-O` optimization flag), so they should only be used for debugging and development, not for enforcing conditions that must always be checked.
+**Important note**: Assertions can be disabled. In optimized python, the `python -O` flag can be used to disable assertions. They should not be used for critical checks.
 
 ## Best Practices for Raising Exceptions
 
-1. **Choose the right exception type**: Use the most specific built-in exception or create a custom one
-2. **Provide informative error messages**: Include details about what went wrong and how to fix it
-3. **Create exception hierarchies**: Organize related exceptions in a class hierarchy
-4. **Document the exceptions**: Let users know what exceptions they should expect and handle
-5. **Avoid catching and silencing exceptions**: Only catch exceptions you can properly handle
-6. **Use assertions for internal checks**: Verify assumptions during development
-7. **Consider performance**: Exception handling has overhead, so don't use it for normal flow control
+1. **Choose the right exception type**: Create a custom exception class if needed
+2. **Provide informative error messages**: Include relevant information in the exception message
+3. **Document exceptions**: You should be documenting your code, AND its exceptions. This helps debugging!!
 
-## Real-World Examples
 
-### Example 1: API Input Validation
+## Example
 
-```python
-class APIError(Exception):
-    """Base exception for API errors"""
-    def __init__(self, message, status_code=400):
-        self.status_code = status_code
-        self.message = message
-        super().__init__(message)
-
-class InvalidInputError(APIError):
-    """Raised when API input validation fails"""
-    def __init__(self, message):
-        super().__init__(message, status_code=400)  # Bad Request
-
-class AuthenticationError(APIError):
-    """Raised when authentication fails"""
-    def __init__(self, message="Authentication required"):
-        super().__init__(message, status_code=401)  # Unauthorized
-
-class NotFoundError(APIError):
-    """Raised when a requested resource doesn't exist"""
-    def __init__(self, resource_type, resource_id):
-        message = f"{resource_type} with ID {resource_id} not found"
-        super().__init__(message, status_code=404)  # Not Found
-
-# Simulated API request handler
-def handle_request(request):
-    # Check authentication
-    if "api_key" not in request:
-        raise AuthenticationError()
-    
-    # Validate input
-    if "user_id" not in request:
-        raise InvalidInputError("user_id is required")
-    
-    if not isinstance(request.get("user_id"), int):
-        raise InvalidInputError("user_id must be an integer")
-    
-    # Check if resource exists
-    user_id = request["user_id"]
-    if user_id not in [1, 2, 3]:  # Simplified check
-        raise NotFoundError("User", user_id)
-    
-    # Process the request
-    print(f"Processing request for user {user_id}")
-    return {"status": "success", "user_id": user_id, "data": "User data here"}
-
-# Simulated API response function
-def api_response(request):
-    try:
-        result = handle_request(request)
-        return {
-            "status": "success",
-            "data": result
-        }
-    except APIError as e:
-        return {
-            "status": "error",
-            "status_code": e.status_code,
-            "message": e.message
-        }
-
-# Test different requests
-print("\nValid request:")
-response = api_response({"api_key": "12345", "user_id": 1})
-print(response)
-
-print("\nMissing API key:")
-response = api_response({"user_id": 1})
-print(response)
-
-print("\nMissing user_id:")
-response = api_response({"api_key": "12345"})
-print(response)
-
-print("\nInvalid user_id type:")
-response = api_response({"api_key": "12345", "user_id": "one"})
-print(response)
-
-print("\nUser not found:")
-response = api_response({"api_key": "12345", "user_id": 999})
-print(response)
-```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
-</codapi-snippet>
-
-### Example 2: File Processing Pipeline
+### File Processing
 
 ```python
 class ProcessingError(Exception):
-    """Base exception for file processing errors"""
-    pass
-
-class FileReadError(ProcessingError):
-    """Raised when a file cannot be read"""
-    pass
-
-class ValidationError(ProcessingError):
-    """Raised when file content fails validation"""
-    pass
-
-class TransformationError(ProcessingError):
-    """Raised when data transformation fails"""
-    pass
-
-class OutputError(ProcessingError):
-    """Raised when results cannot be saved"""
+    """Base class for file processing errors"""
     pass
 
 def process_file(filename):
     try:
         # Step 1: Read the file
         print(f"Reading file: {filename}")
-        try:
-            # Simulate file reading (this would normally use open())
-            if filename.endswith(".invalid"):
-                raise FileNotFoundError(f"File not found: {filename}")
-            
-            if filename.endswith(".locked"):
-                raise PermissionError(f"Permission denied: {filename}")
-                
-            raw_data = f"Sample data from {filename}"
-            print(f"Successfully read file: {len(raw_data)} bytes")
-        except (FileNotFoundError, PermissionError) as e:
-            # Convert to our custom exception type
-            raise FileReadError(f"Could not read file: {e}") from e
-            
-        # Step 2: Validate the data
-        print("Validating data...")
-        if "Invalid" in filename:
-            raise ValidationError("File contains invalid data format")
-            
-        # Step 3: Transform the data
-        print("Transforming data...")
-        if "transform_error" in filename:
-            raise TransformationError("Could not transform data: value out of range")
-        
-        processed_data = f"Processed: {raw_data}"
-        
-        # Step 4: Save the results
-        output_filename = f"output_{filename}"
-        print(f"Saving results to {output_filename}")
-        if "output_error" in filename:
-            raise OutputError(f"Could not write to {output_filename}")
-            
-        print(f"Successfully processed {filename}")
-        return processed_data
-        
-    except ProcessingError as e:
-        print(f"Processing failed: {e}")
-        # We could log the error here
-        # We might also want to clean up any temporary files
-        return None
-
-# Test with different scenarios
-filenames = [
-    "data.txt",                  # Should succeed
-    "data.invalid",              # File not found
-    "data.locked",               # Permission error
-    "Invalid_data.txt",          # Validation error
-    "data_transform_error.txt",  # Transformation error
-    "data_output_error.txt"      # Output error
-]
-
-for filename in filenames:
-    print(f"\n{'='*40}\nProcessing {filename}:")
-    result = process_file(filename)
-    if result:
-        print(f"Final result: {result}")
-    else:
-        print("Processing returned no result due to errors")
+        # Simulate file read
+    except Exception as e:
+        raise ProcessingError("File read error") from e
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
-</codapi-snippet>
-
-## Summary
-
-Raising exceptions is a powerful technique for handling error conditions in Python. By raising built-in exceptions or creating your own custom exception classes, you can clearly signal when something goes wrong, provide detailed error information, and design more robust programs. Remember to choose the right exception type, provide informative error messages, and document the exceptions your code might raise. Combined with proper exception handling (try-except blocks), raising exceptions helps create code that is both robust and maintainable. 
