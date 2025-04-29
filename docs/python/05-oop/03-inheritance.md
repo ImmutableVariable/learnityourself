@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Inheritance
 
-Inheritance is a powerful tool that allows you to create new classes built upon existing ones. By using inheritance, you can reuse methods and attributes from a parent class, which makes your code more modular and easier to maintain. 
+Inheritance allows you to create new classes built upon existing ones. By using inheritance, you can reuse methods and attributes from a parent class, which makes your code more modular and easier to maintain. 
 
 ## Basic Inheritance Concept
 

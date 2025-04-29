@@ -53,12 +53,12 @@ This curriculum is designed for beginner programmers, and will start with basic 
 - **Try-Except Blocks**: Catching and handling exceptions
 - **Raising Exceptions**: Creating and raising custom exceptions
 
-## Working with External Libraries 🔴 
+## Working with External Libraries 🔵🟣
 - **pip Package Manager**: Installing and managing external libraries
 - **Documentation**: Using documentation to learn more about libraries AND creating your own documentation
 - **A Example Using a Library**: Using a library in a simple example
 
-## Testing 🔴
+## Testing 🔵🟣
 - **Unit Testing**: Writing tests for individual components
 - **Test-Driven Development (TDD)**: Developing code based on tests
 

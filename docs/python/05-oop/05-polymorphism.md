@@ -6,7 +6,7 @@ sidebar_position: 5
 
 Polymorphism is a core concept in object-oriented programming that allows objects of different types to be treated as objects of a common type. The word "polymorphism" comes from Greek, meaning "many forms." In programming, it means that a single function or method can work with different types of objects and each object responds in its own way.
 
-Think of polymorphism like a TV remote control. The same "power" button works on different TVs, where you can press the button and each TV turns on in its own way, but the action is the same.
+Think of polymorphism like a light switch. Everyone knows how to use a light switch - you flip it up or down. But what happens when you flip the switch depends on what it's connected to. It might turn on a ceiling light, a fan, a lamp, or even multiple devices at once. The interface (the switch) remains the same, but the action (what gets powered on) can vary depending on the specific implementation.
 
 ## Why is Polymorphism Useful?
 

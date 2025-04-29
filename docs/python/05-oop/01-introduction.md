@@ -8,7 +8,7 @@ Object-Oriented Programming (OOP) is a programming paradigm that organizes code 
 
 ## A Brief History
 
-OOP wasn't always the popular paradigm it is today. Programming started with procedural approaches, where code was organized as a sequence of steps.
+OOP wasn't always as popular as it is today. Programming started with procedural approaches, where code was organized as a sequence of steps. Think: "This, then that".
 
 The concept of OOP emerged in the 1960s with the Simula language, which introduced objects and classes. However, it wasn't until the 1980s and 1990s that OOP gained mainstream popularity with languages like C++ and Java.
 
