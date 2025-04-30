@@ -18,7 +18,7 @@ user_input = "hello"
 result = int(user_input)  # Trying to convert a string "hello" to an integer
 print(result)
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 When you run this code, Python raises a ValueError exception:
@@ -109,7 +109,7 @@ except ZeroDivisionError as e:
     print("An error occurred:")
     traceback.print_exc(file=sys.stdout)  # Print the traceback
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 Read tracebacks from bottom to top:

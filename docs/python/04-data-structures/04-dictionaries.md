@@ -55,7 +55,7 @@ print(f"Type of student: {type(student)}")
 print(f"\nNumber of entries in student: {len(student)}")
 print(f"Number of entries in squares: {len(squares)}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Accessing Dictionary Elements
@@ -89,7 +89,7 @@ print(f"Grade: {grade}")
 grade = student.get("grade", "N/A")  # "N/A"
 print(f"Grade with default: {grade}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Checking if a Key Exists
@@ -116,7 +116,7 @@ if "grade" in student:
 else:
     print("No grade available")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Modifying Dictionaries
@@ -139,7 +139,7 @@ student.update({"phone": "555-1234", "address": "123 Main St"})
 
 print(f"Updated student: {student}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Removing Values
@@ -169,7 +169,7 @@ print(f"Last item: {last_item}")
 student.clear()
 print(f"After clear(): {student}")  # {}
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Modifying Dictionaries Recap
@@ -207,7 +207,7 @@ print(f"After popitem(): {student}")
 student.clear()
 print(f"After clear(): {student}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Dictionary Methods
@@ -241,7 +241,7 @@ student_copy = student.copy()
 student["grade"] = "A"
 print(f"Updated keys view: {keys}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Dictionary Comprehensions
@@ -263,7 +263,7 @@ squares_dict = {x: x**2 for x in range(6)}
 # where x is the key and x**2 is the value.
 print(squares_dict)  # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ```python
@@ -273,7 +273,7 @@ ages = [25, 30, 35]
 name_to_age = {name: age for name, age in zip(names, ages)}
 print(name_to_age)  # {'Alice': 25, 'Bob': 30, 'Charlie': 35}
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Conditional Dictionary Comprehensions
@@ -290,7 +290,7 @@ You can also add a condition to filter items like you would with list comprehens
 even_squares = {x: x**2 for x in range(10) if x % 2 == 0}
 print(even_squares)  # {0: 0, 2: 4, 4: 16, 6: 36, 8: 64}
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ```python
@@ -299,7 +299,7 @@ original_dict = {"a": 1, "b": 2, "c": 3, "d": 4, "e": 5}
 filtered_dict = {key: value for key, value in original_dict.items() if value > 2}
 print(filtered_dict)  # {'c': 3, 'd': 4, 'e': 5}
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 The code above creates a new dictionary `filtered_dict` that only includes items from `original_dict` where the value is greater than 2. 
@@ -314,7 +314,7 @@ celsius_temps = {"Monday": 20, "Tuesday": 25, "Wednesday": 22, "Thursday": 28, "
 fahrenheit_temps = {day: (9/5) * temp + 32 for day, temp in celsius_temps.items()}
 print(fahrenheit_temps)
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ```python
@@ -323,7 +323,7 @@ names = {"alice": 25, "bob": 30, "charlie": 35}
 capitalized_names = {name.capitalize(): age for name, age in names.items()}
 print(capitalized_names)  # {'Alice': 25, 'Bob': 30, 'Charlie': 35}
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Nested Dictionaries
@@ -365,7 +365,7 @@ for employee, details in employees.items():
     for key, value in details.items():
         print(f"  {key}: {value}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Dictionary Use Cases and Patterns
@@ -410,7 +410,7 @@ for person in people:
 
 print(f"People by city: {by_city}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Using dictionaries for caching/memoization
@@ -435,7 +435,7 @@ for i in range(10):
 # The results are cached for future calls
 print(f"Calculated values cached: {fibonacci.__defaults__[0]}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Default values with dictionaries
@@ -457,7 +457,7 @@ david_score = scores.setdefault("David", 0)
 print(f"David's score: {david_score}")
 print(f"Updated scores: {scores}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Collections Module: Dictionary Variations
@@ -492,7 +492,7 @@ for word in words:
 
 print(f"Words grouped by first letter: {dict(grouped_words)}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### OrderedDict
@@ -535,7 +535,7 @@ first_item = ordered.popitem(last=False)
 print(f"First item (FIFO): {first_item}")
 print(f"After popitem(last=False): {ordered}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Counter
@@ -578,7 +578,7 @@ print(f"counter1 & counter2: {intersection}")
 union = counter1 | counter2
 print(f"counter1 | counter2: {union}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Performance and Efficiency
@@ -613,7 +613,7 @@ print(f"Large list lookup time: {large_list_lookup:.6f} seconds")
 print(f"Large dict lookup time: {large_dict_lookup:.6f} seconds")
 print(f"Dictionary lookups are {large_list_lookup/large_dict_lookup:.1f}x faster for large collections")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Best Practices for Dictionaries
@@ -646,7 +646,7 @@ most_common = color_count.most_common(1)[0][0]  # Most common color
 
 print(f"Most common color: {most_common}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Summary

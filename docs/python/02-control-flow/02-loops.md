@@ -25,7 +25,7 @@ fruits = ["apple", "banana", "cherry"]
 for fruit in fruits:
     print(fruit) # This will first print apple, then banana, and finally cherry
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 You can also get individual characters within a string. For example:
@@ -35,7 +35,7 @@ message = "Python"
 for character in message:
     print(character)
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ### The `range()` Function
@@ -48,7 +48,7 @@ for i in range(5):
     print(i)  # Outputs: 0, 1, 2, 3, 4 with each on a new line
     
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 You can also provide a start and stop value, essentially, it will start at the first number and end at the last.
@@ -58,7 +58,7 @@ You can also provide a start and stop value, essentially, it will start at the f
 for i in range(2, 6):
     print(i)  # Outputs: 2, 3, 4, 5
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 You can also provide a optional step value, which will increment the number by that amount. For example, if you want to count by 2s, you can do this:
@@ -68,7 +68,7 @@ You can also provide a optional step value, which will increment the number by t
 for i in range(1, 10, 2):
     print(i)  # Outputs: 1, 3, 5, 7, 9
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ### Nested For Loops
@@ -82,7 +82,7 @@ for i in range(1, 4):  # Outer loop
         print(f"{i} x {j} = {i * j}")
     print("---")  # Separator between groups
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ## While Loops
@@ -105,7 +105,7 @@ while count < 5:
     print(count)
     count += 1  # Important: increment the counter to avoid an infinite loop
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 You can also use a while loop to get user input until a certain condition is met:
@@ -141,7 +141,7 @@ while True:
     if counter >= 5:
         break  # Exit the loop when counter reaches 5
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ## Loop Control Statements
@@ -164,7 +164,7 @@ print("Loop exited")
 # notice the last value printed was 4, therefore
 # the loop exited before printing 5
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ```python
@@ -176,7 +176,7 @@ while True:
     if count >= 5:
         break  # Exit the loop when count reaches 5
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ### `continue` Statement
@@ -193,7 +193,7 @@ for i in range(10):
         continue  # Skip even numbers
     print(i)  # This only prints odd numbers
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 It can also be used in a while loop 
@@ -207,7 +207,7 @@ while count < 10:
         continue  # Skip even numbers
     print(count)  # This only prints odd numbers
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ### `else` Clause in Loops
@@ -221,7 +221,7 @@ for i in range(5):
 else:
     print("Loop completed normally")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ```python
@@ -233,7 +233,7 @@ for i in range(5):
 else:
     print("This won't execute because the loop was exited with break")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ```python
@@ -245,7 +245,7 @@ while count < 5:
 else:
     print("Loop completed normally")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ## Common Loop Patterns
@@ -260,7 +260,7 @@ fruits = ["apple", "banana", "cherry"]
 for index, fruit in enumerate(fruits):
     print(f"Index {index}: {fruit}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 ## Best Practices
@@ -286,7 +286,7 @@ for num in numbers:
     total += num
 average = total / len(numbers)  # Calculate once after the loop
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500" >
+<codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
 4. **Use appropriate control statements**: Use `break` to exit a loop early, and `continue` to skip iterations when needed.

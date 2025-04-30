@@ -82,7 +82,7 @@ print(buddy.species)     # Output: Canis familiaris
 print(buddy.bark())      # Output: Buddy says Woof!
 print(miles.get_info())  # Output: Miles is 4 years old
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## The `self` Parameter
@@ -135,7 +135,7 @@ print(dog2.name, dog2.age)  # Charlie 5
 # We can access the count through the class
 print(Dog.get_count())  # There are 2 dogs
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 The difference between class attributes and instance attributes is that class attributes are shared by all instances of the class, while instance attributes are unique to each instance. In this sample, `species` is a class attribute, while `name` and `age` are instance attributes. The species of all dogs is the same, but each dog has a unique name and age.
@@ -212,7 +212,7 @@ print(Dog.get_count())  # There are 1 dogs
 print(Dog.is_adult(1))  # False
 print(dog1.is_adult(dog1.age))  # True
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 #### Decorators
@@ -277,7 +277,7 @@ print(buddy.perform_trick("play dead"))  # Buddy doesn't know how to play dead.
 
 print(buddy.birthday())  # Buddy is now 4 years old!
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Multiple Objects Interacting
@@ -327,7 +327,7 @@ print(buddy.play_with_toy("ball"))  # Buddy plays with the ball and it makes a b
 print(buddy.play_with_toy("frisbee"))  # Buddy doesn't have a frisbee.
 print(rex.play_with_toy("frisbee"))  # Rex plays with the frisbee and it makes a whoosh sound!
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## The `__str__` and `__repr__` Methods
@@ -362,7 +362,7 @@ print(repr(buddy))  # Dog('Buddy', 9, 'Golden Retriever')
 dogs = [buddy, Dog("Miles", 4, "Jack Russell")]
 print(dogs)  # [Dog('Buddy', 9, 'Golden Retriever'), Dog('Miles', 4, 'Jack Russell')]
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 > The `__repr__` method is super handy when debugging. A good rule of thumb is to make `__repr__` return a string that, if evaluated, would recreate the object. Think of it as the "code representation" of your object!

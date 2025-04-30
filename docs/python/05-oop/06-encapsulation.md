@@ -88,7 +88,7 @@ try:
 except AttributeError as e:
     print(f"Error: {e}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 In Python, the conventions are:
@@ -120,7 +120,7 @@ print(dir(person))
 print(person._Person__id)
 print(person._Person__private_method())
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 Name mangling helps prevent naming conflicts in inheritance hierarchies:
@@ -149,7 +149,7 @@ print(child.get_child_value())   # child value
 print(child._Parent__value)     # parent value
 print(child._Child__value)      # child value
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Properties
@@ -213,7 +213,7 @@ try:
 except ValueError as e:
     print(f"Error: {e}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 Properties give you several benefits:
@@ -282,7 +282,7 @@ try:
 except ValueError as e:
     print(f"Error: {e}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Read-Only Properties
@@ -340,7 +340,7 @@ try:
 except AttributeError as e:
     print(f"Error: {e}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Encapsulation and Composition
@@ -401,7 +401,7 @@ print(car.engine_status)    # Toyota Corolla: Engine is stopped (temp: 0°C)
 
 # We don't need to know how the engine works internally
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Best Practices for Encapsulation in Python

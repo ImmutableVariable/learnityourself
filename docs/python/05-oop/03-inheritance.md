@@ -53,7 +53,7 @@ dog = Dog("Buddy")
 print(dog.name)                 # Buddy (inherited from Animal)
 print(dog.speak())              # Woof! (overridden in Dog)
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 In this example, `Dog` inherits from `Animal`. Notice that:
@@ -82,7 +82,7 @@ dog = Dog("Buddy", "Golden Retriever")
 print(dog.name)    # Buddy (initialized through Animal.__init__)
 print(dog.breed)   # Golden Retriever (initialized in Dog.__init__)
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 The `super()` function calls the method from the parent class. In this case, `super().__init__(name)` calls the `__init__` method of the `Animal` class, which sets up the `name` attribute.
@@ -130,7 +130,7 @@ print(buddy.make_sound())             # Woof!
 print(buddy.wag_tail())               # Buddy wags tail happily!
 print(f"Buddy is a {buddy.breed}")    # Buddy is a Golden Retriever
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Extending Methods
@@ -165,7 +165,7 @@ print(person.introduce())  # Hi, I'm John and I'm 30 years old.
 student = Student("Alice", 20, "Python University")
 print(student.introduce())  # Hi, I'm Alice and I'm 20 years old. I attend Python University.
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 In this example, the `Student` class doesn't completely override the `introduce` method—it extends it by first calling the parent's method and then adding more information.
@@ -194,7 +194,7 @@ print(duck.fly())    # Flying high!
 print(duck.swim())   # Swimming gracefully
 print(duck.quack())  # Quack quack!
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 In this example, the `Duck` class inherits from both `Flyable` and `Swimmable`, so it can both fly and swim. Multiple inheritance can be powerful, but it should be used with care as it can make your code more complex.
@@ -221,7 +221,7 @@ print(isinstance(dog, Animal))   # True
 # Check if Dog is a subclass of Animal
 print(issubclass(Dog, Animal))   # True
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## When to Use Inheritance

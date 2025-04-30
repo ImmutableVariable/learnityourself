@@ -25,7 +25,7 @@ try:
 except ZeroDivisionError as e:
     print(f"Error: {e}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Raising Built-in Exceptions
@@ -62,7 +62,7 @@ try:
 except Exception as e:
     print(f"Error: {e}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 Common exceptions to raise include:
@@ -136,7 +136,7 @@ except FileProcessingError as e:
 except Exception as e:
     print(f"Unexpected error: {type(e).__name__}: {e}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 Custom exceptions are VERY powerful. They allow you to create specific errors for your application and make specific error handling easier.
@@ -198,7 +198,7 @@ except ValidationError as e:
     print(f"Field: {e.field}")
     print(f"Message: {e.message}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Re-raising Exceptions
@@ -238,7 +238,7 @@ try:
 except Exception as e:
     print(f"Caught exception: {type(e).__name__}: {e}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 Re-raising is useful for:
@@ -268,7 +268,7 @@ except RuntimeError as e:
     # The original exception is available as '__cause__'
     print(f"Original cause: {e.__cause__}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 Chaining preserves the original exception's context, making debugging easier.
@@ -304,7 +304,7 @@ try:
 except AssertionError as e:
     print(f"AssertionError: {e}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### When to Use `assert`

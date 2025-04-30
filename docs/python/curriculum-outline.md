@@ -61,10 +61,3 @@ This curriculum is designed for beginner programmers, and will start with basic 
 ## Testing 🔵🟣
 - **Unit Testing**: Writing tests for individual components
 - **Test-Driven Development (TDD)**: Developing code based on tests
-
-## Advanced Topics (Optional) 🔴
-- **Explicit Type Annotations**: Adding type hints to improve code readability
-- **Decorators**: Modifying function behavior
-- **Generators**: Creating iterators in a memory-efficient way
-- **Context Managers**: Managing resources effectively
-- **Multithreading and Multiprocessing**: Running code concurrently

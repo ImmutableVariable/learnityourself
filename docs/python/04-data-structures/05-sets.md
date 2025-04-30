@@ -20,7 +20,7 @@ numbers = set([1, 2, 3, 4, 5])
 # Creating an empty set
 empty_set = set()  # Note: empty_set = {} creates an empty dictionary, not a set
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Adding and Removing Elements
@@ -40,7 +40,7 @@ print(fruits)  # {'apple', 'banana', 'orange'}
 fruits.update(["grape", "kiwi"])
 print(fruits)  # {'apple', 'banana', 'orange', 'grape', 'kiwi'}
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Removing Elements
@@ -65,7 +65,7 @@ print(f"Remaining: {fruits}")
 fruits.clear()
 print(fruits)  # set()
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Set Operations
@@ -88,7 +88,7 @@ print(union)  # {1, 2, 3, 4, 5}
 union = set1.union(set2)
 print(union)  # {1, 2, 3, 4, 5}
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Intersection
@@ -107,7 +107,7 @@ print(intersection)  # {3}
 intersection = set1.intersection(set2)
 print(intersection)  # {3}
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Difference
@@ -126,7 +126,7 @@ print(difference)  # {1, 2}
 difference = set1.difference(set2)
 print(difference)  # {1, 2}
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Checking Membership
@@ -140,7 +140,7 @@ fruits = {"apple", "banana", "orange"}
 print("apple" in fruits)  # True
 print("grape" in fruits)  # False
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Set Methods
@@ -168,7 +168,7 @@ print(big_set.issuperset(fruits))  # True
 other_set = {"grape", "kiwi"}
 print(fruits.isdisjoint(other_set))  # False (they share no elements)
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Frozen Sets
@@ -186,7 +186,7 @@ try:
 except AttributeError as e:
     print(f"Error: {e}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Common Use Cases
@@ -200,7 +200,7 @@ numbers = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
 unique_numbers = list(set(numbers))
 print(unique_numbers)  # [1, 2, 3, 4]
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Finding Common Elements
@@ -215,7 +215,7 @@ students_in_science = {"Bob", "Charlie", "David"}
 both_classes = students_in_math & students_in_science
 print(both_classes)  # {'Bob', 'Charlie'}
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Summary

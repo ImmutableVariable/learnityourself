@@ -51,7 +51,7 @@ print(f"{fido.name} says: {fido.speak()}")      # Fido says: Woof!
 print(f"{whiskers.name} says: {whiskers.speak()}")  # Whiskers says: Meow!
 print(f"{donald.name} says: {donald.speak()}")    # Donald says: Quack!
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 In this example, each animal class overrides the `speak()` method, providing its own implementation. Even though the method name is the same, the behavior is different for each animal.
@@ -95,7 +95,7 @@ animals = [
 for animal in animals:
     print(animal.introduce())
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 In this example, we treat all animals the same way by calling the `introduce()` method on each one. Even though they're different types, Python knows to call the right `speak()` method for each animal.
@@ -136,7 +136,7 @@ make_it_quack_and_swim(donald)
 print("\nPerson:")
 make_it_quack_and_swim(john)
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 Duck typing is different from inheritance-based polymorphism because the objects don't need to have a common parent class. They just need to implement the same methods.
@@ -208,7 +208,7 @@ for shape in shapes:
     print(f"Perimeter: {shape.perimeter()}")
     print()
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 In this example, each shape class implements the same methods (`area()`, `perimeter()`, and `describe()`), but the implementations are different for each shape. The `Square` class even inherits from `Rectangle` to reuse code.
@@ -254,7 +254,7 @@ print(f"v1 + v2 = {v3}")
 print(f"v2 - v1 = {v4}")
 print(f"v1 * 3 = {v5}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 In this example, we defined what happens when you use operators with our `Vector` class by implementing special methods like `__add__`, `__sub__`, and `__mul__`.
@@ -273,7 +273,7 @@ print(add(3.5, 2.1))         # 5.6 (floats)
 print(add("Hello, ", "World"))  # "Hello, World" (strings)
 print(add([1, 2], [3, 4]))    # [1, 2, 3, 4] (lists)
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 Here, the `add()` function works with different types because the `+` operator has different behaviors depending on the operand types. This is another form of polymorphism.
@@ -304,7 +304,7 @@ print(calc.multiply(5))             # 5 * 1 * 1 = 5
 print(calc.multiply(5, 3))          # 5 * 3 * 1 = 15
 print(calc.multiply(5, 3, 2))       # 5 * 3 * 2 = 30
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Summary

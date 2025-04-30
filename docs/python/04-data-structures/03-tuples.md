@@ -51,7 +51,7 @@ print(f"Type of (42) without comma: {type((42))}")  # This is an integer, not a 
 # Check the length
 print(f"Length of fruits: {len(fruits)}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Accessing Tuple Elements
@@ -90,7 +90,7 @@ try:
 except IndexError as e:
     print(f"Error: {e}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Slicing
@@ -124,7 +124,7 @@ print(f"Type of first three fruits: {type(first_three)}")
 print(f"Type of every second fruit: {type(every_second)}")
 print(f"Type of reversed fruits: {type(reversed_fruits)}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Immutability of Tuples
@@ -158,7 +158,7 @@ print(f"New tuple: {new_fruits}")
 more_fruits = fruits + ("orange", "kiwi")
 print(f"Concatenated tuple: {more_fruits}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Changing Nested Mutable Objects
@@ -182,7 +182,7 @@ person[1][0] = "Python 3"
 
 print(f"Modified tuple: {person}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Tuple Methods
@@ -207,7 +207,7 @@ try:
 except ValueError as e:
     print(f"Error: {e}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Tuple Unpacking
@@ -236,7 +236,7 @@ print(f"First: {first}, Middle: {middle}, Last: {last}")
 *beginning, last = numbers
 print(f"Beginning: {beginning}, Last: {last}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Unpacking in For Loops
@@ -266,7 +266,7 @@ ages = (30, 25, 35)
 for name, age in zip(names, ages):
     print(f"{name} is {age} years old")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### Swapping Variables
@@ -288,7 +288,7 @@ a, b = b, a  # Swapping using tuple unpacking
 
 print(f"After swap: a = {a}, b = {b}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Built-in Functions with Tuples
@@ -328,7 +328,7 @@ print(f"Sorted: {sorted_numbers}")
 print(f"Reverse Sorted: {reverse_sorted}")
 print(f"Sorted Words: {sorted_words}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Comparing a tuple to a list
@@ -364,7 +364,7 @@ tuple_access_time = timeit.timeit(stmt="x[2]", setup="x = (1, 2, 3, 4, 5)", numb
 print(f"List access time: {list_access_time:.6f} seconds")
 print(f"Tuple access time: {tuple_access_time:.6f} seconds")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ### When to Use Tuples vs Lists
@@ -426,7 +426,7 @@ data = ["Alice", 22, "Chicago"]
 alice = Person._make(data)
 print(f"From iterable: {alice}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Common Tuple Patterns and Idioms
@@ -441,7 +441,7 @@ def get_dimensions():
 width, height, depth = get_dimensions()
 print(f"Width: {width}, Height: {height}, Depth: {depth}")
 ```
-<codapi-snippet sandbox="python" editor="python" init-delay="500">
+<codapi-snippet sandbox="python" editor="basic" init-delay="500">
 </codapi-snippet>
 
 ## Summary

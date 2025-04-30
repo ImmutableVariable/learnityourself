@@ -51,21 +51,18 @@ Before using a library in your project, you should evaluate it for quality and s
 Python libraries are typically installed using pip, Python's package manager:
 
 ```bash
-# Installing a library using pip
 pip install numpy
 ```
 
 You can also specify particular versions if needed:
 
 ```bash
-# Installing a specific version
 pip install numpy==1.21.0
 ```
 
 For project-specific dependencies, consider using virtual environments:
 
 ```bash
-# Creating a virtual environment
 python -m venv myproject_env
 
 # Activating the environment (Windows)
@@ -74,42 +71,19 @@ myproject_env\Scripts\activate
 # Activating the environment (macOS/Linux)
 source myproject_env/bin/activate
 
-# Installing packages in the environment
+# Now you can install packages here
 pip install numpy pandas matplotlib
 ```
 
 ## Using Libraries
 
-To use a library in your code, you need to import it:
+To use a library in your code, you need to import it. This is covered in the [modules lesson](03-functions-modules/03-modules.md).
 
 ```python
-# Importing an entire library
 import numpy
 
 # Using a function from the library
 result = numpy.array([1, 2, 3])
-```
-
-You can also import specific functions or classes:
-
-```python
-# Importing a specific function
-from numpy import array
-
-# Using the imported function
-result = array([1, 2, 3])
-```
-
-This is far more efficient and useful than importing the entire library. It also provides you with a good habit you will most definitely need if you begin to work with compiled languages, hopefully with us!
-
-You can also give libraries aliases to make your code more concise:
-
-```python
-# Importing with an alias
-import numpy as np
-
-# Using the alias
-result = np.array([1, 2, 3])
 ```
 
 ## Popular Python Libraries
