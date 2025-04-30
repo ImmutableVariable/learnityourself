@@ -86,7 +86,7 @@ Python also provides a conditional expression (also known as a ternary operator)
 
 ```python
 age = 20
-status = "adult" if age >= 18 else "minor" # The conditon is evaluated as True (the age is 20), so the value of status will be "adult"
+status = "adult" if age >= 18 else "minor" # The condition is evaluated as True (the age is 20), so the value of status will be "adult"
 print(status)  # "adult"
 ```
 <codapi-snippet sandbox="python" editor="basic" init-delay="500" >
@@ -229,7 +229,7 @@ Membership and identity tests are used to check if a value is part of a collecti
 fruits = ["apple", "banana", "cherry"] 
 # imagine a list as a collection of items in a box
 # We are checking if this box contains a specific item (fruit) or not 
-# We will cover this in more detail in the next unit; however, it is a important conecept within control flows.
+# We will cover this in more detail in the next unit; however, it is a important concept within control flows.
 if "banana" in fruits:
     print("Yes, banana is in the list")
 

@@ -145,7 +145,7 @@ print("grape" in fruits)  # False
 
 ## Set Methods
 
-Similarly to other datastructures, sets have a variety of built-in methods that can be used to manipulate them. Here are some common methods:
+Similarly to other data structures, sets have a variety of built-in methods that can be used to manipulate them. Here are some common methods:
 
 ```python
 fruits = {"apple", "banana", "orange"}

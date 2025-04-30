@@ -42,8 +42,8 @@ When searching for a library, consider a few things:
 Before using a library in your project, you should evaluate it for quality and security:
 
 1. **Popularity**: Libraries with more users generally have fewer bugs and better support, which is better for you as a beginner developer
-2. **Documentation**: Good documentation makes a library easier to use. Some libraries that are more complex dont necessarily have good documentation, so you should be careful with these and make sure that the community support is good.
-3. **Maintenance**: Check when the library was last updated and how frequently issues are addressed. Libraries that were last updated 2 years ago or more might not be maintained anymore and might have inadvertant security issues. 
+2. **Documentation**: Good documentation makes a library easier to use. Some libraries that are more complex don't necessarily have good documentation, so you should be careful with these and make sure that the community support is good.
+3. **Maintenance**: Check when the library was last updated and how frequently issues are addressed. Libraries that were last updated 2 years ago or more might not be maintained anymore and might have inadvertent security issues. 
 4. **Security**: Consider the security implications of the code you're including into your project. While it is rare to see explicitly malicious code in libraries, it is more common to see libraries that are poorly written and have security issues due to a lack of testing and careful consideration of edge cases.
 
 ## Installing Libraries

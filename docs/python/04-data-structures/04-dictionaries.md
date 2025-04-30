@@ -15,7 +15,7 @@ There are several ways to create dictionaries in Python:
 empty_dict = {}
 empty_dict2 = dict()
 
-# All the vaolues within a dictionary are key-value pairs.
+# All the values within a dictionary are key-value pairs.
 # After creating a dictionary, you can then look up values using the keys.
 # ex: `student["name"]` would return the value of the key "name" within the student dictionary. ("John")
 student = {
@@ -304,7 +304,7 @@ print(filtered_dict)  # {'c': 3, 'd': 4, 'e': 5}
 
 The code above creates a new dictionary `filtered_dict` that only includes items from `original_dict` where the value is greater than 2. 
 
-### Converting Dictionary Valuess
+### Converting Dictionary Values
 
 Dictionary comprehensions are a powerful tool for transforming the values in a dictionary. For example, if you have a dictionary of temperatures in Celsius, you can use a dictionary comprehension to convert them all to Fahrenheit:
 
