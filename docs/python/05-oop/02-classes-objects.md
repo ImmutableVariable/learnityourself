@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Classes and Objects
 
-In Python, classes and objects are fundamental concepts in object-oriented programming (OOP). Think of a **class** as a blueprint or template. It defines what something should look like and how it should behave, but it isn't the thing itself. An **object** is an instance of a class—an actual "thing" created from the blueprint. Every object has its own unique attributes (variables) and methods (functions).
+Classes and objects are fundamental concepts in object-oriented programming (OOP). Think of a **class** as a blueprint or template. It defines what something should look like and how it should behave, but it isn't the thing itself. An **object** is an instance of a class—an actual "thing" created from the blueprint. Every object has its own unique attributes (variables) and methods (functions).
 
 To use an analogy:
 - A class is like a cookie cutter

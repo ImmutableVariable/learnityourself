@@ -6,9 +6,9 @@ sidebar_position: 1
 Welcome! In this course, you will learn the python programming language. Python is a high-level<sub>a</sub>, general purpose<sub>b</sub> programming language created in 1991. There are multiple editions of python; however, for this we will be using the newest edition Python3. 
 
 ## Why Python?
-- Python is know for its simplicity, being a high-level<sub>a</sub>, general purpose<sub>b</sub> programming language allows both ease of learning and flexibility in its use.
-- Along with this, Python has a large user base, in fact, it is one of the most used programming languages.
-- Python is also used in a variety of career fields such as:
+Python is know for its simplicity, being a high-level<sub>a</sub>, general purpose<sub>b</sub> programming language allows both ease of learning and flexibility in its use. Along with this, Python has a large user base, in fact, it is one of the most used programming languages.
+
+Python is also used in a variety of career fields such as:
     - Data Science
     - Web Development
     - Machine Learning

@@ -149,7 +149,7 @@ Although python is a beginner friendly language, attention to detail is importan
 
 #### Definitions
 
-<dfn>a - A fucntion is a reusable block of code that performs a specific task. </dfn>
+<dfn>a - A function is a reusable block of code that performs a specific task. </dfn>
 <br/>
 <dfn>b - A docstring is a string, usually a comment, used to document a piece of code </dfn>
 <br/>

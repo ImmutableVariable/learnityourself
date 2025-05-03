@@ -91,7 +91,7 @@ const config = {
       navbar: {
         title: 'Learn It Yourself',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Learn It Yourself Logo',
           src: 'img/logo.svg',
         },
         items: [
@@ -144,7 +144,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} LearnItYourself.`,
+        copyright: `Copyright © ${new Date().getFullYear()} ImmutableVariable.`,
       },
       prism: {
         theme: prismThemes.github,

@@ -1,6 +1,6 @@
 {
   "label": "Functions and Modules",
-  "position": 5,
+  "position": 4,
   "link": {
     "type": "generated-index",
     "description": "Learn how to define and use functions in Python to organize your code and make it reusable."
