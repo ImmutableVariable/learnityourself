@@ -1,6 +1,6 @@
 allison:
   name: Allison - ImmutableVariable
-  title: Co-Creator of LearnItYourself.dev 
+  title: Co-Creator of LearnItYourself.dev
   description: Im a programmer! I love to learn and teach others :3 I know several languages such as Python, JavaScript, Rust, Java, etc!
   url: https://github.com/ImmutableVariable
   image_url: https://github.com/ImmutableVariable.png
@@ -10,12 +10,12 @@ allison:
     twitch: ImmutableVariable
 
 coldie:
-  name: JT Le Blanc
+  name: JT - frgmt0
   title: Co-Creator of LearnItYourself.dev
   url: https://frgmt.xyz
   image_url: https://avatars.githubusercontent.com/u/105447989?v=4
   page:
     # customize the url of the author page at /blog/authors/<permalink>
-    permalink: '/coding-with-coldie'
+    permalink: "/coding-with-coldie"
   socials:
     github: frgmt0
