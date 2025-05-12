@@ -84,3 +84,23 @@ Hello, Alice!
 ```
 
 Thats (mostly) it! You can now create your own modules and use them in your program. We will cover more advanced topics like packages (open source libraries online) and how to create your own packages.
+
+## DocStrings
+
+Docstrings are strings used to document modules, functions, classes, and methods in Python. Inside this, you can provide information about the code's purpose, parameters, returns, etc. For example:
+
+```python
+def greet(name):
+    """Greets a person by name.
+
+    Args:
+        name (str): The name of the person to greet.
+
+    Returns:
+        None
+    """
+    print(f"Hello, {name}!")
+```
+
+Docstrings improve code readability and are often used with tools like help() or documentation generators (e.g., Sphinx). They are optional but highly recommended for maintainability.
+

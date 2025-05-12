@@ -86,6 +86,61 @@ def greet(greeting="Hello", name):  # This is incorrect
     print(greeting + ", " + name + "!")
 ```
 
+## Multiple Arguments
+There are two primary types of arguments in Python: positional arguments and keyword arguments.
+
+### Variable Arguments
+
+In Python, the *args parameter allows a function to accept any number of positional arguments (i.e., arguments passed without specifying their names). These arguments are collected into a tuple inside the function. We have not yet covered this but it is worth mentioning. Please read the first paragraph of [tuples](../04-data-structures/03-tuples.md) article.. This is useful when you don’t know how many arguments will be passed or want to make your functions more flexible.
+
+```python
+def sum_numbers(*args):
+    print("Arguments:", args)
+    total = 0
+    for num in args:
+        total += num
+    print("Sum of numbers:", total)
+
+sum_numbers(1, 2, 3)
+sum_numbers(5, 10, 15, 20)
+```
+
+<codapi-snippet sandbox="python" init-delay="500"></codapi-snippet>
+
+*args collects all the positional arguments into a tuple named args.
+The function then loops through this tuple to calculate the sum.
+
+## Keyword Arguments
+
+The **kwargs parameter allows a function to accept any number of keyword arguments (i.e., arguments passed with key-value pairs, like name="Alice"). These are collected into a [dictionary](../04-data-structures/04-dictionaries.md) inside the function. This is helpful when you want to pass optional named parameters or handle functions with many optional inputs.
+
+```python
+def print_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_info(name="Alice", age=30, city="New York")
+```
+
+<codapi-snippet sandbox="python" init-delay="500"></codapi-snippet>
+
+**kwargs collects all keyword arguments into a dictionary named kwargs.
+The loop prints each key-value pair from the dictionary.
+
+### Combining Positional and Keyword Arguments
+
+You can also create functions that combine both positional and keyword arguments as well as traditional parameters.
+
+```python
+def print_info(name, *args, **kwargs):
+    print("Name:", name)
+    print("Positional arguments:", args)
+    print("Keyword arguments:", kwargs)
+
+print_info("Alice", "Hello", "World", age=30, city="New York")
+```
+
+
 ## Lambda Functions
 
 Lambda functions are small anonymous (unnamed) functions that can take any number of arguments but can only have one expression. They are often used for short, throwaway functions that are not going to be reused elsewhere in your code. Lambda functions are defined using the `lambda` keyword, followed by the arguments and the expression. The syntax is as follows:
