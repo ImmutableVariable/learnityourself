@@ -91,7 +91,7 @@ There are two primary types of arguments in Python: positional arguments and key
 
 ### Variable Arguments
 
-In Python, the *args parameter allows a function to accept any number of positional arguments (i.e., arguments passed without specifying their names). These arguments are collected into a tuple inside the function. We have not yet covered this but it is worth mentioning. Please read the first paragraph of [tuples](../04-data-structures/03-tuples.md) article.. This is useful when you don’t know how many arguments will be passed or want to make your functions more flexible.
+In Python, the `*args` parameter allows a function to accept any number of positional arguments (i.e., arguments passed without specifying their names). These arguments are collected into a tuple inside the function. We have not yet covered this but it is worth mentioning. Please read the first paragraph of [tuples](../04-data-structures/03-tuples.md) article.. This is useful when you don’t know how many arguments will be passed or want to make your functions more flexible.
 
 ```python
 def sum_numbers(*args):
@@ -107,12 +107,12 @@ sum_numbers(5, 10, 15, 20)
 
 <codapi-snippet sandbox="python" init-delay="500"></codapi-snippet>
 
-*args collects all the positional arguments into a tuple named args.
+`*args` collects all the positional arguments into a tuple named args.
 The function then loops through this tuple to calculate the sum.
 
 ## Keyword Arguments
 
-The **kwargs parameter allows a function to accept any number of keyword arguments (i.e., arguments passed with key-value pairs, like name="Alice"). These are collected into a [dictionary](../04-data-structures/04-dictionaries.md) inside the function. This is helpful when you want to pass optional named parameters or handle functions with many optional inputs.
+The `**kwargs` parameter allows a function to accept any number of keyword arguments (i.e., arguments passed with key-value pairs, like name="Alice"). These are collected into a [dictionary](../04-data-structures/04-dictionaries.md) inside the function. This is helpful when you want to pass optional named parameters or handle functions with many optional inputs.
 
 ```python
 def print_info(**kwargs):
@@ -124,7 +124,7 @@ print_info(name="Alice", age=30, city="New York")
 
 <codapi-snippet sandbox="python" init-delay="500"></codapi-snippet>
 
-**kwargs collects all keyword arguments into a dictionary named kwargs.
+`**kwargs` collects all keyword arguments into a dictionary named kwargs.
 The loop prints each key-value pair from the dictionary.
 
 ### Combining Positional and Keyword Arguments
