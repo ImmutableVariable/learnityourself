@@ -33,4 +33,4 @@ We're currently crafting our Python curriculum, with plans to expand into Web De
 
 ##### P.S. if you want to contribute to our project in the form of corrections, suggestions for new languages/projects, or even just to say hi, please join our [Discord server](https://discord.gg/gbFTKGhPA8)!
 
-Ready to start your coding journey? Let's build something amazing together. [Start Here](http://learnityourself.dev/docs/python/introduction)
+Ready to start your coding journey? Let's build something amazing together. [Start Here](https://learnityourself.dev/docs/python/)
