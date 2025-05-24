@@ -86,6 +86,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      
       image: 'img/social-card.png',
       navbar: {
         title: 'Learn It Yourself',
@@ -145,6 +146,11 @@ const config = {
         ],
         copyright: `Copyright © ${new Date().getFullYear()} ImmutableVariable.`,
       },
+      metadata: [
+        { name: 'keywords', content: 'programming, tutorials, python, javascript, java, c++, c#, beginners, code examples, coding lessons, software development' },
+        { name: 'description', content: 'A simple and beginner-friendly way to learn the python programming language.' },
+        { name: 'author', content: 'ImmutableVariable' },
+      ],
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
