@@ -1,19 +1,24 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+python:
+  label: Python
+  permalink: /python
+  description: Articles related to the Python programming language
+
+javascript:
+  label: JavaScript
+  permalink: /javascript
+  description: Articles related to the JavaScript programming language
+
+programming:
+  label: Programming
+  permalink: /programming
+  description: Articles related to programming in general
+
+beginners:
+  label: Beginners
+  permalink: /beginners
+  description: Articles for beginners
 
 hello:
   label: Hello
   permalink: /hello
-  description: Hello tag description
-
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
-
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+  description: Welcome to LearnItYourself
