@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Functions
 
-Functions are the building blocks of modern programming. A function is a block of code that performs a specific task and can be reused throughout your program. Functions are defined using the `def` keyword, followed by the function name and parentheses. For example: `def my_function():`. Functions are important because they allow you to break down complex problems into smaller, manageable pieces. This makes your code more organized, easier to read, and easier to maintain.
+Functions are the building blocks of modern programming. A function is a block of code that performs a specific task and can be reused throughout your program. Functions are defined using the `def` keyword. The `def` essentially just means "define". You are defining a task (a function) that can be executed later by your program. After writing the `def` keyword, you write the name of the function. It is important to name it something descriptive so that you can reference it later. A example of a function declaration is: `def my_function():`. Functions are important because they allow you to break down complex problems into smaller, manageable pieces. This makes your code more organized, easier to read, and easier to maintain.
 
 Creating a function is done as follows:
 
@@ -28,7 +28,17 @@ You have been calling functions without even knowing it! For example, the `print
     
 ## Function Parameters and Arguments
 
-Parameters are variables that are defined in the function signature. They allow you to pass data into the function when you call it. Arguments are the actual values that you pass to the function when you call it. For example:
+Parameters are variables that are defined in the function signature. They allow you to pass data into the function when you call it. Arguments are the actual values that you pass to the function when you call it. This is especially important because it allows you to create functions that use multiple inputs and return a customised ouput. This rapidly increases developer productivity. 
+
+Although functions may be confusing at first, my favorite way to relate them to real world concepts is through mathematics. Take the following equation:
+
+```
+f(x) = 2x + 3
+```
+
+In this equation, `x` is a parameter and `2x + 3` is an expression based on `x`. If you were asked, "what is f(5)", you would answer `13` because `2 * (5) + 3 = 13`. This is a type of function. This is just like the functions in computer programming languages!
+
+Take the following example:
 
 ```python
 def greet(name):  # name is a parameter
@@ -38,7 +48,9 @@ greet("Alice")  # "Alice" is an argument
 ```
 <codapi-snippet sandbox="python" init-delay="500" ></codapi-snippet>
 
-In this example, `name` is a parameter of the `greet()` function. When we call `greet("Alice")`, we are passing the argument `"Alice"` to the function. The function then prints "Hello, Alice!". Parameters are important because they allow you to create flexible functions that allow multiple types of data. You can also have multiple parameters in a function. For example:
+In this example, `name` is a parameter of the `greet()` function. When we call `greet("Alice")`, we are passing the argument `"Alice"` to the function. The function then prints "Hello, Alice!". Parameters are important because they allow you to create flexible functions that allow multiple types of data. 
+
+You can also have multiple parameters in a function. For example:
 
 ```python
 def add(a, b):  # a and b are parameters
@@ -65,7 +77,7 @@ In this example, the `add()` function returns the sum of `a` and `b`. When we ca
 
 ## Default Parameters
 
-Python also provides us with something called default paramters. Default parameters are parameters that have a default value. If you do not provide a value for the parameter when you call the function, the default value will be used. For example:
+Python also provides us with something called default parameters. Default parameters are parameters that have a default value. If you do not provide a value for the parameter when you call the function, the default value will be used. For example:
 
 ```python
 def greet(name="Guest"):  # name has a default value of "Guest"
@@ -87,6 +99,7 @@ def greet(greeting="Hello", name):  # This is incorrect
 ```
 
 ## Multiple Arguments
+
 There are two primary types of arguments in Python: positional arguments and keyword arguments.
 
 ### Variable Arguments

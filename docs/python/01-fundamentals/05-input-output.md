@@ -35,6 +35,8 @@ Python offers several ways to format output strings:
 
 #### 1. Using f-strings (Recommended for Python 3.6+)
 
+The word f-string is short for formatted string. Essentially, you can embed Python expressions (variables, etc) into a string usingf this method. They are defined using the `f` prefix. (example: `f"Hello {name}"`)
+
 ```python
 name = "Alice"
 age = 30
@@ -48,6 +50,8 @@ print(f"Pi rounded to 2 decimal places: {pi:.2f}")  # Output: 3.14
 </codapi-snippet>
 
 #### 2. Using `str.format()` method
+
+This is a different method, but f-strings are recommended.
 
 ```python
 name = "Bob"
