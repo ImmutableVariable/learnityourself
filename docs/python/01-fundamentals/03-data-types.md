@@ -5,6 +5,8 @@ sidebar_position: 3
 
 Every value in Python has a data type. Data types determine what operations can be performed on the data and how the data is stored in memory. Python includes several built-in data types to handle different kinds of information. You can also perform operations on these. A operation is just a manipulation of the data (for example, addition, subtraction, etc.).
 
+**Note: In this lesson you may see the syntax `f"{variable_name}"` which is a string formatting technique. You can come back to this later if you do not understand it. See [here](./05-input-output.md) for in depth explaination of them!**
+
 ## Numeric Types
 
 Python has three numeric types: integers, floating-point numbers, and complex numbers.
@@ -27,7 +29,7 @@ large_number = 10000000
 try:
     result = 5 / 2  # The result is a float. `/` represents the divison operator 5 divided by 2 is 2.5, a non-integer value (not a whole number)
 except TypeError as e:
-    print(f"Error: {e}")
+    print(f"Error: {e}") 
 ```
 
 ### Floating-Point Numbers (`float`)

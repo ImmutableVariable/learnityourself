@@ -158,6 +158,8 @@ print(global_var)  # This works
 <codapi-snippet sandbox="python" editor="basic" init-delay="500" >
 </codapi-snippet>
 
+**NOTE: YOU DO NOT NEED TO KNOW FUNCTIONS YET TO UNDERSTAND SCOPE** For more info, see [functions](../03-functions-modules/01-functions.md)
+
 ## Common Mistakes with Variables
 
 1. **Using a variable before assigning a value**:
