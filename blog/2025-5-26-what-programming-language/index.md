@@ -11,7 +11,7 @@ Choosing a language to start with is a difficult decision. With so many options 
 
 <!-- truncate -->
 
-## Why Learn a Programming?
+## Why Learn a Programming Language?
 
 Its important to address the question, "Why should I learn programming?" My answer is this:
 
